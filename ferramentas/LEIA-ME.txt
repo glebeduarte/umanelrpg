@@ -1,0 +1,8 @@
+Ferramentas planejadas (mesma lista do Conan, adaptada ao Um Anel):
+  rolador.html                 dado do Destino + dados de Sucesso, Favorecido/Desfavorecido, Miserável
+  registro-de-jornada.html     Journey log: papéis, eventos, fadiga
+  montador-de-encontros.html   adversários por Nível de Atributo, cartas com arte de assets/cartas/
+  criador-de-heroi.html        culturas, vocações, atributos, perícias favoritas
+  tabelas.html                 tabelas de referência (eventos de jornada, complicações, tesouro)
+  forja-de-historias.html      gerador de ganchos
+Cada ferramenta é um HTML único, sem build, usando assets/base.css.

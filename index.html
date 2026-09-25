@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sombras de Eriador · O Um Anel 2ª edição em Português</title>
+<meta name="description" content="Aventuras, heróis, lugares e ferramentas para jogar O Um Anel 2ª edição em português. Material de fã para Mestres e jogadores.">
+<link rel="stylesheet" href="assets/base.css">
+</head>
+<body>
+<div class="pergaminho com-vinhas">
+
+<!-- ═══════════ TOPO ═══════════ -->
+<header class="gtopo" id="gtopo">
+  <div class="g-in">
+    <a href="index.html" class="g-logo">
+      <span>Sombras de Eriador</span>
+    </a>
+    <button class="g-tog" aria-label="Menu" onclick="document.getElementById('gtopo').classList.toggle('aberto')">&#9776;</button>
+    <nav class="g-menu">
+      <a href="#aventuras">Aventuras</a>
+      <a href="regras.html">Regras</a>
+      <a href="#herois-sec">Heróis</a>
+      <a href="#lugares-sec">Lugares</a>
+      <a href="#ferramentas-sec">Ferramentas</a>
+    </nav>
+  </div>
+</header>
+
+<div class="banda escura"></div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <!-- Trocar por assets/cover-hero.webp (prompt em PROMPTS.md) -->
+  <div class="hero-bg" style="background-image:url('assets/cover-hero.webp'), linear-gradient(135deg,#2e3744 0%,#16171b 60%,#5b5c33 140%);"></div>
+  <div class="hero-in">
+    <div class="kick">O Um Anel 2ª edição · Aventuras na Terceira Era</div>
+    <h1>Sombras<em>de Eriador</em></h1>
+    <p class="lede">Aventuras prontas, heróis pré-gerados, lugares detalhados e ferramentas de mesa para jogar O Um Anel em português. Reúna a Companhia, aceite o chamado, e siga pela Estrada Leste.</p>
+    <div class="conta">
+      <div><b>0</b><span>Aventuras</span></div>
+      <div><b>0</b><span>Heróis</span></div>
+      <div><b>d12</b><span>Dado do Destino</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="banda com-emblema"></div>
+
+<main>
+
+<!-- ═══════════ MANIFESTO ═══════════ -->
+<section class="faixa">
+  <div style="max-width:var(--measure-body);">
+    <p class="capitular" style="font-size:var(--size-body-lg); margin:0 0 var(--sp-3);">Você leu O Hobbit e O Senhor dos Anéis. Conhece a Estrada que segue sempre em frente, o Pônei Saltitante em Bri, as ruínas de Arnor sob a névoa. Agora é a sua vez de sentar à mesa e contar a sua parte da história.</p>
+    <p style="margin:0 0 var(--sp-3);">Este site reúne o que você precisa para jogar O Um Anel 2ª edição em português: aventuras completas, fichas de heróis prontos, uma referência rápida das regras e ferramentas para o Mestre. Cada aventura tem uma página de convite (sem spoilers, para mandar ao grupo) e o texto completo (só para o Mestre).</p>
+    <p class="nota" style="margin:0;">Projeto fan-made, sem fins comerciais. O Um Anel™ e The One Ring™ são marcas de Sophisticated Games e Free League Publishing. Terra-média e obras de J.R.R. Tolkien são de Middle-earth Enterprises.</p>
+  </div>
+</section>
+
+<!-- ═══════════ AVENTURAS ═══════════ -->
+<section class="faixa" id="aventuras">
+  <div class="cab">
+    <div><span class="eyebrow">Estante</span><h2>Aventuras</h2></div>
+    <span class="l"></span>
+  </div>
+  <p class="sub">Cada aventura vem com um convite sem spoilers para enviar ao grupo e o texto completo para o Mestre. Escolha uma, reúna a Companhia, e deixe o dado do Destino decidir o resto.</p>
+
+  <div class="estante">
+    <!-- MODELO DE CARD · duplicar por aventura -->
+    <a href="convite/_modelo.html" class="card">
+      <div class="card-art" style="background-image:url('assets/cover-modelo.webp'), linear-gradient(160deg,#6e5c4d,#cfafa0);"></div>
+      <div class="card-body">
+        <div class="selo">Starter Set · Aventura 1</div>
+        <h3>Título da Aventura</h3>
+        <p>Duas ou três frases de gancho, sem spoilers. Onde, quem, e por que a Companhia sai de casa.</p>
+        <div class="fatos">
+          <span>Bri</span>
+          <span>1 sessão</span>
+          <span>4 heróis</span>
+          <span>Introdutória</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════ REGRAS (TEASER) ═══════════ -->
+<div class="banda"></div>
+<section class="faixa" id="regras-sec">
+  <div class="destaque">
+    <div class="art" style="background:linear-gradient(135deg,#5b5c33,#16171b);"></div>
+    <div class="texto">
+      <div class="selo">Referência rápida</div>
+      <h3>Regras de O Um Anel</h3>
+      <p>O essencial para sentar à mesa sem ter lido o livro inteiro: o dado do Destino, dados de Sucesso, Esperança e Sombra, Jornadas, Conselhos e Combate.</p>
+      <a href="regras.html" class="btn btn-primary btn-cta">Abrir as regras</a>
+    </div>
+    <div class="painel">
+      <div class="rot">O essencial</div>
+      <div class="etapa"><b>1</b><span>Testes e o dado do Destino</span></div>
+      <div class="etapa"><b>2</b><span>Esperança e Sombra</span></div>
+      <div class="etapa"><b>3</b><span>Jornadas</span></div>
+      <div class="etapa"><b>4</b><span>Conselhos</span></div>
+      <div class="etapa"><b>5</b><span>Combate</span></div>
+      <div class="etapa"><b>6</b><span>Fase da Companhia</span></div>
+    </div>
+  </div>
+</section>
+<div class="banda"></div>
+
+<!-- ═══════════ HERÓIS ═══════════ -->
+<section class="faixa" id="herois-sec">
+  <div class="cab">
+    <div><span class="eyebrow">Elenco</span><h2>Heróis</h2></div>
+    <span class="l"></span>
+  </div>
+  <p class="sub">Companhias prontas para jogar. Cada aventura indica qual Companhia usar, ou você cria a sua seguindo o livro básico.</p>
+  <div class="estante">
+    <a href="herois/_modelo.html" class="card">
+      <div class="card-art" style="background-image:url('assets/grupo-modelo.webp'), linear-gradient(160deg,#2e3744,#16171b);"></div>
+      <div class="card-body">
+        <div class="selo">Companhia do Starter Set</div>
+        <h3>Nome da Companhia</h3>
+        <p>Quem são, de onde vêm e o que os uniu na estrada.</p>
+        <div class="fatos"><span>4 heróis</span><span>Eriador</span></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════ LUGARES ═══════════ -->
+<section class="faixa" id="lugares-sec">
+  <div class="cab">
+    <div><span class="eyebrow">Atlas de Eriador</span><h2>Lugares</h2></div>
+    <span class="l"></span>
+  </div>
+  <p class="sub">Os cenários das aventuras. Cada lugar com história, quem manda, o que se compra, o que se teme, mapas e ganchos para o Mestre.</p>
+  <div class="estante">
+    <a href="lugares/_modelo.html" class="card">
+      <div class="card-art" style="background-image:url('assets/map-modelo.webp'), linear-gradient(160deg,#936e5f,#d8c9b6);"></div>
+      <div class="card-body">
+        <div class="selo">Terra de Bri</div>
+        <h3>Bri</h3>
+        <p>A vila na encruzilhada, onde a Estrada Leste cruza a Estrada Verde. Hobbits e Homens sob o mesmo teto, e forasteiros demais no Pônei Saltitante.</p>
+        <div class="fatos"><span>Eriador</span><span>1 mapa</span></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════ FERRAMENTAS ═══════════ -->
+<div class="banda"></div>
+<section class="faixa" id="ferramentas-sec">
+  <div class="cab">
+    <div><span class="eyebrow">Mesa do Mestre</span><h2>Ferramentas</h2></div>
+    <span class="l"></span>
+  </div>
+  <p class="sub">Utilitários para a sessão: rolador com dado do Destino, registro de Jornada, montador de encontros e tabelas.</p>
+  <div class="estante">
+    <a href="ferramentas/rolador.html" class="card">
+      <div class="card-art" style="background:linear-gradient(160deg,#16171b,#2e3744);"></div>
+      <div class="card-body">
+        <div class="selo">Em breve</div>
+        <h3>Rolador de Dados</h3>
+        <p>Dado do Destino com runa de Gandalf e Olho de Sauron, dados de Sucesso com tengwar, Favorecido e Desfavorecido, estado Miserável.</p>
+        <div class="fatos"><span>d12 + Nd6</span></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer class="rodape">
+  <div class="r-in">
+    <div><h4>Sombras de Eriador</h4><p>Material de fã para O Um Anel 2ª edição, em português. Aventuras, heróis, lugares e ferramentas para o Mestre.</p></div>
+    <div><h4>Navegação</h4><a href="#aventuras">Aventuras</a><a href="regras.html">Regras</a><a href="#herois-sec">Heróis</a><a href="#lugares-sec">Lugares</a><a href="design-system.html">Design System</a></div>
+    <div><h4>Repositório</h4><a href="https://github.com/glebeduarte/sombras-de-eriador">GitHub</a></div>
+    <div class="legal">Projeto fan-made, sem fins comerciais. O Um Anel™ e The One Ring™ são marcas de Sophisticated Games e Free League Publishing. A Terra-média e obras de J.R.R. Tolkien são de Middle-earth Enterprises. Fonte Aniron © Pete Klassen, 2004, uso privado, distribuída com o arquivo original completo.</div>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

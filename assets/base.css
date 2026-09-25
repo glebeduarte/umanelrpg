@@ -1,0 +1,647 @@
+/* ================================================================
+   SOMBRAS DE ERIADOR — base.css
+   Design System: O Um Anel 2ª edição (Free League)
+   Tokens extraídos programaticamente do Core Rules PDF (248 p.),
+   da ficha custom (Jes Gordon) e do Starter Set.
+   Nenhuma cor, fonte ou medida inventada. Ver DESIGN.md.
+   ================================================================ */
+
+/* ---- Fontes ----
+   Livro:  Aniron (títulos uncial) · ITC New Baskerville (corpo) ·
+           Baskerville Old Face (subtítulos versalete) ·
+           Niveau Grotesk (mecânica, tabelas, blocos de adversário) ·
+           Kalam (anotações manuscritas)
+   Web:    Aniron self-hosted (licença: uso privado, sem modificação)
+           Libre Baskerville = New Baskerville / Old Face
+           Jost = Niveau Grotesk
+           Kalam = Kalam (a própria, no Google Fonts)              */
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Kalam:wght@300;400&display=swap");
+
+@font-face{
+  font-family:"Aniron";
+  src:url("../fonts/aniron/anirm___.ttf") format("truetype");
+  font-weight:400; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:"Aniron";
+  src:url("../fonts/aniron/anirb___.ttf") format("truetype");
+  font-weight:700; font-style:normal; font-display:swap;
+}
+
+/* ================================================================
+   TOKENS
+   ================================================================ */
+:root{
+  /* Fontes */
+  --font-display:"Aniron","Libre Baskerville",Georgia,serif;
+  --font-body:"Libre Baskerville",Georgia,"Times New Roman",serif;
+  --font-mech:"Jost","Helvetica Neue",Arial,sans-serif;
+  --font-hand:"Kalam","Segoe Print",cursive;
+
+  /* Tamanhos (livro: corpo 9,5pt em página 217mm; escalado para tela) */
+  --size-display:clamp(40px,6.5vw,80px);
+  --size-chapter:clamp(28px,3.6vw,44px);
+  --size-h2:34px;
+  --size-h3:24px;
+  --size-h4:15px;
+  --size-body:17px;
+  --size-body-sm:15px;
+  --size-body-lg:19px;
+  --size-mech:15px;
+  --size-mech-sm:13px;
+  --size-caption:11.5px;
+
+  /* Alturas de linha */
+  --lh-display:1.0;
+  --lh-heading:1.08;
+  --lh-body:1.55;
+  --lh-mech:1.4;
+
+  /* Espaçamento de letras */
+  --ls-display:0.01em;
+  --ls-heading:0.02em;
+  --ls-smallcaps:0.16em;   /* subtítulos versalete do livro */
+  --ls-label:0.12em;
+
+  /* Pesos */
+  --fw-display:400;        /* Aniron regular é o peso dos títulos do livro */
+  --fw-display-bold:700;   /* Aniron Bold: logo e capítulos */
+  --fw-body:400;
+  --fw-bold:700;
+  --fw-mech:500;
+  --fw-mech-bold:600;
+
+  /* ---- Paleta (amostrada das páginas a 150 dpi) ---- */
+  /* Pergaminho: a página do livro */
+  --parchment-100:#fefcee;   /* fundo da página */
+  --parchment-200:#faf6e6;   /* painel de bloco de adversário */
+  --parchment-300:#f4efdc;   /* zebra clara de tabela */
+  --parchment-400:#e8e4d0;   /* zebra escura de tabela */
+  --parchment-500:#d8c9b6;   /* sépia clara das ilustrações */
+
+  /* Umbra: a tinta dos títulos e das vinhas */
+  --umber-900:#2a2119;
+  --umber-700:#5c4c38;       /* títulos uncial e versaletes */
+  --umber-500:#847464;       /* vinha ornamental das margens */
+  --umber-300:#aba294;
+
+  /* Sépia: tons das ilustrações a lápis */
+  --sepia-800:#6e5c4d;
+  --sepia-600:#936e5f;
+  --sepia-300:#cfafa0;
+
+  /* Vermelho: a única cor do livro */
+  --red-700:#933937;
+  --red-600:#ac4438;         /* ornamentos, versaletes, citações, molduras */
+  --red-500:#bc2838;         /* vermelho da ficha de personagem */
+  --red-400:#d17068;
+
+  /* Noite: aberturas de capítulo e capas */
+  --night-900:#16171b;
+  --night-700:#2e3744;
+  --mist-400:#9ca0a4;
+  --mist-300:#a7b2c5;
+  --moss-600:#5b5c33;
+  --moss-400:#8f9369;
+
+  /* ---- Semânticas ---- */
+  --surface-page:var(--parchment-100);
+  --surface-card:var(--parchment-100);
+  --surface-panel:var(--parchment-200);
+  --surface-sunken:var(--parchment-400);
+  --surface-night:var(--night-900);
+  --surface-dusk:var(--night-700);
+
+  --text-body:#141210;       /* preto do livro, levemente aquecido para tela */
+  --text-muted:#5d564c;
+  --text-heading:var(--umber-700);
+  --text-accent:var(--red-600);
+  --text-on-dark:var(--parchment-100);
+  --text-on-dark-muted:var(--mist-300);
+  --text-link:var(--red-600);
+  --text-link-hover:var(--red-700);
+
+  --border-hairline:var(--umber-300);
+  --border-strong:var(--umber-700);
+  --border-ornament:var(--red-600);
+
+  /* Mecânicas do jogo */
+  --accent-hope:var(--moss-400);      /* Esperança */
+  --accent-shadow:var(--night-700);   /* Sombra */
+  --accent-eye:var(--red-600);        /* Olho de Sauron */
+  --accent-gandalf:var(--umber-500);  /* Runa de Gandalf */
+  --accent-valour:var(--red-500);     /* Valor */
+  --accent-wisdom:var(--moss-600);    /* Sabedoria */
+
+  --state-danger:var(--red-600);
+  --state-warning:var(--sepia-600);
+  --state-success:var(--moss-600);
+  --state-lore:var(--umber-500);
+
+  --table-stripe:var(--parchment-400);
+  --table-stripe-alt:var(--parchment-300);
+  --table-head:var(--umber-700);
+
+  /* Espaçamento */
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px;
+  --sp-5:24px; --sp-6:32px; --sp-7:48px; --sp-8:64px; --sp-9:96px;
+
+  /* Medidas (livro: coluna de 41 caracteres, mancha de 2 colunas) */
+  --page-max:1180px;
+  --measure-body:66ch;
+  --measure-narrow:44ch;
+  --column-gap:var(--sp-6);
+
+  /* Bordas */
+  --radius-none:0;
+  --radius-sm:2px;
+
+  /* Texturas e ornamentos */
+  --tex-parchment:url("texture-parchment.webp");
+  --orn-banda:url("ornamentos/orn-banda.svg");
+  --orn-emblema:url("ornamentos/orn-emblema.svg");
+  --orn-floreio-e:url("ornamentos/orn-floreio-e.svg");
+  --orn-floreio-d:url("ornamentos/orn-floreio-d.svg");
+  --orn-anel:url("ornamentos/orn-anel.svg");
+  --orn-vinha:url("ornamentos/orn-vinha.svg");
+  --orn-titulo-e:url("ornamentos/orn-titulo-e.svg");
+  --orn-titulo-d:url("ornamentos/orn-titulo-d.svg");
+  --orn-losango:url("ornamentos/orn-losango.svg");
+
+  /* Efeitos */
+  --shadow-soft:0 1px 2px rgba(42,33,25,.08), 0 6px 18px rgba(42,33,25,.10);
+  --shadow-lift:0 4px 10px rgba(42,33,25,.14), 0 18px 40px rgba(42,33,25,.16);
+  --shadow-night:0 0 60px rgba(0,0,0,.55);
+  --dur-fast:.15s; --dur-base:.25s;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+
+/* ================================================================
+   RESET E BASE
+   ================================================================ */
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--night-900);
+  color:var(--text-body);
+  font:var(--fw-body) var(--size-body)/var(--lh-body) var(--font-body);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  font-kerning:normal;
+}
+img{max-width:100%; display:block;}
+a{color:var(--text-link); text-decoration:underline; text-decoration-style:dotted; text-underline-offset:3px; text-decoration-thickness:1px; transition:color var(--dur-base) var(--ease);}
+a:hover{color:var(--text-link-hover);}
+p{margin:0 0 var(--sp-4);}
+strong,b{font-weight:var(--fw-bold); color:var(--umber-900);}
+em,i{font-style:italic;}
+hr{border:0; height:1px; background:var(--border-hairline); margin:var(--sp-6) 0;}
+::selection{background:var(--red-600); color:var(--parchment-100);}
+
+/* ---- Box central: o pergaminho ---- */
+.pergaminho{
+  max-width:1400px; margin:0 auto; min-height:100vh;
+  background-color:var(--surface-page);
+  background-image:var(--tex-parchment);
+  background-size:512px 512px;
+  box-shadow:var(--shadow-night);
+  position:relative;
+}
+/* Vinhas nas margens externas, como no livro */
+.pergaminho.com-vinhas::before,.pergaminho.com-vinhas::after{
+  content:""; position:absolute; top:0; bottom:0; width:26px;
+  background:var(--orn-vinha) repeat-y center top; opacity:.7; pointer-events:none;
+}
+.pergaminho.com-vinhas::before{left:6px;}
+.pergaminho.com-vinhas::after{right:6px; transform:scaleX(-1);}
+@media(max-width:900px){.pergaminho.com-vinhas::before,.pergaminho.com-vinhas::after{display:none;}}
+
+/* ================================================================
+   TIPOGRAFIA
+   ================================================================ */
+h1,h2,h3,.uncial{
+  font-family:var(--font-display);
+  font-weight:var(--fw-display);
+  letter-spacing:var(--ls-heading);
+  line-height:var(--lh-heading);
+  color:var(--text-heading);
+  margin:0;
+  /* Aniron: maiúsculas têm 150% das minúsculas. Títulos do livro usam
+     Caixa Alta e Baixa, nunca CAIXA ALTA integral. */
+  text-transform:none;
+}
+h1{font-size:var(--size-chapter);}
+h2{font-size:var(--size-h2);}
+h3{font-size:var(--size-h3);}
+h4,.versalete{
+  font:var(--fw-bold) var(--size-h4)/1.3 var(--font-body);
+  letter-spacing:var(--ls-smallcaps); text-transform:uppercase;
+  color:var(--text-heading); margin:var(--sp-5) 0 var(--sp-2);
+}
+h4.vermelho,.versalete.vermelho{color:var(--text-accent);}
+.eyebrow,.rotulo{
+  font:var(--fw-mech-bold) var(--size-caption)/1 var(--font-mech);
+  letter-spacing:var(--ls-label); text-transform:uppercase;
+  color:var(--text-accent); display:block;
+}
+.mec{font-family:var(--font-mech); font-size:var(--size-mech); line-height:var(--lh-mech);}
+.manuscrito{font:300 1.05em/1.45 var(--font-hand); color:var(--umber-700);}
+.capitular::first-letter{
+  font:var(--fw-display-bold) 3.4em/0.8 var(--font-display);
+  color:var(--text-accent); float:left; margin:.12em .12em 0 0;
+}
+.citacao{
+  font:italic var(--fw-body) var(--size-body-sm)/1.5 var(--font-body);
+  color:var(--text-accent); margin:var(--sp-4) 0;
+}
+.citacao cite{display:block; font-style:normal; font-family:var(--font-mech); font-size:var(--size-caption); letter-spacing:var(--ls-label); text-transform:uppercase; color:var(--text-muted); margin-top:var(--sp-2);}
+.nota{color:var(--text-muted); font-size:var(--size-body-sm);}
+.dupla{columns:2; column-gap:var(--column-gap);}
+.dupla>*{break-inside:avoid;}
+@media(max-width:760px){.dupla{columns:1;}}
+
+/* ---- Cabeçalho de título com floreios (subtítulo em itálico) ---- */
+.titulo-livro{text-align:center; margin:0 auto var(--sp-6); max-width:var(--measure-body);}
+.titulo-livro .capitulo{font:var(--fw-mech-bold) var(--size-caption)/1 var(--font-mech); letter-spacing:.22em; text-transform:uppercase; color:var(--text-accent); margin-bottom:var(--sp-3); display:block;}
+.titulo-livro h1,.titulo-livro h2{color:var(--text-heading);}
+.titulo-livro .lema{
+  display:flex; align-items:center; justify-content:center; gap:var(--sp-3);
+  margin-top:var(--sp-3);
+  font:italic var(--fw-body) var(--size-body)/1.45 var(--font-body); color:var(--umber-700);
+}
+.titulo-livro .lema::before,.titulo-livro .lema::after{content:""; flex:0 0 56px; height:20px; background:var(--orn-floreio-e) no-repeat center/contain;}
+.titulo-livro .lema::after{background-image:var(--orn-floreio-d);}
+
+/* ================================================================
+   TOPO (navegação global)
+   ================================================================ */
+.gtopo{
+  position:sticky; top:0; z-index:50;
+  background:var(--surface-night);
+  border-bottom:1px solid rgba(254,252,238,.10);
+  color:var(--text-on-dark);
+}
+.gtopo .g-in{max-width:var(--page-max); margin:0 auto; padding:var(--sp-3) var(--sp-6); display:flex; align-items:center; gap:var(--sp-5);}
+.gtopo .g-logo{display:flex; align-items:center; gap:var(--sp-3); text-decoration:none; color:var(--text-on-dark);}
+.gtopo .g-logo img{height:34px; width:auto;}
+.gtopo .g-logo span{
+  font:var(--fw-display-bold) 22px/1 var(--font-display);
+  letter-spacing:var(--ls-display); color:var(--parchment-100);
+}
+.gtopo .g-logo:hover span{color:var(--red-400);}
+.gtopo .g-menu{display:flex; gap:var(--sp-5); flex-wrap:wrap; margin-left:auto;}
+.gtopo .g-menu a{
+  font:var(--fw-mech) var(--size-mech-sm)/1 var(--font-mech);
+  letter-spacing:var(--ls-label); text-transform:uppercase;
+  color:var(--mist-300); text-decoration:none; padding:var(--sp-2) 0;
+  border-bottom:1px solid transparent;
+}
+.gtopo .g-menu a:hover,.gtopo .g-menu a.on{color:var(--parchment-100); border-bottom-color:var(--red-600);}
+.gtopo .g-tog{display:none; margin-left:auto; background:none; border:0; cursor:pointer; padding:var(--sp-2); color:var(--parchment-100); font-size:26px; line-height:1;}
+@media(max-width:760px){
+  .gtopo .g-in{flex-wrap:wrap; padding:var(--sp-3) var(--sp-4);}
+  .gtopo .g-tog{display:block;}
+  .gtopo .g-menu{flex-basis:100%; flex-direction:column; gap:0; margin-left:0; max-height:0; overflow:hidden; transition:max-height var(--dur-base) var(--ease);}
+  .gtopo.aberto .g-menu{max-height:460px; padding-top:var(--sp-2);}
+  .gtopo .g-menu a{padding:var(--sp-3) var(--sp-1); border-top:1px solid rgba(255,255,255,.08); border-bottom:0;}
+}
+
+/* ================================================================
+   BANDA ORNAMENTAL (a faixa de nós vermelha do topo das páginas)
+   ================================================================ */
+.banda{
+  position:relative; height:22px; margin:0;
+  background:var(--orn-banda) repeat-x center/48px 22px;
+}
+.banda.com-emblema::after{
+  content:""; position:absolute; left:50%; top:50%; width:44px; height:44px;
+  transform:translate(-50%,-50%);
+  background:var(--surface-page) var(--orn-emblema) no-repeat center/36px 36px;
+  background-color:var(--parchment-100);
+  border-radius:50%;
+}
+.banda .capitulo{
+  position:absolute; left:var(--sp-6); top:50%; transform:translateY(-50%);
+  background:var(--surface-page); padding:0 var(--sp-3); height:22px; display:flex; align-items:center;
+  font:var(--fw-bold) var(--size-caption)/1 var(--font-body); letter-spacing:.2em; text-transform:uppercase; color:var(--text-accent);
+}
+.banda.escura{background-color:var(--surface-night);}
+.banda.escura .capitulo{background:var(--surface-night); color:var(--red-400);}
+.banda.escura.com-emblema::after{background-color:var(--night-900);}
+
+/* ================================================================
+   HERO (abertura de capítulo: arte escura, título uncial claro)
+   ================================================================ */
+.hero{position:relative; min-height:520px; display:flex; align-items:flex-end; overflow:hidden; background:var(--surface-night); color:var(--text-on-dark);}
+.hero-bg{position:absolute; inset:0; background-size:cover; background-position:center 30%; filter:saturate(.8);}
+.hero-bg::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(22,23,27,.05) 0%, rgba(22,23,27,.25) 40%, rgba(22,23,27,.82) 78%, rgba(22,23,27,.98) 100%);}
+.hero-in{position:relative; z-index:2; max-width:var(--page-max); width:100%; margin:0 auto; padding:var(--sp-9) var(--sp-6) var(--sp-7);}
+.hero .kick{font:var(--fw-mech) var(--size-mech-sm)/1 var(--font-mech); letter-spacing:.22em; text-transform:uppercase; color:var(--mist-300); margin-bottom:var(--sp-4);}
+.hero h1{font:var(--fw-display-bold) var(--size-display)/var(--lh-display) var(--font-display); letter-spacing:var(--ls-display); color:var(--parchment-100); text-shadow:0 2px 12px rgba(0,0,0,.7);}
+.hero h1 em{display:block; font-style:normal; font-weight:var(--fw-display); color:var(--mist-300);}
+.hero h1.com-floreios{display:flex; align-items:center; gap:var(--sp-4);}
+.hero h1.com-floreios::before,.hero h1.com-floreios::after{content:""; flex:0 0 64px; height:24px; background:var(--orn-floreio-e) no-repeat center/contain; filter:brightness(1.6);}
+.hero h1.com-floreios::after{background-image:var(--orn-floreio-d);}
+.hero .lede{font:italic var(--fw-body) var(--size-body-lg)/var(--lh-body) var(--font-body); color:rgba(254,252,238,.85); margin:var(--sp-4) 0 0; max-width:52ch;}
+.hero .conta{display:flex; gap:var(--sp-7); margin-top:var(--sp-6); padding-top:var(--sp-4); border-top:1px solid rgba(254,252,238,.18); flex-wrap:wrap;}
+.hero .conta span{font:var(--fw-mech) var(--size-caption)/1 var(--font-mech); letter-spacing:var(--ls-label); text-transform:uppercase; color:var(--mist-300);}
+.hero .conta b{display:block; font:var(--fw-display) var(--size-h2)/1 var(--font-display); color:var(--parchment-100); margin-bottom:var(--sp-1);}
+
+/* ================================================================
+   SEÇÕES
+   ================================================================ */
+.faixa{max-width:var(--page-max); margin:0 auto; padding:var(--sp-7) var(--sp-6);}
+@media(max-width:760px){.faixa{padding:var(--sp-6) var(--sp-4);}}
+
+/* ---- Cabeçalho de seção ---- */
+.cab{display:flex; align-items:flex-end; gap:var(--sp-4); margin-bottom:var(--sp-3);}
+.cab .eyebrow{margin-bottom:var(--sp-2);}
+.cab h2{margin:0;}
+.cab .l{flex:1; height:1px; background:var(--red-600); margin-bottom:10px; position:relative; opacity:.8;}
+.cab .l::after{content:""; position:absolute; right:0; top:-4px; width:9px; height:9px; background:var(--red-600); transform:rotate(45deg);}
+.sub{color:var(--text-muted); margin:0 0 var(--sp-6); max-width:var(--measure-body); font-size:var(--size-body-lg); font-style:italic;}
+
+/* ---- Separador ornamental ---- */
+.ornamento{display:flex; align-items:center; gap:var(--sp-4); margin:var(--sp-6) 0;}
+.ornamento .linha{flex:1; height:1px; background:var(--red-600); opacity:.6;}
+.ornamento .anel{width:44px; height:44px; background:var(--orn-emblema) no-repeat center/contain;}
+
+/* ================================================================
+   ESTANTE E CARDS
+   ================================================================ */
+.estante{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:var(--sp-5);}
+.card{
+  display:block; text-decoration:none; color:var(--text-body);
+  background:var(--surface-card);
+  border:1px solid var(--red-600);
+  outline:1px solid var(--red-600); outline-offset:3px;
+  box-shadow:var(--shadow-soft);
+  transition:transform var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease);
+  position:relative;
+}
+.card:hover{transform:translateY(-3px); box-shadow:var(--shadow-lift); color:var(--text-body);}
+.card .card-art{height:210px; background-size:cover; background-position:center; filter:saturate(.7) sepia(.15); border-bottom:1px solid var(--red-600);}
+.card .card-body{position:relative; padding:var(--sp-5);}
+.card .selo{font:var(--fw-mech-bold) var(--size-caption)/1 var(--font-mech); letter-spacing:var(--ls-label); text-transform:uppercase; color:var(--text-accent); margin-bottom:var(--sp-3);}
+.card h3{font-size:var(--size-h3); margin:0 0 var(--sp-2);}
+.card p{margin:0 0 var(--sp-3); font-size:var(--size-body-sm); color:var(--text-body); line-height:var(--lh-body);}
+.card .fatos{display:flex; flex-wrap:wrap; gap:var(--sp-2);}
+.card .fatos span{font:var(--fw-mech) var(--size-caption)/1 var(--font-mech); letter-spacing:.08em; text-transform:uppercase; color:var(--umber-700); border:1px solid var(--umber-300); padding:5px 8px;}
+.card.escuro{background:var(--surface-night); color:var(--text-on-dark); border-color:rgba(254,252,238,.25); outline-color:rgba(254,252,238,.12);}
+.card.escuro h3{color:var(--parchment-100);}
+.card.escuro p{color:var(--mist-300);}
+.card.escuro .fatos span{color:var(--mist-300); border-color:rgba(254,252,238,.25);}
+.card.escuro:hover{color:var(--text-on-dark);}
+
+/* ================================================================
+   DESTAQUE (bloco escuro com painel lateral)
+   ================================================================ */
+.destaque{position:relative; display:grid; grid-template-columns:1.4fr 1fr; background:var(--surface-night); color:var(--text-on-dark); overflow:hidden; border-top:3px solid var(--red-600); border-bottom:3px solid var(--red-600);}
+.destaque .art{position:absolute; inset:0; z-index:1; background-size:cover; background-position:center; opacity:.18; filter:saturate(.6);}
+.destaque .texto{position:relative; z-index:2; padding:var(--sp-7);}
+.destaque .selo{font:var(--fw-mech-bold) var(--size-caption)/1 var(--font-mech); letter-spacing:var(--ls-label); text-transform:uppercase; color:var(--red-400); margin-bottom:var(--sp-3);}
+.destaque h3{font-size:var(--size-h2); color:var(--parchment-100); margin:0 0 var(--sp-3);}
+.destaque p{margin:0 0 var(--sp-4); color:var(--mist-300); max-width:var(--measure-body);}
+.destaque .painel{position:relative; z-index:2; background:rgba(0,0,0,.35); border-left:1px solid rgba(254,252,238,.12); padding:var(--sp-6) var(--sp-6);}
+.destaque .rot{font:var(--fw-mech-bold) var(--size-caption)/1 var(--font-mech); letter-spacing:var(--ls-label); text-transform:uppercase; color:var(--mist-300); margin-bottom:var(--sp-4);}
+.destaque .etapa{display:flex; align-items:baseline; gap:var(--sp-3); padding:var(--sp-2) 0; border-top:1px solid rgba(254,252,238,.08);}
+.destaque .etapa:first-of-type{border-top:none;}
+.destaque .etapa b{font:var(--fw-display) var(--size-h4)/1 var(--font-display); color:var(--red-400); min-width:22px;}
+.destaque .etapa span{font:var(--fw-mech) var(--size-mech-sm)/1.3 var(--font-mech); letter-spacing:.06em; text-transform:uppercase; color:var(--parchment-100);}
+@media(max-width:820px){.destaque{grid-template-columns:1fr;}.destaque .painel{border-left:none; border-top:1px solid rgba(254,252,238,.12);}}
+
+/* ================================================================
+   BOTÕES
+   ================================================================ */
+.btn{
+  display:inline-flex; align-items:center; gap:var(--sp-2);
+  font:var(--fw-mech-bold) var(--size-mech-sm)/1 var(--font-mech);
+  letter-spacing:var(--ls-label); text-transform:uppercase; text-decoration:none;
+  padding:14px 22px; border:1px solid transparent; cursor:pointer;
+  transition:filter var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+}
+.btn:hover{filter:brightness(1.12);}
+.btn:active{transform:translateY(1px);}
+.btn-primary{background:var(--red-600); color:var(--parchment-100); border-color:var(--red-700);}
+.btn-primary:hover{color:var(--parchment-100);}
+.btn-secondary{background:var(--umber-700); color:var(--parchment-100); border-color:var(--umber-900);}
+.btn-secondary:hover{color:var(--parchment-100);}
+.btn-ghost{background:transparent; color:var(--red-600); border-color:var(--red-600);}
+.btn-ghost:hover{background:var(--red-600); color:var(--parchment-100);}
+.btn-claro{background:transparent; color:var(--parchment-100); border-color:rgba(254,252,238,.4);}
+.btn-claro:hover{background:var(--parchment-100); color:var(--night-900);}
+.btn-cta::after{content:"→"; margin-left:var(--sp-1); transition:transform var(--dur-fast) var(--ease);}
+.btn-cta:hover::after{transform:translateX(4px);}
+.btn-sm{padding:10px 14px; font-size:var(--size-caption);}
+
+/* ================================================================
+   INSETS (a citação de regra com fios verticais vermelhos do livro)
+   ================================================================ */
+.inset{
+  margin:var(--sp-4) 0; padding:var(--sp-2) var(--sp-4);
+  border-left:1px solid var(--red-600); border-right:1px solid var(--red-600);
+  font-size:var(--size-body-sm); color:var(--umber-900);
+}
+.inset p:last-child{margin:0;}
+
+/* ================================================================
+   CALLOUTS (caixas de apoio ao Mestre e ao jogador)
+   O livro só tem uma caixa: a moldura vermelha com o anel no topo.
+   Aqui ela ganha variantes semânticas pela cor do rótulo, mantendo
+   a moldura. Use com parcimônia.
+   ================================================================ */
+.callout{
+  margin:var(--sp-5) 0; padding:var(--sp-5) var(--sp-5) var(--sp-4);
+  position:relative; background:var(--surface-panel);
+  border:1px solid var(--red-600);
+  outline:1px solid var(--red-600); outline-offset:3px;
+}
+.callout::before{
+  content:""; position:absolute; left:50%; top:-12px; transform:translateX(-50%);
+  width:200px; height:24px; background:var(--surface-panel) var(--orn-anel) no-repeat center/contain;
+}
+.callout .callout-head{display:flex; align-items:baseline; gap:var(--sp-2); margin:var(--sp-2) 0 var(--sp-3);}
+.callout .callout-head .glyph{font-size:14px; line-height:1;}
+.callout .callout-head .label{font:var(--fw-mech-bold) var(--size-mech-sm)/1 var(--font-mech); letter-spacing:var(--ls-label); text-transform:uppercase;}
+.callout .callout-body{font:var(--fw-body) var(--size-mech)/var(--lh-mech) var(--font-mech); color:var(--text-body);}
+.callout .callout-body p:last-child{margin-bottom:0;}
+.callout-mestre .label,.callout-mestre .glyph{color:var(--red-600);}
+.callout-regra .label,.callout-regra .glyph{color:var(--umber-700);}
+.callout-drama .label,.callout-drama .glyph{color:var(--sepia-600);}
+.callout-perigo .label,.callout-perigo .glyph{color:var(--red-700);}
+.callout-perigo{border-color:var(--red-700); outline-color:var(--red-700);}
+.callout-revelacao .label,.callout-revelacao .glyph{color:var(--night-700);}
+.callout-revelacao{border-color:var(--night-700); outline-color:var(--night-700);}
+.callout-sombra{background:var(--surface-dusk); color:var(--parchment-100); border-color:var(--mist-400); outline-color:var(--mist-400);}
+.callout-sombra::before{display:none;}
+.callout-sombra{border-top:3px solid var(--mist-400);}
+.callout-sombra .label,.callout-sombra .glyph{color:var(--mist-300);}
+.callout-sombra .callout-body{color:var(--parchment-100);}
+
+/* ================================================================
+   NARRATIVA (texto para ler em voz alta: itálico vermelho, capitular)
+   ================================================================ */
+.narrativa{margin:var(--sp-5) 0; padding:var(--sp-4) var(--sp-5); border-top:1px solid var(--red-600); border-bottom:1px solid var(--red-600); position:relative;}
+.narrativa .rot{font:var(--fw-mech-bold) var(--size-caption)/1 var(--font-mech); letter-spacing:var(--ls-label); text-transform:uppercase; color:var(--umber-500); margin-bottom:var(--sp-3);}
+.narrativa .corpo{font:italic var(--fw-body) var(--size-body)/1.62 var(--font-body); color:var(--red-600); max-width:var(--measure-body);}
+.narrativa .corpo::first-letter{font:var(--fw-display-bold) 3.2em/0.8 var(--font-display); font-style:normal; color:var(--red-600); float:left; margin:.1em .12em 0 0;}
+
+/* ================================================================
+   RULE BOX (bloco escuro para resumo de regras)
+   ================================================================ */
+.rule-box{background:var(--surface-night); color:var(--parchment-100); padding:var(--sp-5); margin:var(--sp-5) 0; border-top:3px solid var(--red-600);}
+.rule-box.dusk{background:var(--surface-dusk);}
+.rule-box h3{margin:0 0 var(--sp-3); font-size:var(--size-h4); font-family:var(--font-display); color:var(--parchment-100); border-bottom:1px solid rgba(254,252,238,.25); padding-bottom:var(--sp-2);}
+.rule-box p,.rule-box li{font:var(--fw-body) var(--size-mech)/var(--lh-body) var(--font-mech); color:var(--parchment-100);}
+.rule-box strong{color:var(--red-400);}
+
+/* ================================================================
+   TABELAS (cabeçalho versalete em grotesca, zebra sem bordas)
+   ================================================================ */
+table{width:100%; border-collapse:collapse; font:var(--fw-body) var(--size-mech)/var(--lh-mech) var(--font-mech); color:var(--text-body); margin:0 0 var(--sp-5);}
+caption,.tabela-titulo{
+  caption-side:top; text-align:left;
+  font:var(--fw-mech-bold) var(--size-mech-sm)/1 var(--font-mech); letter-spacing:var(--ls-label); text-transform:uppercase;
+  color:var(--text-accent); padding:0 0 var(--sp-2); border-bottom:1px solid var(--red-600); margin-bottom:var(--sp-1);
+}
+thead th{
+  font:var(--fw-mech-bold) var(--size-caption)/1.2 var(--font-mech); letter-spacing:var(--ls-label); text-transform:uppercase;
+  color:var(--table-head); text-align:left; padding:var(--sp-2) var(--sp-3); border-bottom:1px solid var(--umber-300);
+}
+tbody td{padding:7px var(--sp-3); vertical-align:top;}
+tbody tr:nth-child(odd) td{background:var(--table-stripe);}
+tbody tr:nth-child(even) td{background:var(--table-stripe-alt);}
+td.n,th.n{text-align:center; width:2.6em; font-weight:var(--fw-mech-bold);}
+table.compacta td{padding:4px var(--sp-2); font-size:var(--size-mech-sm);}
+table.rolagem tbody td:first-child{font-weight:var(--fw-mech-bold); color:var(--text-accent); text-align:center; width:3em;}
+
+/* ================================================================
+   TAGS
+   ================================================================ */
+.tag{display:inline-block; font:var(--fw-mech-bold) var(--size-caption)/1 var(--font-mech); letter-spacing:.08em; text-transform:uppercase; padding:5px 9px; margin:0 4px 4px 0;}
+.tag-red{background:var(--red-600); color:var(--parchment-100);}
+.tag-umber{background:var(--umber-700); color:var(--parchment-100);}
+.tag-night{background:var(--night-700); color:var(--parchment-100);}
+.tag-outline{background:transparent; color:var(--umber-900); border:1px solid var(--umber-500);}
+.tag-hope{background:var(--accent-hope); color:var(--parchment-100);}
+.tag-shadow{background:var(--accent-shadow); color:var(--parchment-100);}
+
+/* ================================================================
+   LOSANGO (o campo de valor da ficha e do bloco de adversário)
+   ================================================================ */
+.losango{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:56px; height:56px; background:var(--orn-losango) no-repeat center/contain;
+  font:var(--fw-mech-bold) 20px/1 var(--font-mech); color:var(--red-600);
+}
+.losango.grande{width:76px; height:76px; font-size:26px;}
+.losango.pequeno{width:40px; height:40px; font-size:14px;}
+.losango.umber{filter:hue-rotate(0) saturate(0) brightness(.55);}
+.atributo{display:inline-flex; flex-direction:column; align-items:center; gap:var(--sp-1); text-align:center;}
+.atributo .rot{font:var(--fw-mech-bold) var(--size-caption)/1 var(--font-mech); letter-spacing:var(--ls-label); text-transform:uppercase; color:var(--red-600);}
+.atributo .sub{font:italic var(--fw-body) var(--size-caption)/1 var(--font-body); color:var(--text-muted); margin:0;}
+
+/* ================================================================
+   ADVERSÁRIO (bloco de estatísticas do capítulo 8)
+   ================================================================ */
+.adversario{margin:var(--sp-5) 0; break-inside:avoid;}
+.adversario .nome{font:italic var(--fw-bold) var(--size-h3)/1.15 var(--font-body); color:var(--red-600); margin:0 0 var(--sp-2);}
+.adversario .descricao{font:var(--fw-body) var(--size-mech)/var(--lh-mech) var(--font-mech); color:var(--text-body); margin:0 0 var(--sp-3);}
+.adversario .bloco{background:var(--surface-panel); padding:var(--sp-4) var(--sp-4) var(--sp-3); border-bottom:1px solid var(--red-600);}
+.adversario .bloco-head{display:flex; justify-content:space-between; align-items:flex-start; gap:var(--sp-4); margin-bottom:var(--sp-3);}
+.adversario .bloco-head .titulo{font:var(--fw-mech-bold) var(--size-mech-sm)/1.2 var(--font-mech); letter-spacing:var(--ls-label); text-transform:uppercase; color:var(--umber-900);}
+.adversario .bloco-head .tracos{font:var(--fw-body) var(--size-mech-sm)/1.3 var(--font-mech); color:var(--text-body);}
+.adversario .nivel{display:flex; flex-direction:column; align-items:center; gap:2px;}
+.adversario .nivel .rot{font:var(--fw-mech-bold) var(--size-caption)/1 var(--font-mech); letter-spacing:var(--ls-label); text-transform:uppercase; color:var(--red-600);}
+.adversario .stats{display:flex; gap:var(--sp-3); flex-wrap:wrap; justify-content:space-between; margin:var(--sp-3) 0;}
+.adversario .stats .atributo .losango{width:48px; height:48px; font-size:17px;}
+.adversario .linha{font:var(--fw-body) var(--size-mech-sm)/1.45 var(--font-mech); padding:var(--sp-2) 0; border-top:1px solid var(--umber-300);}
+.adversario .linha .rot{font-weight:var(--fw-mech-bold); letter-spacing:var(--ls-label); text-transform:uppercase; color:var(--red-600); font-size:var(--size-caption); margin-right:4px;}
+.adversario .linha em{font-style:italic;}
+
+/* ================================================================
+   FICHA DE HERÓI (vocabulário da ficha custom: títulos vermelhos
+   com volutas, campos em losango, caixinhas de perícia)
+   ================================================================ */
+.ficha{background:var(--surface-card); border:1px solid var(--red-600); outline:1px solid var(--red-600); outline-offset:3px; padding:var(--sp-5); margin:var(--sp-6) 0;}
+.ficha-sec{display:flex; align-items:center; gap:var(--sp-2); margin:var(--sp-4) 0 var(--sp-3);}
+.ficha-sec::before,.ficha-sec::after{content:""; flex:0 0 40px; height:16px; background:var(--orn-titulo-e) no-repeat center/contain;}
+.ficha-sec::after{background-image:var(--orn-titulo-d);}
+.ficha-sec h3,.ficha-sec span{font:var(--fw-display-bold) 20px/1 var(--font-display); color:var(--red-500); margin:0; white-space:nowrap;}
+.ficha-sec.cheia::before,.ficha-sec.cheia::after{flex:1; background-repeat:no-repeat; background-position:right center;}
+.ficha-sec.cheia::after{background-position:left center;}
+.ficha .campo{display:grid; grid-template-columns:110px 1fr; gap:var(--sp-2); align-items:baseline; padding:3px 0; border-bottom:1px solid var(--umber-300);}
+.ficha .campo b{font:var(--fw-bold) var(--size-mech-sm)/1.2 var(--font-body); color:var(--umber-900);}
+.ficha .campo span{font:var(--fw-body) var(--size-mech)/1.2 var(--font-mech);}
+.ficha .campo .manuscrito{font-size:1.05em;}
+.ficha .grade-atributos{display:grid; grid-template-columns:repeat(3,1fr); gap:var(--sp-4); text-align:center;}
+.ficha .grade-atributos .atributo{width:100%;}
+.ficha .grade-atributos .tn{font:var(--fw-bold) var(--size-mech-sm)/1.2 var(--font-body); color:var(--umber-900);}
+.ficha .grade-atributos .tn small{display:block; font:italic var(--fw-body) var(--size-caption)/1.2 var(--font-body); color:var(--text-muted);}
+.pericia{display:flex; align-items:center; justify-content:space-between; gap:var(--sp-2); padding:3px 0; border-bottom:1px solid var(--parchment-400); font:var(--fw-bold) var(--size-mech-sm)/1 var(--font-body); color:var(--umber-900);}
+.pericia .fav{width:10px; height:10px; border:1px solid var(--red-500); display:inline-block; margin-right:6px; vertical-align:-1px;}
+.pericia .fav.on{background:var(--red-500);}
+.pericia .pontos{display:inline-flex; gap:3px;}
+.pericia .pontos i{width:11px; height:11px; border:1px solid var(--red-500); display:inline-block;}
+.pericia .pontos i.on{background:var(--red-500);}
+.ficha .lista-pericias{display:grid; grid-template-columns:repeat(3,1fr); gap:0 var(--sp-5);}
+.ficha .recursos{display:flex; gap:var(--sp-5); flex-wrap:wrap; justify-content:space-around;}
+.ficha .recurso{display:flex; flex-direction:column; align-items:center; gap:var(--sp-1);}
+.ficha .recurso .circulo{width:44px; height:44px; border:2px solid var(--umber-900); border-radius:50%; display:flex; align-items:center; justify-content:center; font:var(--fw-mech-bold) 16px/1 var(--font-mech);}
+.ficha .recurso .quadro{width:40px; height:40px; border:1.5px solid var(--umber-900); display:flex; align-items:center; justify-content:center; font:var(--fw-mech-bold) 16px/1 var(--font-mech);}
+.ficha .recurso .rot{font:var(--fw-bold) var(--size-caption)/1.2 var(--font-body); color:var(--umber-900);}
+.ficha .recurso .rot.max{color:var(--red-500);}
+@media(max-width:760px){.ficha .grade-atributos,.ficha .lista-pericias{grid-template-columns:1fr;}}
+
+/* ================================================================
+   RETRATO E MOLDURA DE IMAGEM
+   ================================================================ */
+.retrato{border:1px solid var(--red-600); outline:1px solid var(--red-600); outline-offset:3px; background:var(--parchment-200); overflow:hidden;}
+.retrato img{width:100%; height:100%; object-fit:cover; filter:sepia(.25) saturate(.8) contrast(1.02);}
+.retrato.circular{border-radius:50%; aspect-ratio:1;}
+.retrato.circular img{border-radius:50%;}
+.figura{margin:var(--sp-5) 0;}
+.figura figcaption{font:italic var(--fw-body) var(--size-caption)/1.4 var(--font-body); color:var(--text-muted); margin-top:var(--sp-2); text-align:center;}
+.esboco img{filter:sepia(.5) saturate(.55) contrast(1.05); mix-blend-mode:multiply;}
+
+/* ================================================================
+   DADOS DO UM ANEL (Feat die + Success dice)
+   ================================================================ */
+.dado{display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; font:var(--fw-mech-bold) 15px/1 var(--font-mech); border:1.5px solid var(--umber-900); background:var(--parchment-100); color:var(--umber-900); margin:2px;}
+.dado.feat{border-radius:50%; border-width:2px; width:44px; height:44px;}
+.dado.feat.gandalf{color:var(--accent-gandalf); font-family:var(--font-display); font-size:20px;}
+.dado.feat.olho{background:var(--red-600); color:var(--parchment-100); border-color:var(--red-700);}
+.dado.sucesso.seis{background:var(--umber-700); color:var(--parchment-100); border-color:var(--umber-900);}
+.dado.sucesso.miseravel{color:var(--umber-300); border-style:dashed;}
+.dado.tengwar::after{content:"6"; font-family:var(--font-display);}
+.dado.tengwar{font-size:0;}
+.dado.tengwar::after{font-size:18px;}
+
+/* ================================================================
+   RODAPÉ
+   ================================================================ */
+.rodape{background:var(--surface-night); color:var(--mist-300); border-top:3px solid var(--red-600);}
+.rodape .r-in{max-width:var(--page-max); margin:0 auto; padding:var(--sp-7) var(--sp-6); display:grid; grid-template-columns:2fr 1fr 1fr; gap:var(--sp-6);}
+.rodape h4{color:var(--parchment-100); margin:0 0 var(--sp-3); font-family:var(--font-display); font-weight:var(--fw-display); letter-spacing:var(--ls-heading); text-transform:none; font-size:18px;}
+.rodape a{color:var(--mist-300); text-decoration:none; display:block; padding:3px 0; font:var(--fw-mech) var(--size-mech-sm)/1.4 var(--font-mech); letter-spacing:.04em;}
+.rodape a:hover{color:var(--parchment-100);}
+.rodape p{font-size:var(--size-body-sm); color:var(--mist-400); max-width:var(--measure-narrow);}
+.rodape .legal{grid-column:1/-1; border-top:1px solid rgba(254,252,238,.12); padding-top:var(--sp-4); font:var(--fw-body) var(--size-caption)/1.5 var(--font-mech); color:var(--mist-400);}
+@media(max-width:820px){.rodape .r-in{grid-template-columns:1fr;}}
+
+/* ================================================================
+   UTILITÁRIOS
+   ================================================================ */
+.centro{text-align:center;}
+.mt0{margin-top:0}.mb0{margin-bottom:0}
+.mt-5{margin-top:var(--sp-5)}.mb-5{margin-bottom:var(--sp-5)}
+.grid-2{display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-5);}
+.grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:var(--sp-5);}
+@media(max-width:820px){.grid-2,.grid-3{grid-template-columns:1fr;}}
+.visualmente-oculto{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0);}
+@media print{
+  body{background:#fff;}
+  .pergaminho{box-shadow:none; background-image:none;}
+  .gtopo,.rodape,.btn{display:none !important;}
+}

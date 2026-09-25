@@ -1,0 +1,10 @@
+{
+  "name": "sombras-de-eriador",
+  "version": "0.1.0",
+  "description": "Aventuras, heróis, lugares e ferramentas para O Um Anel 2ª edição em português. Site estático, sem build.",
+  "repository": { "type": "git", "url": "git+https://github.com/glebeduarte/sombras-de-eriador.git" },
+  "scripts": { "dev": "npx serve ." },
+  "author": "Glebe Duarte",
+  "license": "CC-BY-NC-4.0",
+  "private": true
+}

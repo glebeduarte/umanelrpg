@@ -1,0 +1,8 @@
+Arte das cartas de adversário (Montador de Encontros, futuro).
+
+Nomeie cada arquivo com o id do adversário, em .webp:
+  saqueador-sulista.webp, orc-goblin.webp, troll-da-colina.webp ...
+
+Proporção sugerida: 4:3 ou quadrada, recorte pelo centro.
+Se o arquivo não existir, a carta cai no painel creme (parchment-200) sem quebrar.
+Prompt de imagem: ver PROMPTS.md, tipo "enemy-".

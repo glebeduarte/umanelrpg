@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design System · Sombras de Eriador</title>
+<meta name="description" content="Guia vivo de componentes do site Sombras de Eriador, fiel às páginas internas de O Um Anel 2ª edição.">
+<link rel="stylesheet" href="assets/base.css">
+<style>
+  /* Estilos só desta página de referência */
+  .ds-sec{max-width:var(--page-max); margin:0 auto; padding:var(--sp-7) var(--sp-6); border-top:1px dashed var(--umber-300);}
+  .ds-sec:first-of-type{border-top:0;}
+  .swatches{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:var(--sp-3);}
+  .sw{border:1px solid var(--umber-300);}
+  .sw i{display:block; height:64px;}
+  .sw b{display:block; font:var(--fw-mech-bold) var(--size-caption)/1.3 var(--font-mech); letter-spacing:.06em; padding:8px 10px 2px; color:var(--umber-900);}
+  .sw span{display:block; font:var(--fw-body) var(--size-caption)/1.3 var(--font-mech); padding:0 10px 8px; color:var(--text-muted);}
+  .amostra-fonte{display:grid; grid-template-columns:200px 1fr; gap:var(--sp-4); align-items:baseline; padding:var(--sp-3) 0; border-bottom:1px solid var(--parchment-400);}
+  .amostra-fonte .rot{font:var(--fw-mech) var(--size-caption)/1.3 var(--font-mech); color:var(--text-muted); letter-spacing:.06em; text-transform:uppercase;}
+  .orn-lista{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:var(--sp-4);}
+  .orn-lista div{padding:var(--sp-4); border:1px solid var(--parchment-400); text-align:center;}
+  .orn-lista img{margin:0 auto var(--sp-2); max-height:60px;}
+  .orn-lista code{font:var(--size-caption) var(--font-mech); color:var(--text-muted);}
+  code.cls{font:13px/1.4 ui-monospace,Menlo,Consolas,monospace; background:var(--parchment-400); padding:1px 5px; color:var(--umber-900);}
+  @media(max-width:760px){.amostra-fonte{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="pergaminho com-vinhas">
+
+<header class="gtopo" id="gtopo">
+  <div class="g-in">
+    <a href="index.html" class="g-logo"><span>Sombras de Eriador</span></a>
+    <button class="g-tog" aria-label="Menu" onclick="document.getElementById('gtopo').classList.toggle('aberto')">&#9776;</button>
+    <nav class="g-menu">
+      <a href="#cores">Cores</a>
+      <a href="#tipografia">Tipografia</a>
+      <a href="#ornamentos">Ornamentos</a>
+      <a href="#componentes">Componentes</a>
+      <a href="#ficha">Ficha</a>
+      <a href="#adversario">Adversário</a>
+    </nav>
+  </div>
+</header>
+
+<div class="banda com-emblema"><span class="capitulo">Design System</span></div>
+
+<section class="hero">
+  <div class="hero-bg" style="background:linear-gradient(135deg,#2e3744 0%,#16171b 60%,#5b5c33 140%);"></div>
+  <div class="hero-in">
+    <div class="kick">Guia vivo de componentes · O Um Anel 2ª edição</div>
+    <h1>Sombras<em>de Eriador</em></h1>
+    <p class="lede">Cada cor, fonte e medida desta página foi extraída das páginas internas do Core Rules, da ficha de personagem e do Starter Set. Se o componente não parece com o livro, o erro é aqui, não no livro.</p>
+    <div class="conta">
+      <div><b>4</b><span>Famílias tipográficas</span></div>
+      <div><b>1</b><span>Cor de tinta (vermelho)</span></div>
+      <div><b>9</b><span>Ornamentos SVG</span></div>
+    </div>
+  </div>
+</section>
+<div class="banda"></div>
+
+<main>
+
+<!-- ═══════════ CORES ═══════════ -->
+<section class="ds-sec" id="cores">
+  <div class="cab"><div><span class="eyebrow">Tokens</span><h2>Paleta</h2></div><span class="l"></span></div>
+  <p class="sub">O livro usa tinta preta, uma família de umbra para títulos e ornamentos de margem, e um único vermelho para tudo que é destaque. As aberturas de capítulo trazem a noite azulada das pinturas.</p>
+
+  <h4>Pergaminho</h4>
+  <div class="swatches">
+    <div class="sw"><i style="background:var(--parchment-100)"></i><b>parchment-100</b><span>#fefcee · página</span></div>
+    <div class="sw"><i style="background:var(--parchment-200)"></i><b>parchment-200</b><span>#faf6e6 · painel de adversário</span></div>
+    <div class="sw"><i style="background:var(--parchment-300)"></i><b>parchment-300</b><span>#f4efdc · zebra clara</span></div>
+    <div class="sw"><i style="background:var(--parchment-400)"></i><b>parchment-400</b><span>#e8e4d0 · zebra escura</span></div>
+    <div class="sw"><i style="background:var(--parchment-500)"></i><b>parchment-500</b><span>#d8c9b6 · sépia clara</span></div>
+  </div>
+  <h4>Umbra e sépia</h4>
+  <div class="swatches">
+    <div class="sw"><i style="background:var(--umber-900)"></i><b>umber-900</b><span>#2a2119 · negrito</span></div>
+    <div class="sw"><i style="background:var(--umber-700)"></i><b>umber-700</b><span>#5c4c38 · títulos uncial</span></div>
+    <div class="sw"><i style="background:var(--umber-500)"></i><b>umber-500</b><span>#847464 · vinha das margens</span></div>
+    <div class="sw"><i style="background:var(--umber-300)"></i><b>umber-300</b><span>#aba294 · fios finos</span></div>
+    <div class="sw"><i style="background:var(--sepia-800)"></i><b>sepia-800</b><span>#6e5c4d · lápis escuro</span></div>
+    <div class="sw"><i style="background:var(--sepia-600)"></i><b>sepia-600</b><span>#936e5f · lápis médio</span></div>
+    <div class="sw"><i style="background:var(--sepia-300)"></i><b>sepia-300</b><span>#cfafa0 · lápis claro</span></div>
+  </div>
+  <h4>Vermelho</h4>
+  <div class="swatches">
+    <div class="sw"><i style="background:var(--red-700)"></i><b>red-700</b><span>#933937 · hover, perigo</span></div>
+    <div class="sw"><i style="background:var(--red-600)"></i><b>red-600</b><span>#ac4438 · ornamentos, versaletes</span></div>
+    <div class="sw"><i style="background:var(--red-500)"></i><b>red-500</b><span>#bc2838 · ficha de personagem</span></div>
+    <div class="sw"><i style="background:var(--red-400)"></i><b>red-400</b><span>#d17068 · sobre fundo escuro</span></div>
+  </div>
+  <h4>Noite, névoa e musgo</h4>
+  <div class="swatches">
+    <div class="sw"><i style="background:var(--night-900)"></i><b>night-900</b><span>#16171b · abertura de capítulo</span></div>
+    <div class="sw"><i style="background:var(--night-700)"></i><b>night-700</b><span>#2e3744 · Sombra</span></div>
+    <div class="sw"><i style="background:var(--mist-400)"></i><b>mist-400</b><span>#9ca0a4 · névoa</span></div>
+    <div class="sw"><i style="background:var(--mist-300)"></i><b>mist-300</b><span>#a7b2c5 · texto sobre noite</span></div>
+    <div class="sw"><i style="background:var(--moss-600)"></i><b>moss-600</b><span>#5b5c33 · Sabedoria</span></div>
+    <div class="sw"><i style="background:var(--moss-400)"></i><b>moss-400</b><span>#8f9369 · Esperança</span></div>
+  </div>
+</section>
+
+<!-- ═══════════ TIPOGRAFIA ═══════════ -->
+<section class="ds-sec" id="tipografia">
+  <div class="cab"><div><span class="eyebrow">Tokens</span><h2>Tipografia</h2></div><span class="l"></span></div>
+  <p class="sub">Aniron para o que é uncial; Libre Baskerville no lugar da ITC New Baskerville; Jost no lugar da Niveau Grotesk; Kalam é a mesma do livro.</p>
+
+  <div class="amostra-fonte"><span class="rot">Display · Aniron Bold<br>logo, capa, capítulo</span><span style="font:var(--fw-display-bold) 44px/1 var(--font-display); color:var(--text-heading)">Sombras de Eriador</span></div>
+  <div class="amostra-fonte"><span class="rot">H1 · Aniron Regular<br>título de página</span><h1>Anões do Povo de Durin</h1></div>
+  <div class="amostra-fonte"><span class="rot">H2 · Aniron Regular<br>seção</span><h2>Características</h2></div>
+  <div class="amostra-fonte"><span class="rot">H3 · Aniron Regular<br>subseção</span><h3>Bênção Cultural</h3></div>
+  <div class="amostra-fonte"><span class="rot">H4 · Baskerville versalete<br>tópico</span><h4 style="margin:0">Padrão de Vida · Próspero</h4></div>
+  <div class="amostra-fonte"><span class="rot">H4 vermelho<br>tópico em destaque</span><h4 class="vermelho" style="margin:0">Naugrim</h4></div>
+  <div class="amostra-fonte"><span class="rot">Eyebrow · Jost<br>rótulo de seção</span><span class="eyebrow">Capítulo 3 · Aventureiros</span></div>
+  <div class="amostra-fonte"><span class="rot">Corpo · Libre Baskerville<br>17px / 1,55</span><p style="margin:0;max-width:var(--measure-body)">Os Anões são um povo antigo e orgulhoso, cujos costumes e tradições são em grande parte desconhecidos dos forasteiros. Uma minoria decrescente, recuperaram recentemente parte de sua grandeza perdida.</p></div>
+  <div class="amostra-fonte"><span class="rot">Citação · itálico vermelho<br>epígrafe, fala</span><p class="citacao" style="margin:0">"Se não encontrarem lugar para eles, eles vão arranjar. Têm direito de viver, como qualquer outro povo…"</p></div>
+  <div class="amostra-fonte"><span class="rot">Mecânica · Jost<br>tabelas, blocos, caixas</span><p class="mec" style="margin:0">Escolha um conjunto de Atributos, ou role um dado de Sucesso. <b>Vigor:</b> Força + 22 · <b>Esperança:</b> Coração + 8 · <b>Aparar:</b> Sagacidade + 10</p></div>
+  <div class="amostra-fonte"><span class="rot">Manuscrito · Kalam<br>diário, notas de viagem</span><p class="manuscrito" style="margin:0">Terceiro dia de marcha pela Estrada Leste. Chuva fina desde Bri. Encontramos pegadas grandes demais para serem de Homens.</p></div>
+  <div class="amostra-fonte"><span class="rot">Capitular</span><p class="capitular" style="margin:0;max-width:var(--measure-body)">Você ainda era um bebê quando Smaug, o Terrível, caiu sobre a Cidade do Lago, e não tem memória de escapar do fogo e marchar para o Vale.</p></div>
+
+  <div class="titulo-livro" style="margin-top:var(--sp-7)">
+    <span class="capitulo">Capítulo 1</span>
+    <h1>Aventurando-se na Terceira Era</h1>
+    <p class="lema">Contos e aventuras brotavam por toda parte aonde quer que ele fosse, da maneira mais extraordinária.</p>
+  </div>
+  <p class="nota centro">Bloco <code class="cls">.titulo-livro</code>: rótulo de capítulo, título uncial e lema itálico com floreios, exatamente como as aberturas de página do livro.</p>
+</section>
+
+<!-- ═══════════ ORNAMENTOS ═══════════ -->
+<section class="ds-sec" id="ornamentos">
+  <div class="cab"><div><span class="eyebrow">Assets</span><h2>Ornamentos</h2></div><span class="l"></span></div>
+  <p class="sub">Recriados em SVG a partir dos motivos do livro. Recoloríveis, leves, sem recorte de arte protegida.</p>
+  <div class="orn-lista">
+    <div><img src="assets/ornamentos/orn-banda.svg" alt="" style="width:144px;height:66px;image-rendering:auto"><code>orn-banda.svg</code><br><small>faixa de nós (repeat-x)</small></div>
+    <div><img src="assets/ornamentos/orn-emblema.svg" alt=""><code>orn-emblema.svg</code><br><small>estrela do centro da banda, fim de seção</small></div>
+    <div><img src="assets/ornamentos/orn-floreio-e.svg" alt=""><code>orn-floreio-e/d.svg</code><br><small>floreios do lema</small></div>
+    <div><img src="assets/ornamentos/orn-anel.svg" alt=""><code>orn-anel.svg</code><br><small>topo das caixas laterais</small></div>
+    <div><img src="assets/ornamentos/orn-vinha.svg" alt="" style="max-height:80px"><code>orn-vinha.svg</code><br><small>vinha das margens (repeat-y)</small></div>
+    <div><img src="assets/ornamentos/orn-titulo-e.svg" alt=""><code>orn-titulo-e/d.svg</code><br><small>volutas dos títulos da ficha</small></div>
+    <div><img src="assets/ornamentos/orn-losango.svg" alt=""><code>orn-losango.svg</code><br><small>campo de valor</small></div>
+  </div>
+  <div class="mt-5">
+    <div class="banda com-emblema"><span class="capitulo">Capítulo 3</span></div>
+    <p class="nota centro mt-5">Banda com emblema e rótulo de capítulo: <code class="cls">.banda.com-emblema</code> + <code class="cls">.capitulo</code></p>
+    <div class="ornamento"><span class="linha"></span><span class="anel"></span><span class="linha"></span></div>
+    <p class="nota centro">Separador: <code class="cls">.ornamento</code></p>
+  </div>
+</section>
+
+<!-- ═══════════ COMPONENTES ═══════════ -->
+<section class="ds-sec" id="componentes">
+  <div class="cab"><div><span class="eyebrow">Componentes</span><h2>Blocos de página</h2></div><span class="l"></span></div>
+
+  <h4>Botões</h4>
+  <p><a class="btn btn-primary btn-cta" href="#">Abrir a aventura</a> <a class="btn btn-secondary" href="#">Ver regras</a> <a class="btn btn-ghost" href="#">Convite</a> <a class="btn btn-ghost btn-sm" href="#">Pequeno</a></p>
+
+  <h4>Tags</h4>
+  <p><span class="tag tag-red">Introdutória</span><span class="tag tag-umber">1 sessão</span><span class="tag tag-night">Eriador</span><span class="tag tag-outline">5 heróis</span><span class="tag tag-hope">Esperança</span><span class="tag tag-shadow">Sombra</span></p>
+
+  <h4>Cards da estante</h4>
+  <div class="estante">
+    <a href="#" class="card">
+      <div class="card-art" style="background:linear-gradient(160deg,#6e5c4d,#cfafa0)"></div>
+      <div class="card-body">
+        <div class="selo">Starter Set · Aventura 1</div>
+        <h3>A Estrela da Névoa</h3>
+        <p>Uma Companhia parte de Bri em direção às Colinas dos Túmulos. O que dorme sob a terra não gosta de ser acordado.</p>
+        <div class="fatos"><span>Bri</span><span>1 sessão</span><span>4 heróis</span><span>Introdutória</span></div>
+      </div>
+    </a>
+    <a href="#" class="card escuro">
+      <div class="card-art" style="background:linear-gradient(160deg,#2e3744,#16171b)"></div>
+      <div class="card-body">
+        <div class="selo">Variante escura</div>
+        <h3>Sob a Colina</h3>
+        <p>Para páginas do Mestre e conteúdo de Sombra. Mesma estrutura, fundo de noite.</p>
+        <div class="fatos"><span>Mestre</span><span>Sombra</span></div>
+      </div>
+    </a>
+  </div>
+
+  <h4>Destaque</h4>
+  <div class="destaque">
+    <div class="art" style="background:linear-gradient(135deg,#5b5c33,#16171b)"></div>
+    <div class="texto">
+      <div class="selo">Referência rápida</div>
+      <h3>Regras de O Um Anel</h3>
+      <p>O essencial para sentar à mesa: o dado do Destino, dados de Sucesso, Esperança, Sombra, Jornadas, Conselhos e Combate.</p>
+      <a href="#" class="btn btn-primary btn-cta">Abrir as regras</a>
+    </div>
+    <div class="painel">
+      <div class="rot">O essencial</div>
+      <div class="etapa"><b>1</b><span>Testes e o dado do Destino</span></div>
+      <div class="etapa"><b>2</b><span>Esperança e Sombra</span></div>
+      <div class="etapa"><b>3</b><span>Jornadas</span></div>
+      <div class="etapa"><b>4</b><span>Conselhos</span></div>
+      <div class="etapa"><b>5</b><span>Combate</span></div>
+    </div>
+  </div>
+
+  <div class="grid-2 mt-5">
+    <div>
+      <h4>Inset de regra</h4>
+      <div class="inset"><p>Aventureiros Anões não podem usar os seguintes equipamentos de guerra: arco grande, lança grande e escudo grande.</p></div>
+      <h4>Narrativa (ler em voz alta)</h4>
+      <div class="narrativa">
+        <div class="rot">Leia para os jogadores</div>
+        <div class="corpo">Você ainda era um bebê quando Smaug caiu sobre a Cidade do Lago. Conhece a história, porém, contada incontáveis vezes por Gautarr, o Senescal do Rei, seu pai. É uma história que você ama. A história do seu pai e do seu povo. Não a sua.</div>
+      </div>
+    </div>
+    <div>
+      <h4>Caixa lateral (callouts)</h4>
+      <div class="callout callout-mestre">
+        <div class="callout-head"><span class="glyph">◆</span><span class="label">Para o Mestre</span></div>
+        <div class="callout-body"><p>Muitas gemas encontradas nas raízes das montanhas e colinas foram lapidadas e engastadas por ourives Anões de grande renome, em cidades como Nogrod e Belegost.</p></div>
+      </div>
+      <div class="callout callout-perigo">
+        <div class="callout-head"><span class="glyph">✕</span><span class="label">Perigo</span></div>
+        <div class="callout-body"><p>Se a Companhia acampar ao ar livre nas Colinas dos Túmulos, teste de Sombra com 2 pontos.</p></div>
+      </div>
+      <div class="callout callout-sombra">
+        <div class="callout-head"><span class="glyph">☾</span><span class="label">Sombra</span></div>
+        <div class="callout-body"><p>Variante escura para revelações e pontos de Sombra.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <h4>Bloco de regras escuro</h4>
+  <div class="rule-box">
+    <h3>Rolagem básica</h3>
+    <p>Role o <strong>dado do Destino</strong> (d12) mais um <strong>dado de Sucesso</strong> (d6) por ponto de perícia. Some tudo e compare com o Número Alvo. O <strong>Olho de Sauron</strong> conta zero. A <strong>runa de Gandalf</strong> é sucesso automático.</p>
+  </div>
+
+  <h4>Dados</h4>
+  <p>
+    <span class="dado feat">12</span><span class="dado feat gandalf">G</span><span class="dado feat olho">◉</span>
+    <span class="dado sucesso">4</span><span class="dado sucesso seis">6</span><span class="dado sucesso miseravel">2</span>
+  </p>
+  <p class="nota">Dado do Destino: <code class="cls">.dado.feat</code>, <code class="cls">.gandalf</code>, <code class="cls">.olho</code>. Dado de Sucesso: <code class="cls">.dado.sucesso</code>, <code class="cls">.seis</code> (tengwar), <code class="cls">.miseravel</code> (resultado anulado quando Miserável).</p>
+
+  <h4>Tabelas</h4>
+  <div class="grid-2">
+    <table>
+      <caption>Atributos</caption>
+      <thead><tr><th class="n">Rolagem</th><th>Força</th><th>Coração</th><th>Sagacidade</th></tr></thead>
+      <tbody>
+        <tr><td class="n">1</td><td>7</td><td>2</td><td>5</td></tr>
+        <tr><td class="n">2</td><td>7</td><td>3</td><td>4</td></tr>
+        <tr><td class="n">3</td><td>6</td><td>3</td><td>5</td></tr>
+        <tr><td class="n">4</td><td>6</td><td>4</td><td>4</td></tr>
+        <tr><td class="n">5</td><td>5</td><td>4</td><td>5</td></tr>
+        <tr><td class="n">6</td><td>6</td><td>2</td><td>6</td></tr>
+      </tbody>
+    </table>
+    <table class="rolagem">
+      <caption>1: Forma</caption>
+      <tbody>
+        <tr><td>1</td><td>Joia (gema única)</td></tr>
+        <tr><td>2</td><td>Broche</td></tr>
+        <tr><td>3</td><td>Colar</td></tr>
+        <tr><td>4</td><td>Diadema ou coroa</td></tr>
+        <tr><td>5</td><td>Cinto, corrente ou bracelete</td></tr>
+        <tr><td>6</td><td>Anel</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════ FICHA ═══════════ -->
+<section class="ds-sec" id="ficha">
+  <div class="cab"><div><span class="eyebrow">Componentes</span><h2>Ficha de Herói</h2></div><span class="l"></span></div>
+  <p class="sub">Vocabulário da ficha custom: títulos vermelhos em uncial com volutas, campos em losango, caixinhas de perícia com marcador de Favorita.</p>
+
+  <div class="ficha">
+    <div class="ficha-sec cheia"><h3>Geira, Filha de Gautarr</h3></div>
+    <div class="grid-2">
+      <div>
+        <div class="ficha-sec"><span>Personagem</span></div>
+        <div class="campo"><b>Cultura</b><span>Bardings</span></div>
+        <div class="campo"><b>Bênção</b><span>Ferozes em batalha</span></div>
+        <div class="campo"><b>Vocação</b><span>Campeã</span></div>
+        <div class="campo"><b>Padrão de vida</b><span>Próspero</span></div>
+        <div class="campo"><b>Traços</b><span>Corajosa, Orgulhosa</span></div>
+        <div class="campo"><b>Sombra</b><span class="manuscrito">Maldição do Dragão</span></div>
+      </div>
+      <div>
+        <div class="ficha-sec"><span>Atributos</span></div>
+        <div class="grade-atributos">
+          <div class="atributo"><span class="rot">Força</span><span class="losango">6</span><span class="tn">NA 14<small>20 − Força</small></span></div>
+          <div class="atributo"><span class="rot">Coração</span><span class="losango">5</span><span class="tn">NA 15<small>20 − Coração</small></span></div>
+          <div class="atributo"><span class="rot">Sagacidade</span><span class="losango">3</span><span class="tn">NA 17<small>20 − Sagacidade</small></span></div>
+        </div>
+        <div class="ficha-sec"><span>Recursos</span></div>
+        <div class="recursos">
+          <div class="recurso"><span class="losango pequeno">28</span><span class="rot max">Vigor máx.</span></div>
+          <div class="recurso"><span class="circulo">28</span><span class="rot">Atual</span></div>
+          <div class="recurso"><span class="losango pequeno">13</span><span class="rot max">Esperança máx.</span></div>
+          <div class="recurso"><span class="circulo">13</span><span class="rot">Atual</span></div>
+          <div class="recurso"><span class="quadro">2</span><span class="rot">Sombra</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ficha-sec"><span>Perícias</span></div>
+    <div class="lista-pericias">
+      <div class="pericia"><span><i class="fav on"></i>Temor</span><span class="pontos"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></span></div>
+      <div class="pericia"><span><i class="fav"></i>Encorajar</span><span class="pontos"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span></div>
+      <div class="pericia"><span><i class="fav"></i>Persuadir</span><span class="pontos"><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+      <div class="pericia"><span><i class="fav on"></i>Atletismo</span><span class="pontos"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div>
+      <div class="pericia"><span><i class="fav"></i>Viagem</span><span class="pontos"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></span></div>
+      <div class="pericia"><span><i class="fav"></i>Furtividade</span><span class="pontos"><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+      <div class="pericia"><span><i class="fav"></i>Percepção</span><span class="pontos"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span></div>
+      <div class="pericia"><span><i class="fav"></i>Intuição</span><span class="pontos"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span></div>
+      <div class="pericia"><span><i class="fav"></i>Vasculhar</span><span class="pontos"><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+      <div class="pericia"><span><i class="fav"></i>Caça</span><span class="pontos"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span></div>
+      <div class="pericia"><span><i class="fav"></i>Cura</span><span class="pontos"><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+      <div class="pericia"><span><i class="fav"></i>Explorar</span><span class="pontos"><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+      <div class="pericia"><span><i class="fav"></i>Canção</span><span class="pontos"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span></div>
+      <div class="pericia"><span><i class="fav"></i>Cortesia</span><span class="pontos"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span></div>
+      <div class="pericia"><span><i class="fav"></i>Enigma</span><span class="pontos"><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+      <div class="pericia"><span><i class="fav"></i>Ofício</span><span class="pontos"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span></div>
+      <div class="pericia"><span><i class="fav"></i>Batalha</span><span class="pontos"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></span></div>
+      <div class="pericia"><span><i class="fav"></i>Tradição</span><span class="pontos"><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ADVERSÁRIO ═══════════ -->
+<section class="ds-sec" id="adversario">
+  <div class="cab"><div><span class="eyebrow">Componentes</span><h2>Bloco de Adversário</h2></div><span class="l"></span></div>
+  <p class="sub">Reprodução do bloco do capítulo 8: nome em itálico vermelho, descrição em grotesca, painel creme com losangos.</p>
+  <div class="grid-2">
+    <div class="adversario">
+      <div class="nome">Saqueador Sulista</div>
+      <p class="descricao">Quando um inverno particularmente rigoroso passa, Homens do Sul podem reunir bandos de guerra e procurar alguma fazenda isolada para saquear, antes de voltar tão rápido quanto vieram para as brumas de onde saíram.</p>
+      <div class="bloco">
+        <div class="bloco-head">
+          <div><div class="titulo">Saqueador Sulista</div><div class="tracos">Astuto, Endurecido</div></div>
+          <div class="nivel"><span class="rot">Nível de Atributo</span><span class="losango pequeno">4</span></div>
+        </div>
+        <div class="stats">
+          <div class="atributo"><span class="rot">Vigor</span><span class="losango">16</span></div>
+          <div class="atributo"><span class="rot">Poder</span><span class="losango">1</span></div>
+          <div class="atributo"><span class="rot">Resolução</span><span class="losango">4</span></div>
+          <div class="atributo"><span class="rot">Aparar</span><span class="losango">+1</span></div>
+          <div class="atributo"><span class="rot">Armadura</span><span class="losango">2</span></div>
+        </div>
+        <div class="linha"><span class="rot">Proficiências de combate:</span> Machado 3 (5/18), Lança curta 2 (3/14, Perfurante)</div>
+        <div class="linha"><span class="rot">Habilidades cruéis:</span> <em>Povo Feroz.</em> Gaste 1 ponto de Resolução para obter <em>(1d)</em> e tornar o ataque Favorecido.</div>
+      </div>
+    </div>
+    <div class="adversario">
+      <div class="nome">Campeão Sulista</div>
+      <p class="descricao">Um Campeão Sulista pode ser um chefe de Dunland, um senhor de bandidos capaz de unir guerreiros indisciplinados num pequeno exército, ou apenas um brigão particularmente cruel.</p>
+      <div class="bloco">
+        <div class="bloco-head">
+          <div><div class="titulo">Campeão Sulista</div><div class="tracos">Astuto, Endurecido, Sombrio</div></div>
+          <div class="nivel"><span class="rot">Nível de Atributo</span><span class="losango pequeno">6</span></div>
+        </div>
+        <div class="stats">
+          <div class="atributo"><span class="rot">Vigor</span><span class="losango">28</span></div>
+          <div class="atributo"><span class="rot">Poder</span><span class="losango">2</span></div>
+          <div class="atributo"><span class="rot">Resolução</span><span class="losango">6</span></div>
+          <div class="atributo"><span class="rot">Aparar</span><span class="losango">+2</span></div>
+          <div class="atributo"><span class="rot">Armadura</span><span class="losango">3</span></div>
+        </div>
+        <div class="linha"><span class="rot">Proficiências de combate:</span> Espada longa 3 (5/18), Arco 2 (3/14)</div>
+        <div class="linha"><span class="rot">Habilidades cruéis:</span> <em>Comandante.</em> <em>Golpe Cruel.</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="rodape">
+  <div class="r-in">
+    <div><h4>Sombras de Eriador</h4><p>Material de fã para O Um Anel 2ª edição, em português. Aventuras, heróis, lugares e ferramentas para o Mestre.</p></div>
+    <div><h4>Navegação</h4><a href="index.html">Início</a><a href="regras.html">Regras</a><a href="design-system.html">Design System</a></div>
+    <div><h4>Repositório</h4><a href="https://github.com/glebeduarte/sombras-de-eriador">GitHub</a></div>
+    <div class="legal">Projeto fan-made, sem fins comerciais. O Um Anel™ e The One Ring™ são marcas de Sophisticated Games e Free League Publishing. A Terra-média e obras de J.R.R. Tolkien são de Middle-earth Enterprises. Fonte Aniron © Pete Klassen, 2004, uso privado, distribuída com o arquivo original completo.</div>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
