@@ -5,8 +5,8 @@ Site de fã para **O Um Anel 2ª edição** (Free League), em português. Aventu
 ## Começar
 
 ```bash
-git clone https://github.com/glebeduarte/sombras-de-eriador.git
-cd sombras-de-eriador
+git clone https://github.com/glebeduarte/umanelrpg.git
+cd umanelrpg
 npx serve .          # ou qualquer servidor estático
 ```
 
