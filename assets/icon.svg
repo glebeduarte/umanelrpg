@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Sombras de Eriador · ícone do site -->
+  <!-- disco de sombra -->
+  <circle cx="32" cy="32" r="31" fill="#16171b"/>
+  <circle cx="32" cy="32" r="31" fill="none" stroke="#5c4c38" stroke-width="1"/>
+
+  <!-- anel -->
+  <path fill-rule="evenodd" fill="#ac4438"
+    d="M32 12.5 A19.5 19.5 0 1 1 31.99 12.5 Z
+       M32 20 A12 12 0 1 0 32.01 20 Z"/>
+
+  <!-- chama sobre o anel -->
+  <path fill="#f4efdc"
+    d="M32 5.2
+       C34.6 8.4 35.6 10.8 34.3 13
+       C33.6 14.1 32.8 13.9 32.6 12.7
+       C32.1 14.3 31.3 15.1 32 17
+       C29.6 15.9 28.7 13.2 29.8 10.7
+       C30.4 9.3 31.1 7.6 32 5.2 Z"/>
+</svg>

@@ -82,6 +82,16 @@ Recriados em SVG (`assets/ornamentos/`) a partir dos motivos do livro, sem recor
 
 Textura de pergaminho (`texture-parchment.webp`): ruído periódico gerado por FFT, 512×512, tileável, 2 KB. Não é recorte do livro.
 
+## Ícone do site
+
+`assets/icon.svg` é a fonte mestre: anel vermelho (`--red-600`) com chama em `--parchment-300`, sobre disco `--night-900` com fio `--umber-700`, mesmo motivo do `orn-anel.svg` das caixas laterais. Dele são gerados `favicon.ico` (16/32/48 px) e `apple-touch-icon.png` (180 px), referenciados no `<head>` de toda página do site:
+
+```html
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+```
+
 ## Convenções de arquivo (iguais ao Lâminas de Hibória)
 
 ```

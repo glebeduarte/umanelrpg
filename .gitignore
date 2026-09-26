@@ -4,3 +4,4 @@ node_modules/
 .vercel/
 _rascunho/
 assets/*.png
+!assets/apple-touch-icon.png
