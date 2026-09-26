@@ -99,3 +99,8 @@ body{background:var(--night-900);}
   .sumario .voltar{margin-top:0;}
   .livro{max-width:none;}
 }
+/* ---- PNJ sem retrato (enquanto a arte não é gerada) ---- */
+.npc.sem-retrato{grid-template-columns:1fr;}
+/* ---- Mapa desenhado em SVG ---- */
+.mapa-svg{margin:var(--sp-5) 0; border:1px solid var(--red-600); outline:1px solid var(--red-600); outline-offset:3px; background:var(--parchment-200); overflow-x:auto;}
+.mapa-svg svg{display:block; width:100%; height:auto; min-width:520px;}
