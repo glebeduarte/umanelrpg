@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Tesouro da Pedra Viva · Guia do Loremaster · Sombras de Eriador</title>
+<meta name="description" content="Aventura original em português para O Um Anel 2ª edição: uma busca, dois enigmas e o confronto final contra um Troll. One-shot introdutória para eventos. Só para o Loremaster.">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../assets/base.css">
+<link rel="stylesheet" href="../assets/aventura.css">
+<script defer src="/assets/nav.js"></script>
+</head>
+<body>
+<div class="app">
+
+<aside class="sumario">
+  <div class="marca">
+    <span class="kick">Guia do Loremaster · original</span>
+    <h1>O Tesouro da Pedra Viva <span>One-shot</span></h1>
+  </div>
+  <nav>
+    <a href="#visao"><span class="n">§</span>Visão geral</a>
+    <a href="#parte-1"><span class="n">1</span>A Última Ponte</a>
+    <a href="#parte-2"><span class="n">2</span>A Floresta de Pedra</a>
+    <a href="#parte-3"><span class="n">3</span>O Covil de Kroga</a>
+    <a href="#epilogo"><span class="n">4</span>Epílogo</a>
+    <a href="#pnjs"><span class="n">5</span>PNJs</a>
+    <a href="#adversarios"><span class="n">6</span>Adversários</a>
+    <a href="#glossario"><span class="n">7</span>Glossário</a>
+  </nav>
+  <div class="voltar"><a href="../index.html">← Sombras de Eriador</a></div>
+</aside>
+
+<article class="livro">
+
+<section class="capa">
+  <div class="capa-art" style="background-image:url('../assets/cover-tesouro-da-pedra-viva.webp'), linear-gradient(135deg,#2e3744 0%,#16171b 60%,#5b5c33 140%);"></div>
+  <div class="capa-inner">
+    <div class="selo">Original · One-shot introdutória · Só para o Loremaster</div>
+    <h1>O Tesouro da Pedra Viva <em>Guia do Loremaster em português</em></h1>
+    <p class="tag">Uma caravana some na estrada para Valfenda. As pistas levam à Floresta de Pedra, onde ninguém que entra volta para contar o que viu.</p>
+    <div class="fichaje">
+      <div><b>Última Ponte</b>Lugar</div>
+      <div><b>One-shot, ~3h</b>Estrutura</div>
+      <div><b>3 a 5 heróis</b>Companhia</div>
+      <div><b>Introdutória</b>Nível</div>
+    </div>
+  </div>
+</section>
+
+<section id="visao">
+  <div class="corrente"><span class="t">Visão geral</span><span class="l"></span></div>
+  <h2>Como usar este guia</h2>
+  <p class="capitular">Aventura original deste site, desenhada para caber numa sessão só, com gente que talvez nunca tenha jogado O Um Anel. Uma busca com criaturas, dois enigmas e um confronto final contra um Troll, pensada para eventos. Não é preciso ter lido nenhuma outra aventura: lugar novo, patrona nova, Companhia nova.</p>
+
+  <div class="callout callout-mestre">
+    <div class="callout-head"><span class="glyph">◆</span><span class="label">O segredo do Loremaster</span></div>
+    <div class="callout-body">
+      <p>Há décadas um Troll de pedra chamada <b>Kroga</b> vive nas cavernas sob a Floresta de Pedra, ao sul da Última Ponte. Dormiu a maior parte desse tempo. Um desmoronamento recente abriu uma segunda boca na caverna, e a luz que entra por ela a mantém irritada e acordada com mais frequência: por isso ataca tudo que passa pela estrada, inclusive, há três dias, uma caravana de mercadores de Bree.</p>
+      <p>Kroga não é esperta, mas é velha o bastante para saber o que a mata: <b>luz solar direta a transforma em pedra</b>. Caça de noite ou fundo na caverna, e evita a boca nova, aberta para leste. Essa é a porta que a Companhia pode usar contra ela, se prestar atenção nos enigmas.</p>
+    </div>
+  </div>
+
+  <h3>Estrutura</h3>
+  <table>
+    <thead><tr><th>Parte</th><th>O que acontece</th><th>Ensina</th><th>Tempo</th></tr></thead>
+    <tbody>
+      <tr><td><b>1 · A Última Ponte</b></td><td>O gancho, a patrona, uma Journey curta até a floresta.</td><td>Council, Journey</td><td>~30 min</td></tr>
+      <tr><td><b>2 · A Floresta de Pedra</b></td><td>Aranhas, a carroça destruída, as Pedras Sentinelas, batedores de Kroga.</td><td>Combate, perícia, enigma</td><td>~1 h</td></tr>
+      <tr><td><b>3 · O Covil de Kroga</b></td><td>A porta enigmática, os prisioneiros, o confronto final.</td><td>Resgate, chefe, tática</td><td>~1 h 15</td></tr>
+      <tr><td><b>Epílogo</b></td><td>Volta à Última Ponte, recompensa, ganchos.</td><td>Fase da Companhia</td><td>~15 min</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Os heróis</h3>
+  <p>Os jogadores escolhem livremente entre os cinco pré-gerados de <b>A Companhia da Última Ponte</b>: Tom Thistlewool, Nár Dedo-Longo, Calenmir, Tilly Longholes e Erendir. Fichas completas em <a href="../herois/companhia-da-ultima-ponte.html">A Companhia da Última Ponte</a>. Com só três jogadores, priorize Tom (combate), Erendir ou Calenmir (Journey e perícia) e Nár ou Tilly (utilidade e enigma).</p>
+
+  <div class="inset"><p><b>Rodando em eventos.</b> Cada parte tem uma etiqueta "Ensina" dizendo qual pilar do sistema aquela cena apresenta. Se o tempo apertar, corte primeiro a cena dos batedores de Kroga (Parte 2): é a única inteiramente opcional. Convenção de termos igual às outras aventuras deste site: perícias e dados ficam em inglês, conceitos ganham tradução. Glossário completo no fim.</p></div>
+  <div class="fim"></div>
+</section>
+
+<!-- ═══════════ PARTE 1 ═══════════ -->
+<section id="parte-1">
+  <div class="corrente"><span class="t">Parte 1 · A Última Ponte</span><span class="l"></span></div>
+  <h2>Uma travessia como qualquer outra</h2>
+  <p><b>Função da parte.</b> Estabelecer o lugar, apresentar a patrona, dar o pedido e ensinar Journey no caminho. Termina quando a Companhia avista a Floresta de Pedra.</p>
+
+  <div class="cena">
+    <span class="num">1</span>
+    <h3>O posto da ponte</h3>
+    <p class="mec">Ensina: Council</p>
+    <div class="narrativa">
+      <div class="rot">Abertura · parafraseie</div>
+      <div class="corpo">A Estrada Leste atravessa o rio numa ponte de pedra tão velha quanto qualquer coisa em Eriador, e do outro lado dela começam as colinas cobertas de árvores retorcidas que os viajantes chamam de Floresta de Pedra, por causa das rochas que despontam entre os troncos como ossos. No lado de cá, um casebre de pedra e um estábulo servem de posto para quem cruza: é a Última Ponte antes de Valfenda. Uma elfa espera na porta, capa presa com um broche de prata, olhando para o sul com o rosto tenso.</div>
+    </div>
+    <p>A elfa é <b>Gaerlin</b>, mensageira de Valfenda que aguarda havia três dias uma caravana de mercadores de Bree, atrasada. O guardião do posto, <b>Berenor</b>, homem de Bree que cuida da ponte há vinte anos, confirma: ouviu uivos e um rugido grave vindo da floresta há uma semana, coisa que nunca tinha ouvido antes.</p>
+    <h4>O que Gaerlin pede</h4>
+    <ul class="mec">
+      <li>A caravana levava provisões comuns e uma coisa que importa mais: o <b>Selo de Cardolan</b>, um anel de sinete recuperado nas ruínas do sul, que Valfenda guarda desde que a linhagem de Cardolan se extinguiu. Perdê-lo seria uma desonra que ela não sabe como explicar em casa.</li>
+      <li>Ela não pode ir buscar: precisa levar outras notícias urgentes para o norte. Paga bem por quem encontrar a caravana, viva ou não, e trouxer de volta o que puder.</li>
+      <li>Berenor acrescenta o que viu: rodas de carroça quebradas na beira da Estrada, a uns três quilômetros ao sul, e uma trilha larga demais para ser de um só animal, entrando floresta adentro.</li>
+    </ul>
+    <div class="inset"><p>Teste opcional de <b>COURTESY</b> ou <b>PERSUADE</b> para Gaerlin confiar detalhes extras: ela sabe que a região já foi chamada de Trollshaws por quem veio antes dela, e que ninguém mora ali por bom motivo.</p></div>
+    <p>Quando a Companhia estiver pronta, anuncie que a viagem será resolvida por Journey.</p>
+  </div>
+
+  <div class="cena">
+    <span class="num">2</span>
+    <h3>Rumo à Floresta de Pedra</h3>
+    <p class="mec">Ensina: Journey (versão curta)</p>
+    <p>Trajeto curto: cerca de 15 quilômetros de Terra Selvagem (Wild Lands) ao longo da beira sul da Estrada, depois floresta adentro. Cada herói escolhe um papel (<b>Guide</b>, <b>Hunter</b>, <b>Look-out</b>, <b>Scout</b>); com menos de quatro heróis, alguém acumula.</p>
+    <div class="inset"><p><b>Um só Marching Test</b> resolve a perna inteira. Wild Lands: Feat Die normal. Um evento é suficiente para dar sabor sem gastar tempo; se preferir pular direto para a cena 3, tudo bem, isto é um one-shot.</p></div>
+    <p>Ao final, descreva a chegada: as árvores torcidas fechando sobre a trilha, rochas cobertas de líquen entre os troncos como se tivessem crescido ali, e o silêncio errado de um lugar sem pássaros.</p>
+  </div>
+  <div class="fim"></div>
+</section>
+
+<!-- ═══════════ PARTE 2 ═══════════ -->
+<section id="parte-2">
+  <div class="corrente"><span class="t">Parte 2 · A Floresta de Pedra</span><span class="l"></span></div>
+  <h2>O que a trilha esconde</h2>
+  <p><b>Função da parte.</b> Dar o primeiro combate, mostrar a escala do que aconteceu com a caravana, e apresentar o primeiro enigma. Termina quando a trilha aponta para a boca da caverna.</p>
+
+  <div class="cena">
+    <span class="num">3</span>
+    <h3>A emboscada das aranhas</h3>
+    <p class="mec">Ensina: Combate</p>
+    <p>Assim que a Companhia entra na floresta fechada, teste de <b>AWARENESS</b> para cada herói. Quem falha é surpreendido na Opening Volley.</p>
+    <div class="narrativa">
+      <div class="rot">Abertura · parafraseie</div>
+      <div class="corpo">Teias grossas, cinzentas de poeira velha, cruzam os galhos mais baixos como cordas esquecidas. Um clique seco, de patas em casca de árvore, vem de mais de uma direção ao mesmo tempo.</div>
+    </div>
+    <p><b>Efetivo:</b> Aranhas do Barranco em número igual aos heróis. Ficha em Adversários.</p>
+    <div class="inset"><p>Se a Companhia recuar para um trecho aberto (uma clareira pequena a alguns metros), as aranhas hesitam em seguir: ganham (1d) na próxima rodada de combate ali. Bom momento para ensinar Stance e posicionamento a jogadores novos.</p></div>
+  </div>
+
+  <div class="cena">
+    <span class="num">4</span>
+    <h3>A carroça destruída</h3>
+    <p class="mec">Ensina: teste de perícia (investigação)</p>
+    <p>Cem passos adiante, a trilha larga leva a uma carroça virada e destruída, uma roda longe do corpo, caixas de suprimento abertas e espalhadas.</p>
+    <ul class="mec">
+      <li><b>HUNTING</b> ou <b>AWARENESS</b>: as marcas na madeira não são de garra nem de presa de lobo. São de uma coisa que segura e esmaga com as mãos. Grande êxito: uma pegada isolada na lama, funda e enorme, de cinco dedos.</li>
+      <li><b>LORE</b>: quem conhece histórias antigas reconhece o formato da pegada de longe. Se algum herói tiver Elven-skill ou Shadow-lore, sussurre a palavra "Troll" sem confirmar nada ainda.</li>
+      <li>Entre as caixas reviradas, um baú pequeno e reforçado está ausente. É onde o Selo de Cardolan viajava.</li>
+    </ul>
+    <p>A trilha das pegadas grandes segue para dentro da floresta, cruzando com marcas menores, de botas, arrastadas: os mercadores foram levados vivos.</p>
+  </div>
+
+  <div class="cena">
+    <span class="num">5</span>
+    <h3>As Pedras Sentinelas</h3>
+    <p class="mec">Ensina: enigma 1</p>
+    <div class="narrativa">
+      <div class="rot">Chegada · parafraseie</div>
+      <div class="corpo">A trilha sobe uma pequena elevação e para diante de cinco pedras erguidas, altas como um homem, dispostas em semicírculo, cobertas de musgo e de runas gastas demais para ler à primeira vista. A pegada da coisa passa direto por entre elas, sem hesitar. Mas algo no ar aqui é diferente: mais frio, mais parado.</div>
+    </div>
+    <p>Isto não é o covil, é uma marca antiga, mais velha que Kroga, deixada por gente que temia a mesma floresta muito antes dela. Uma das pedras, a do centro, tem uma frase inteira ainda legível.</p>
+    <div class="callout callout-revelacao">
+      <div class="callout-head"><span class="glyph">✦</span><span class="label">As Pedras Sentinelas</span></div>
+      <div class="callout-body"><p>Ninguém sabe mais quem as ergueu. O que se sabe é que quem lê a inscrição em voz alta e acerta a resposta ganha um instante de clareza: a pedra central racha um pouco mais, e por baixo dela aparece uma segunda trilha, mais estreita, contornando o caminho óbvio.</p></div>
+    </div>
+    <div class="handout">
+      <p class="manuscrito">Não tenho pés, mas percorro o mundo.<br>Não tenho boca, mas conto histórias.<br>Deito com reis e com mendigos,<br>e ninguém, nunca, me venceu numa corrida.<br><span style="display:block;text-align:right;margin-top:8px">O que sou?</span></p>
+    </div>
+    <div class="inset"><p><b>Resposta: o tempo.</b> Teste de <b>RIDDLE</b> ou <b>LORE</b>, ou aceite a resposta certa direto da mesa. Sucesso: revela a trilha secundária, que evita a cena 6 por completo e chega direto à cena 7 com (1d) de vantagem no primeiro teste de lá. Falha: nada acontece, a Companhia segue pela trilha normal, cena 6.</p></div>
+    <div class="callout callout-mestre">
+      <div class="callout-head"><span class="glyph">◆</span><span class="label">Se ninguém quiser tentar</span></div>
+      <div class="callout-body"><p>Não force o enigma. Deixe um herói com LORE ou Shadow-lore comentar que "pedras assim guardam trilhas escondidas em toda Eriador" e ofereça a resposta como pista, não como bloqueio. O enigma é um atalho e um ensinamento, nunca um muro.</p></div>
+    </div>
+  </div>
+
+  <div class="cena">
+    <span class="num">6</span>
+    <h3>Os batedores de Kroga</h3>
+    <p class="mec">Ensina: combate ou Council, à escolha da mesa · cena opcional</p>
+    <p>Se a Companhia não usou a trilha secreta, encontra um pequeno grupo de Goblins Batedores: espiam de longe, famintos e visivelmente com medo de alguma coisa atrás deles. Servem Kroga por medo, não por lealdade, catando o que ela deixa para trás.</p>
+    <p><b>Efetivo:</b> 2 a 3 Goblins Assustados (um a menos que os heróis, mínimo 2). Ficha em Adversários.</p>
+    <div class="inset"><p>Podem ser combatidos normalmente, ou, com um teste de <b>AWE</b> bem-sucedido, se renderem e contarem o que sabem: a "mãe de pedra" (assim chamam Kroga) mora numa caverna adiante, tem prisioneiros vivos, e há uma segunda entrada "que ela nunca usa", nas costas da colina. É a mesma informação da trilha secreta da cena 5, uma segunda chance de a Companhia aprender sobre a entrada leste.</p></div>
+  </div>
+  <div class="fim"></div>
+</section>
+
+<!-- ═══════════ PARTE 3 ═══════════ -->
+<section id="parte-3">
+  <div class="corrente"><span class="t">Parte 3 · O Covil de Kroga</span><span class="l"></span></div>
+  <h2>O que espera lá dentro</h2>
+  <p><b>Função da parte.</b> O resgate, o segundo enigma, e o confronto final, com uma saída elegante para quem prestou atenção.</p>
+
+  <div class="cena">
+    <span class="num">7</span>
+    <h3>A porta velha</h3>
+    <p class="mec">Ensina: enigma 2, ambientação do chefe</p>
+    <div class="narrativa">
+      <div class="rot">Chegada · parafraseie</div>
+      <div class="corpo">A colina se abre numa fenda ampla, escurecida de fumaça velha, cercada de ossos meio enterrados na lama. É a entrada principal, e o fedor que sai dela deixa claro que ninguém entra ali por acaso. Mas ao contornar a base da colina para o lado leste, a Companhia encontra uma segunda abertura, menor, quase escondida por trepadeiras: um arco de pedra trabalhado, mais velho que a própria caverna, com uma frase entalhada acima do vão.</div>
+    </div>
+    <p>Este arco não foi feito por Trolls nem por Goblins. É obra antiga, dos mesmos que ergueram as Pedras Sentinelas, e Kroga o ignora porque a luz que entra por ele a incomoda.</p>
+    <div class="handout">
+      <p class="manuscrito">Sou duro, mas quebro.<br>Sou mudo, mas ecoo.<br>Guardo o calor do dia<br>e ainda assim tremo à luz da manhã.<br><span style="display:block;text-align:right;margin-top:8px">O que sou?</span></p>
+    </div>
+    <div class="inset"><p><b>Resposta: a pedra.</b> Teste de <b>RIDDLE</b> ou <b>LORE</b>, grande êxito ou melhor. Sucesso: o herói entende que o enigma não é só resposta, é pista real. <b>A pedra treme à luz.</b> Deixe o jogador juntar as peças: seja lá o que more ali, teme o sol da manhã. Falha ou sem teste: a Companhia entra sem essa vantagem, mas nada impede que descubram a fraqueza de Kroga durante o próprio confronto (cena 9).</p></div>
+    <div class="callout callout-mestre">
+      <div class="callout-head"><span class="glyph">◆</span><span class="label">Por que dois enigmas</span></div>
+      <div class="callout-body"><p>O primeiro ensina que enigma vale recompensa. O segundo entrega a chave da vitória para quem prestou atenção nos dois. Jogadores novos que resolverem ambos devem sair da mesa sentindo que venceram por serem espertos, não só por rolarem bem.</p></div>
+    </div>
+  </div>
+
+  <div class="cena">
+    <span class="num">8</span>
+    <h3>Os prisioneiros</h3>
+    <p class="mec">Ensina: resgate, tensão sem combate</p>
+    <p>Passando pela entrada leste (ou pela principal, com mais risco), a Companhia chega a uma câmara de pedra onde dois mercadores de Bree estão acorrentados a uma argola na parede: <b>Aldric</b>, o condutor da caravana, com um braço quebrado mal enfaixado, e <b>Sela</b>, sua sobrinha e aprendiz, de uns quinze anos, mais assustada do que ferida.</p>
+    <p>Eles sabem que Kroga dorme mais fundo na caverna durante o dia e sai à noite. Sabem também onde ficou o baú pequeno: Kroga o guarda perto de si, "porque brilha", junto com outras coisas que já roubou ao longo dos anos.</p>
+    <p>Libertá-los é simples (sem chave, um teste de <b>CRAFT</b> ou força bruta com <b>ATHLETICS</b> abre as correntes). O dilema é tático: tirá-los agora significa proteger dois civis feridos durante o confronto final, ou escondê-los ali e voltar depois de lidar com Kroga.</p>
+  </div>
+
+  <div class="cena">
+    <span class="num">9</span>
+    <h3>Kroga, a Pedra Que Anda</h3>
+    <p class="mec">Ensina: combate de chefe, decisão tática</p>
+    <div class="narrativa">
+      <div class="rot">Quando ela aparece · parafraseie</div>
+      <div class="corpo">A caverna se alarga numa câmara alta, cheia de moedas, armas velhas e ossos empilhados como um ninho monstruoso. No centro, o que parecia mais uma formação de rocha se move: uma figura da altura de duas pessoas, pele cinzenta e rachada como pedra seca, braços mais longos que o corpo. Um olho se abre, amarelo e lento. Ela fareja o ar e ri, um som de pedras se esfregando.</div>
+    </div>
+    <p>Kroga se vangloria antes de atacar: séculos sozinha nesta caverna a deixaram falante quando finalmente tem plateia. Fale sobre a caravana ("os pequenos gritavam tanto quanto os grandes"), sobre o tesouro ("tudo meu, ninguém veio buscar antes"), e ataque no meio de uma frase, sem aviso.</p>
+    <div class="callout callout-perigo">
+      <div class="callout-head"><span class="glyph">✕</span><span class="label">Mecânica · a fraqueza ao sol</span></div>
+      <div class="callout-body">
+        <p>Se, em algum momento do combate, Kroga for empurrada, atraída ou obrigada a passar pelo arco leste (cena 7) <b>depois do amanhecer</b>, ela se transforma em pedra instantaneamente: remova-a do combate, sem teste, sem rolagem. Não é preciso matá-la para vencer.</p>
+        <p>Isso dá à Companhia duas rotas para a vitória:</p>
+        <ul>
+          <li><b>Combate direto.</b> Lutar até reduzir a Endurance de Kroga a zero, do jeito normal.</li>
+          <li><b>A armadilha do amanhecer.</b> Se a Companhia entendeu a pista do segundo enigma, pode tentar atrair Kroga para perto do arco leste e prendê-la lá até o sol nascer. Cronometre a chegada à Parte 3 perto do fim da noite: um teste de <b>PERSUADE</b>, <b>AWE</b> ou uma boa isca tática (recuar por aquele lado, por exemplo) é suficiente para levá-la até lá; não exija um plano perfeito de jogadores novos.</li>
+        </ul>
+        <p>Se a mesa preferir um combate cheio, sem o truque do sol, ignore esta caixa e jogue Kroga até o fim, ajustando a dificuldade pelo tamanho da Companhia (ver Adversários).</p>
+      </div>
+    </div>
+    <p><b>Se Kroga morre ou petrifica</b>, ela solta o que segurava: o baú do Selo de Cardolan, uma machadinha de guerra entalhada que brilha diferente do resto do tesouro (o <b>Machado Malhagigante</b>, ver Recompensas), e uma pilha de moedas velhas e joias sem dono.</p>
+  </div>
+  <div class="fim"></div>
+</section>
+
+<!-- ═══════════ EPÍLOGO ═══════════ -->
+<section id="epilogo">
+  <div class="corrente"><span class="t">Epílogo</span><span class="l"></span></div>
+  <h2>De volta à Última Ponte</h2>
+  <div class="narrativa">
+    <div class="rot">Depois da caverna · parafraseie</div>
+    <div class="corpo">O caminho de volta parece mais curto do que a ida, como sempre parece quando se carrega boas notícias. A Última Ponte aparece entre as árvores com a mesma paciência de sempre, e Gaerlin sai correndo do posto assim que vê o baú nas mãos de vocês.</div>
+  </div>
+  <p>Se trouxerem o Selo de Cardolan, Gaerlin agradece com sinceridade rara em Elfos com pressa e promete que Valfenda saberá os nomes de quem o devolveu. Se resgataram Aldric e Sela, Berenor os recebe com um abraço e uma promessa de cerveja grátis para o resto da vida deles na Última Ponte. Se petrificaram Kroga em vez de matá-la, comente que a estátua ainda está lá, virada para o arco leste, e que gente vai contar essa história por anos.</p>
+
+  <h3>Recompensas (Fase da Companhia)</h3>
+  <p>Aplique os Pontos de Aventura e de Perícia conforme o Rules booklet. Itens e reconhecimento sugeridos:</p>
+  <ul class="mec">
+    <li><b>Pagamento de Gaerlin:</b> uma bolsa de prata de Valfenda, generosa o bastante para melhorar o padrão de vida da Companhia por um tempo.</li>
+    <li><b>Machado Malhagigante:</b> machado de batalha anão-forjado achado no tesouro de Kroga. Bênção <b>Bane of Trolls</b>: marca Piercing Blow automaticamente contra Trolls e Gigantes.</li>
+    <li><b>Resolver os dois enigmas</b> (cenas 5 e 7): 1 Ponto de Sabedoria extra para o herói que decifrou cada um, a critério do Mestre.</li>
+    <li><b>Petrificar Kroga em vez de matá-la em combate:</b> 1 Ponto de Valor extra para toda a Companhia, por resolver o confronto com astúcia.</li>
+  </ul>
+  <div class="inset"><p>Ganchos abertos: o que mais Kroga roubou ao longo dos séculos e nunca foi reclamado; se a Companhia gostar da Última Ponte, Gaerlin e Berenor servem de patronos recorrentes; o arco leste, mais velho que qualquer coisa na região, pode esconder mais do que uma simples saída.</p></div>
+  <div class="fim"></div>
+</section>
+
+<!-- ═══════════ PNJS ═══════════ -->
+<section id="pnjs">
+  <div class="corrente"><span class="t">PNJs</span><span class="l"></span></div>
+  <h2>Personagens do Loremaster</h2>
+
+  <div class="npc">
+    <div class="retrato"><img src="../assets/npc-gaerlin.webp" alt="Gaerlin"></div>
+    <div>
+      <div class="npc-head"><div class="nm">Gaerlin</div><div class="tipo">Elfa · Mensageira de Valfenda · patrona</div></div>
+      <div class="npc-body"><p>Formal e apressada, mas sincera. Espera três dias por uma caravana atrasada e carrega o peso de ter perdido algo que não era seu para perder.</p></div>
+    </div>
+  </div>
+
+  <div class="npc">
+    <div class="retrato"><img src="../assets/npc-berenor.webp" alt="Berenor"></div>
+    <div>
+      <div class="npc-head"><div class="nm">Berenor</div><div class="tipo">Homem de Bree · Guardião da Última Ponte</div></div>
+      <div class="npc-body"><p>Vinte anos cuidando da travessia. Fala com todo mundo que passa e por isso sabe tudo que se move na Estrada perto dali.</p></div>
+    </div>
+  </div>
+
+  <div class="npc">
+    <div class="retrato"><img src="../assets/npc-aldric-e-sela.webp" alt="Aldric e Sela"></div>
+    <div>
+      <div class="npc-head"><div class="nm">Aldric e Sela</div><div class="tipo">Homens de Bree · condutor e aprendiz, prisioneiros</div></div>
+      <div class="npc-body"><p>Aldric, braço quebrado, orgulho intacto, cuida de Sela como se fosse filha. Sela, cerca de 15 anos, assustada mas atenta: foi ela quem contou os dias presos riscando a parede.</p></div>
+    </div>
+  </div>
+  <div class="fim"></div>
+</section>
+
+<!-- ═══════════ ADVERSÁRIOS ═══════════ -->
+<section id="adversarios">
+  <div class="corrente"><span class="t">Adversários</span><span class="l"></span></div>
+  <h2>Blocos de estatísticas</h2>
+  <p>Habilidades cruéis resumidas. Regras completas de combate no Rules booklet.</p>
+
+  <div class="adversario carta">
+    <div class="arte"><img src="../assets/enemy-aranha-do-barranco.webp" alt="Aranha do Barranco"></div>
+    <div>
+      <div class="nome">Aranha do Barranco</div>
+      <div class="bloco">
+        <div class="bloco-head"><div><div class="titulo">Aranha do Barranco</div><div class="tracos">Furtiva, Peçonhenta</div></div><div class="nivel"><span class="rot">Nível de Atributo</span><span class="losango pequeno">2</span></div></div>
+        <div class="stats">
+          <div class="atributo"><span class="rot">Endurance</span><span class="losango">10</span></div>
+          <div class="atributo"><span class="rot">Might</span><span class="losango">1</span></div>
+          <div class="atributo"><span class="rot">Hate</span><span class="losango">2</span></div>
+          <div class="atributo"><span class="rot">Parry</span><span class="losango">+1</span></div>
+          <div class="atributo"><span class="rot">Armour</span><span class="losango">1</span></div>
+        </div>
+        <div class="linha"><span class="rot">Proficiências:</span> Presas 2 (2/14, Pierce)</div>
+        <div class="linha"><span class="rot">Habilidades cruéis:</span> <em>Emboscada</em>: o primeiro ataque contra um alvo Desavisado é sempre Favoured. <em>Peçonha</em>: em ataque que causa Ferimento, role um Feat Die: Runa de Gandalf sem efeito extra, número o alvo soma 1 Fadiga, Olho de Sauron o alvo fica Enjoado e perde a próxima ação.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="adversario carta">
+    <div class="arte"><img src="../assets/enemy-goblin-assustado.webp" alt="Goblin Assustado"></div>
+    <div>
+      <div class="nome">Goblin Assustado</div>
+      <div class="bloco">
+        <div class="bloco-head"><div><div class="titulo">Goblin Assustado</div><div class="tracos">Faminto, Covarde</div></div><div class="nivel"><span class="rot">Nível de Atributo</span><span class="losango pequeno">2</span></div></div>
+        <div class="stats">
+          <div class="atributo"><span class="rot">Endurance</span><span class="losango">6</span></div>
+          <div class="atributo"><span class="rot">Might</span><span class="losango">1</span></div>
+          <div class="atributo"><span class="rot">Hate</span><span class="losango">1</span></div>
+          <div class="atributo"><span class="rot">Parry</span><span class="losango">—</span></div>
+          <div class="atributo"><span class="rot">Armour</span><span class="losango">1</span></div>
+        </div>
+        <div class="linha"><span class="rot">Proficiências:</span> Faca serrilhada 2 (2/14)</div>
+        <div class="linha"><span class="rot">Habilidades cruéis:</span> <em>Covarde</em>: sob Intimidate Foe, perde também 1 Hate. Foge assim que reduzido a menos da metade da Endurance.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="adversario carta">
+    <div class="arte"><img src="../assets/enemy-kroga.webp" alt="Kroga, a Pedra Que Anda"></div>
+    <div>
+      <div class="nome">Kroga, a Pedra Que Anda</div>
+      <div class="bloco">
+        <div class="bloco-head"><div><div class="titulo">Kroga</div><div class="tracos">Bruta, Implacável</div></div><div class="nivel"><span class="rot">Nível de Atributo</span><span class="losango pequeno">7</span></div></div>
+        <div class="stats">
+          <div class="atributo"><span class="rot">Endurance</span><span class="losango">55</span></div>
+          <div class="atributo"><span class="rot">Might</span><span class="losango">3</span></div>
+          <div class="atributo"><span class="rot">Hate</span><span class="losango">6</span></div>
+          <div class="atributo"><span class="rot">Parry</span><span class="losango">—</span></div>
+          <div class="atributo"><span class="rot">Armour</span><span class="losango">5</span></div>
+        </div>
+        <div class="linha"><span class="rot">Proficiências:</span> Clava de pedra 4 (7/20), Punhos 3 (6/18, Seize)</div>
+        <div class="linha"><span class="rot">Habilidades cruéis:</span> <em>Golpe Colossal</em>: gasta 2 Hate para que um acerto cause Ferimento automaticamente. <em>Agarrão</em>: ao acertar com os punhos, pode prender um herói em vez de causar dano; o preso precisa de ATHLETICS para escapar antes da próxima rodada de Kroga. <em>Pele de Pedra</em>: a Armour de Kroga conta em dobro contra ataques à distância.</div>
+        <div class="linha"><span class="rot">Fraqueza:</span> luz solar direta a petrifica instantaneamente, sem teste (ver ✕ Mecânica na cena 9).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="inset"><p><b>Escala por tamanho de Companhia:</b> com 3 heróis, Kroga luta sozinha; com 4 ou 5, se os batedores da cena 6 sobreviveram e fugiram, 1 a 2 deles reaparecem no meio do combate, apavorados demais para lutar direito (trate como Goblin Assustado com Parry −1).</p></div>
+  <div class="fim"></div>
+</section>
+
+<!-- ═══════════ GLOSSÁRIO ═══════════ -->
+<section id="glossario">
+  <div class="corrente"><span class="t">Glossário</span><span class="l"></span></div>
+  <h2>Termos usados neste guia</h2>
+  <div class="grid-2">
+    <table class="compacta">
+      <caption>Conceitos</caption>
+      <tbody>
+        <tr><td>Loremaster</td><td>quem narra (o Mestre)</td></tr>
+        <tr><td>Companhia</td><td>Company, o grupo de heróis</td></tr>
+        <tr><td>Esperança</td><td>Hope</td></tr>
+        <tr><td>Sombra</td><td>Shadow</td></tr>
+        <tr><td>Fadiga</td><td>Fatigue</td></tr>
+        <tr><td>Ferido</td><td>Wounded</td></tr>
+        <tr><td>Journey / Marching Test</td><td>viagem / teste de marcha</td></tr>
+        <tr><td>Council</td><td>conselho, cena social com Resistência</td></tr>
+        <tr><td>Fase da Companhia</td><td>Fellowship Phase</td></tr>
+      </tbody>
+    </table>
+    <table class="compacta">
+      <caption>Dados e perícias</caption>
+      <tbody>
+        <tr><td>Feat Die</td><td>d12 com Runa de Gandalf e Olho de Sauron</td></tr>
+        <tr><td>Success Die</td><td>d6; o 6 é um ícone de êxito</td></tr>
+        <tr><td>Favoured / Ill-favoured</td><td>dois Feat Dice, melhor / pior</td></tr>
+        <tr><td>(1d), (2d)</td><td>ganha ou perde Success Dice</td></tr>
+        <tr><td>Grande êxito</td><td>1 ícone; extraordinário, 2+</td></tr>
+        <tr><td>AWARENESS, ATHLETICS, HUNTING</td><td>Percepção, Atletismo, Caça</td></tr>
+        <tr><td>CRAFT, AWE, PERSUADE</td><td>Ofício, Temor, Persuadir</td></tr>
+        <tr><td>RIDDLE, LORE</td><td>Enigma, Tradição</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="fim"></div>
+  <p class="nota centro" style="padding-bottom:var(--sp-7)">Sombras de Eriador · aventura original de fã, sem fins comerciais. O Um Anel™ e The One Ring™ são marcas de Sophisticated Games e Free League Publishing. A Terra-média e as obras de J.R.R. Tolkien são de Middle-earth Enterprises.</p>
+</section>
+
+</article>
+</div>
+</body>
+</html>
