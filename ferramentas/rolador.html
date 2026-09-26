@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rolador de Dados · Sombras de Eriador</title>
+<meta name="description" content="Rolador de dados para O Um Anel 2ª edição: dado do Destino com runa de Gandalf e Olho de Sauron, dados de Sucesso com tengwar, Favorecido, Desfavorecido, Exausto, Miserável e Esperança.">
+<link rel="stylesheet" href="../assets/base.css">
+<script defer src="/assets/nav.js"></script>
+<style>
+/* ================================================================
+   ROLADOR · estilos próprios da ferramenta (tokens do base.css)
+   ================================================================ */
+.rol{display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); gap:var(--sp-6); align-items:start;}
+@media(max-width:900px){.rol{grid-template-columns:minmax(0,1fr);}}
+
+/* ---- Bandeja: a mesa escura onde os dados caem ---- */
+.bandeja{
+  position:relative; background:var(--night-900);
+  background-image:radial-gradient(ellipse at 50% 35%, rgba(46,55,68,.85) 0%, rgba(22,23,27,0) 70%);
+  border:1px solid var(--red-600); outline:1px solid var(--red-600); outline-offset:3px;
+  color:var(--text-on-dark); padding:var(--sp-6) var(--sp-5) var(--sp-5);
+  min-height:460px; display:flex; flex-direction:column;
+}
+.bandeja .resumo{font:var(--fw-mech) var(--size-mech-sm)/1.3 var(--font-mech); color:var(--mist-300); text-align:center; margin:0;}
+.bandeja .resumo b{color:var(--parchment-100); font-weight:var(--fw-mech-bold);}
+.mesa{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:var(--sp-5); padding:var(--sp-5) 0;}
+.linha-dados{display:flex; flex-wrap:wrap; justify-content:center; gap:var(--sp-3); min-height:64px; align-items:center;}
+.linha-dados.destino{gap:var(--sp-4);}
+.vazio{font:italic var(--fw-body) var(--size-body)/1.5 var(--font-body); color:var(--mist-300); text-align:center; max-width:34ch;}
+
+/* Dado do Destino: face pentagonal de um d12 */
+.d12{position:relative; width:78px; height:78px; display:inline-block;}
+.d12 svg{width:100%; height:100%; display:block; overflow:visible;}
+.d12 .face{fill:var(--parchment-100); stroke:var(--umber-500); stroke-width:2;}
+.d12 .aresta{fill:none; stroke:var(--parchment-500); stroke-width:1;}
+.d12 .n{font:600 26px/1 var(--font-mech); fill:var(--night-900);}
+.d12.runa .face{fill:var(--parchment-200); stroke:var(--umber-700); stroke-width:2.5;}
+.d12.runa .n{font:400 34px/1 var(--font-display); fill:var(--umber-700);}
+.d12.olho .face{fill:var(--red-600); stroke:var(--red-700);}
+.d12.olho .aresta{stroke:rgba(254,252,238,.25);}
+.d12.descartado{opacity:.28; transform:scale(.82);}
+.d12.descartado::after{content:""; position:absolute; left:8%; right:8%; top:50%; height:2px; background:var(--mist-300); transform:rotate(-24deg);}
+
+/* Dados de Sucesso: d6 */
+.d6{
+  width:50px; height:50px; display:inline-flex; align-items:center; justify-content:center;
+  background:var(--parchment-100); color:var(--night-900); border:1.5px solid var(--umber-500); border-radius:var(--radius-sm);
+  font:600 21px/1 var(--font-mech); position:relative;
+  box-shadow:inset 0 -3px 0 rgba(42,33,25,.12);
+}
+.d6.seis{background:var(--umber-700); color:var(--parchment-100); border-color:var(--umber-900); font:400 24px/1 var(--font-display);}
+.d6.seis::before{content:""; position:absolute; bottom:4px; right:4px; width:5px; height:5px; background:var(--red-400); transform:rotate(45deg);}
+.d6.anulado{background:transparent; color:var(--mist-400); border:1.5px dashed var(--mist-400); box-shadow:none;}
+.d6.anulado::after{content:"0"; position:absolute; right:-6px; bottom:-8px; font:600 11px/1 var(--font-mech); background:var(--night-700); color:var(--mist-300); padding:2px 4px;}
+
+/* Movimento: só quando a pessoa rola */
+@keyframes rolar{
+  0%{transform:translate(0,-18px) rotate(-40deg); opacity:.2;}
+  60%{transform:translate(0,3px) rotate(8deg); opacity:1;}
+  100%{transform:none;}
+}
+.caindo{animation:rolar .5s var(--ease) both;}
+@media (prefers-reduced-motion:reduce){.caindo{animation:none;}}
+
+/* Veredito */
+.veredito{text-align:center; border-top:1px solid rgba(254,252,238,.14); padding-top:var(--sp-4); min-height:112px;}
+.veredito .v{font:var(--fw-display) clamp(30px,4.4vw,44px)/1.05 var(--font-display); color:var(--parchment-100); margin:0;}
+.veredito .v.falha{color:var(--mist-300);}
+.veredito .v.grande,.veredito .v.extra{color:var(--red-400);}
+.veredito .conta{font:var(--fw-mech) var(--size-mech)/1.4 var(--font-mech); color:var(--mist-300); margin:var(--sp-2) 0 0;}
+.veredito .conta b{color:var(--parchment-100); font-weight:var(--fw-mech-bold); font-size:1.25em;}
+.veredito .marcas{display:flex; flex-wrap:wrap; gap:var(--sp-2); justify-content:center; margin-top:var(--sp-3);}
+.veredito .marcas span{font:var(--fw-mech-bold) var(--size-caption)/1 var(--font-mech); letter-spacing:.06em; padding:5px 9px; border:1px solid rgba(254,252,238,.25); color:var(--parchment-100);}
+.veredito .marcas span.olho{background:var(--red-600); border-color:var(--red-600);}
+.veredito .marcas span.runa{border-color:var(--parchment-500); color:var(--parchment-500);}
+
+.acoes{display:flex; gap:var(--sp-3); justify-content:center; flex-wrap:wrap; margin-top:var(--sp-5);}
+.acoes .btn-primary{font-size:var(--size-mech); padding:16px 34px;}
+.atalho{font:var(--fw-mech) var(--size-caption)/1 var(--font-mech); color:var(--mist-400); text-align:center; margin:var(--sp-3) 0 0;}
+@media (hover:none){.atalho{display:none;}}
+.atalho kbd{font:inherit; border:1px solid var(--mist-400); padding:1px 5px;}
+
+/* ---- Painel de controle no formato da ficha ---- */
+.painel.ficha{margin:0; padding:var(--sp-4) var(--sp-5) var(--sp-5);}
+.painel .ficha-sec:first-child{margin-top:0;}
+.ctl{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:var(--sp-2) var(--sp-3); padding:var(--sp-2) 0; border-bottom:1px solid var(--parchment-400);}
+.ctl:last-child{border-bottom:0;}
+.ctl .rot{flex:1 1 180px; min-width:0; font:var(--fw-bold) var(--size-body-sm)/1.25 var(--font-body); color:var(--umber-900);}
+.ctl .rot small{display:block; font:italic var(--fw-body) var(--size-caption)/1.35 var(--font-body); color:var(--text-muted); margin-top:2px;}
+
+/* Caixinhas de perícia clicáveis, como na ficha */
+.caixas{display:inline-flex; gap:5px;}
+.caixas button{width:22px; height:22px; border:1.5px solid var(--red-500); background:transparent; padding:0; cursor:pointer;}
+.caixas button.on{background:var(--red-500);}
+.caixas button:hover{background:rgba(188,40,56,.25);}
+.caixas button.on:hover{background:var(--red-700);}
+.zero{font:var(--fw-mech-bold) var(--size-caption)/1 var(--font-mech); letter-spacing:.06em; color:var(--red-600); background:none; border:0; cursor:pointer; padding:4px; margin-right:2px;}
+
+/* Passo numérico com losango */
+.passo{display:inline-flex; align-items:center; gap:var(--sp-1);}
+.passo button{width:30px; height:30px; border:1px solid var(--umber-500); background:var(--parchment-100); color:var(--umber-900); font:600 18px/1 var(--font-mech); cursor:pointer;}
+.passo button:hover{background:var(--parchment-300);}
+.passo .losango{width:52px; height:52px; font-size:19px;}
+.chips{display:grid; grid-template-columns:repeat(3,1fr); gap:4px; margin-top:var(--sp-2);}
+.chips button{font:var(--fw-mech-bold) var(--size-caption)/1 var(--font-mech); padding:5px 8px; border:1px solid var(--umber-300); background:transparent; color:var(--umber-700); cursor:pointer;}
+.chips button.on{background:var(--umber-700); color:var(--parchment-100); border-color:var(--umber-700);}
+
+/* Seletor em três posições */
+.seg{display:inline-flex; border:1px solid var(--umber-500);}
+.seg button{font:var(--fw-mech-bold) var(--size-caption)/1 var(--font-mech); letter-spacing:.04em; padding:8px 10px; background:transparent; border:0; border-left:1px solid var(--umber-300); color:var(--umber-700); cursor:pointer;}
+.seg button:first-child{border-left:0;}
+.seg button[aria-pressed="true"]{background:var(--red-600); color:var(--parchment-100);}
+
+/* Interruptor */
+.chave{position:relative; width:46px; height:26px; flex:0 0 46px; border:1.5px solid var(--umber-500); background:var(--parchment-300); cursor:pointer; padding:0;}
+.chave::after{content:""; position:absolute; top:3px; left:3px; width:16px; height:16px; background:var(--umber-500); transform:rotate(45deg) scale(.8); transition:left var(--dur-base) var(--ease), background var(--dur-base) var(--ease);}
+.chave[aria-pressed="true"]{background:var(--red-600); border-color:var(--red-700);}
+.chave[aria-pressed="true"]::after{left:23px; background:var(--parchment-100);}
+.chave:disabled{opacity:.35; cursor:not-allowed;}
+.ctl.inativo .rot{opacity:.45;}
+
+.painel button:focus-visible,.acoes button:focus-visible{outline:2px solid var(--red-400); outline-offset:2px;}
+
+/* ---- Histórico ---- */
+.historico td,.historico th{white-space:nowrap;}
+.historico td.res{font-family:var(--font-body); font-style:italic;}
+.historico td.res.ok{color:var(--moss-600);}
+.historico td.res.grande,.historico td.res.extra{color:var(--red-600); font-style:normal; font-weight:var(--fw-bold);}
+.historico td.res.falha{color:var(--text-muted);}
+.hist-vazio{font-style:italic; color:var(--text-muted);}
+
+/* ---- Leitura dos dados ---- */
+.leitura{display:grid; grid-template-columns:repeat(4,1fr); gap:var(--sp-5);}
+@media(max-width:900px){.leitura{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.leitura{grid-template-columns:1fr;}}
+.leitura .item{display:flex; flex-direction:column; align-items:flex-start; gap:var(--sp-3);}
+.leitura .item p{margin:0; font-size:var(--size-body-sm);}
+.leitura .d12{width:58px; height:58px;}
+.leitura .d6{width:44px; height:44px;}
+.leitura h4{margin:0;}
+
+@media(max-width:560px){
+  .bandeja{padding:var(--sp-5) var(--sp-3) var(--sp-4); min-height:400px;}
+  .d12{width:66px; height:66px;}
+  .d6{width:42px; height:42px; font-size:18px;}
+  .painel.ficha{padding:var(--sp-3) var(--sp-4) var(--sp-4);}
+  .seg button{padding:8px 7px;}
+  .caixas{gap:4px;} .caixas button{width:20px; height:20px;}
+  .acoes .btn{width:100%; justify-content:center; white-space:normal; text-align:center; line-height:1.3;}
+}
+</style>
+</head>
+<body>
+<div class="pergaminho com-vinhas">
+<div class="banda com-emblema"><span class="capitulo">Ferramentas</span></div>
+
+<main>
+
+<section class="faixa">
+  <div class="titulo-livro" style="margin-top:var(--sp-5)">
+    <span class="capitulo">Mesa do Loremaster</span>
+    <h1>Rolador de Dados</h1>
+    <p class="lema">Um dado de doze faces, alguns de seis, e a Sombra sempre por perto.</p>
+  </div>
+
+  <div class="rol">
+
+    <!-- ═══════════ BANDEJA ═══════════ -->
+    <div class="bandeja">
+      <p class="resumo" id="resumo"></p>
+
+      <div class="mesa">
+        <div class="linha-dados destino" id="zonaDestino"></div>
+        <div class="linha-dados" id="zonaSucesso">
+          <p class="vazio">Ajuste o teste ao lado e role. O resultado aparece aqui.</p>
+        </div>
+      </div>
+
+      <div class="veredito" id="veredito" aria-live="polite"></div>
+
+      <div class="acoes">
+        <button class="btn btn-primary" id="btnRolar" type="button">Rolar o teste</button>
+        <button class="btn btn-claro btn-sm" id="btnDestino" type="button">Rolar só o dado do Destino</button>
+      </div>
+      <p class="atalho">Atalho: <kbd>R</kbd> rola o teste, <kbd>D</kbd> rola só o dado do Destino</p>
+    </div>
+
+    <!-- ═══════════ PAINEL ═══════════ -->
+    <div class="painel ficha">
+
+      <div class="ficha-sec"><span>O teste</span></div>
+
+      <div class="ctl">
+        <div class="rot">Nível da perícia<small>Um dado de Sucesso por caixinha marcada</small></div>
+        <div style="display:flex; align-items:center;">
+          <button class="zero" id="zeroPericia" type="button" aria-label="Sem perícia">0</button>
+          <div class="caixas" id="caixas" role="group" aria-label="Nível da perícia"></div>
+        </div>
+      </div>
+
+      <div class="ctl" style="align-items:flex-start;">
+        <div class="rot">Número-Alvo<small>O NA do atributo na ficha, ou o que o Loremaster definir</small></div>
+        <div>
+          <div class="passo">
+            <button type="button" id="naMenos" aria-label="Diminuir Número-Alvo">&minus;</button>
+            <span class="losango" id="naValor" aria-live="polite">14</span>
+            <button type="button" id="naMais" aria-label="Aumentar Número-Alvo">+</button>
+          </div>
+          <div class="chips" id="naChips"></div>
+        </div>
+      </div>
+
+      <div class="ctl">
+        <div class="rot">Dados de bônus<small>Dados de Sucesso somados ou retirados</small></div>
+        <div class="passo">
+          <button type="button" id="bonusMenos" aria-label="Menos um dado">&minus;</button>
+          <span class="losango pequeno" id="bonusValor">0</span>
+          <button type="button" id="bonusMais" aria-label="Mais um dado">+</button>
+        </div>
+      </div>
+
+      <div class="ficha-sec"><span>O dado do Destino</span></div>
+
+      <div class="ctl">
+        <div class="rot">Condição</div>
+        <div class="seg" id="segDestino" role="group" aria-label="Condição do dado do Destino">
+          <button type="button" data-v="normal">Normal</button>
+          <button type="button" data-v="fav">Favorecido</button>
+          <button type="button" data-v="desfav">Desfavorecido</button>
+        </div>
+      </div>
+
+      <div class="ctl">
+        <div class="rot">Rolagem de adversário<small>O Loremaster rola: o Olho vira o melhor resultado e a runa vale zero</small></div>
+        <button class="chave" type="button" id="chAdversario" aria-pressed="false" aria-label="Rolagem de adversário"></button>
+      </div>
+
+      <div class="ficha-sec"><span>Esperança</span></div>
+
+      <div class="ctl" id="ctlEsperanca">
+        <div class="rot">Gastar 1 ponto de Esperança<small>Soma um dado de Sucesso ao teste</small></div>
+        <button class="chave" type="button" id="chEsperanca" aria-pressed="false" aria-label="Gastar Esperança"></button>
+      </div>
+      <div class="ctl" id="ctlInspirado">
+        <div class="rot">Inspirado<small>A Esperança gasta rende um dado a mais</small></div>
+        <button class="chave" type="button" id="chInspirado" aria-pressed="false" aria-label="Inspirado"></button>
+      </div>
+
+      <div class="ficha-sec"><span>Estado do herói</span></div>
+
+      <div class="ctl">
+        <div class="rot">Exausto<small>Dados de Sucesso com 1, 2 ou 3 valem zero</small></div>
+        <button class="chave" type="button" id="chExausto" aria-pressed="false" aria-label="Exausto"></button>
+      </div>
+      <div class="ctl" id="ctlMiseravel">
+        <div class="rot">Miserável<small>O Olho de Sauron no dado do Destino é falha, qualquer que seja o total</small></div>
+        <button class="chave" type="button" id="chMiseravel" aria-pressed="false" aria-label="Miserável"></button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HISTÓRICO ═══════════ -->
+<section class="faixa" style="padding-top:0;">
+  <div class="cab"><div><span class="eyebrow">Nesta sessão</span><h2>Rolagens recentes</h2></div><span class="l"></span></div>
+  <div style="overflow-x:auto;">
+    <table class="historico">
+      <thead><tr><th>Hora</th><th>Teste</th><th>Destino</th><th>Sucesso</th><th>Total</th><th>Resultado</th></tr></thead>
+      <tbody id="histCorpo"><tr><td colspan="6" class="hist-vazio">Nenhuma rolagem ainda.</td></tr></tbody>
+    </table>
+  </div>
+  <p class="centro mt-5"><button class="btn btn-ghost btn-sm" type="button" id="btnLimpar">Limpar histórico</button></p>
+</section>
+
+<!-- ═══════════ LEITURA ═══════════ -->
+<section class="faixa" style="padding-top:0;">
+  <div class="cab"><div><span class="eyebrow">Na mesa</span><h2>Como ler os dados</h2></div><span class="l"></span></div>
+  <div class="leitura" id="leitura"></div>
+  <p class="nota mt-5" style="max-width:var(--measure-body)">O rolador segue o procedimento de teste de O Um Anel 2ª edição. As regras completas, com as situações em que cada condição se aplica, estão no livro básico e no Starter Set. Para uma visão geral do jogo, veja <a href="../regras.html">O Sistema</a>.</p>
+</section>
+
+</main>
+
+<footer class="rodape">
+  <div class="r-in">
+    <div><h4>Sombras de Eriador</h4><p>Material de fã para O Um Anel 2ª edição, em português. Aventuras, heróis, lugares e ferramentas para o Loremaster.</p></div>
+    <div><h4>Navegação</h4><a href="../index.html">Início</a><a href="../index.html#ferramentas-sec">Ferramentas</a><a href="../regras.html">O Sistema</a></div>
+    <div><h4>Repositório</h4><a href="https://github.com/glebeduarte/umanelrpg">GitHub</a></div>
+    <div class="legal">Projeto fan-made, sem fins comerciais. O Um Anel™ e The One Ring™ são marcas de Sophisticated Games e Free League Publishing. A Terra-média e obras de J.R.R. Tolkien são de Middle-earth Enterprises. Este site não reproduz regras, textos ou artes dos livros oficiais.</div>
+  </div>
+</footer>
+</div>
+
+<script>
+(function () {
+  /* ---------------- Estado ---------------- */
+  var CHAVE = 'sde-rolador-v1';
+  var padrao = { pericia: 2, na: 14, bonus: 0, destino: 'normal', adversario: false, esperanca: false, inspirado: false, exausto: false, miseravel: false };
+  var est = Object.assign({}, padrao);
+  var historico = [];
+  try {
+    var salvo = JSON.parse(localStorage.getItem(CHAVE) || 'null');
+    if (salvo && salvo.est) est = Object.assign({}, padrao, salvo.est);
+    if (salvo && Array.isArray(salvo.hist)) historico = salvo.hist.slice(0, 12);
+  } catch (e) {}
+  function salvar() { try { localStorage.setItem(CHAVE, JSON.stringify({ est: est, hist: historico })); } catch (e) {} }
+
+  var $ = function (id) { return document.getElementById(id); };
+  var NAS = [10, 12, 14, 16, 18, 20];
+
+  /* ---------------- Aleatoriedade ---------------- */
+  function rnd(n) {
+    var a = new Uint32Array(1), lim = Math.floor(4294967296 / n) * n, x;
+    do { crypto.getRandomValues(a); x = a[0]; } while (x >= lim);
+    return x % n + 1;
+  }
+  /* d12: 1–10, 11 = runa de Gandalf, 12 = Olho de Sauron */
+  function rolaDestino() { var v = rnd(12); return v === 11 ? 'runa' : v === 12 ? 'olho' : v; }
+
+  /* ---------------- Desenho dos dados ---------------- */
+  function pent(cx, cy, r) {
+    var p = [];
+    for (var i = 0; i < 5; i++) { var a = -Math.PI / 2 + i * 2 * Math.PI / 5; p.push((cx + r * Math.cos(a)).toFixed(1) + ',' + (cy + r * Math.sin(a)).toFixed(1)); }
+    return p;
+  }
+  var OUT = pent(50, 53, 47), IN = pent(50, 53, 30);
+  function d12Html(face, extra) {
+    var cls = 'd12' + (face === 'runa' ? ' runa' : face === 'olho' ? ' olho' : '') + (extra ? ' ' + extra : '');
+    var arestas = OUT.map(function (p, i) { return '<line class="aresta" x1="' + p.split(',')[0] + '" y1="' + p.split(',')[1] + '" x2="' + IN[i].split(',')[0] + '" y2="' + IN[i].split(',')[1] + '"/>'; }).join('');
+    var miolo;
+    if (face === 'olho') {
+      miolo = '<path d="M26 55 Q50 34 74 55 Q50 76 26 55 Z" fill="#fefcee"/>' +
+              '<ellipse cx="50" cy="55" rx="4.2" ry="11" fill="#16171b"/>' +
+              '<path d="M26 55 Q50 34 74 55" fill="none" stroke="#933937" stroke-width="1.5"/>';
+    } else if (face === 'runa') {
+      miolo = '<text class="n" x="50" y="59" text-anchor="middle" dominant-baseline="middle">G</text>';
+    } else {
+      miolo = '<text class="n" x="50" y="56" text-anchor="middle" dominant-baseline="middle">' + face + '</text>';
+    }
+    var rot = face === 'runa' ? 'runa de Gandalf' : face === 'olho' ? 'Olho de Sauron' : String(face);
+    return '<span class="' + cls + '" role="img" aria-label="Dado do Destino: ' + rot + '"><svg viewBox="0 0 100 100">' +
+      '<polygon class="face" points="' + OUT.join(' ') + '"/>' + arestas +
+      '<polygon class="aresta" points="' + IN.join(' ') + '"/>' + miolo + '</svg></span>';
+  }
+  function d6Html(v, anulado, extra) {
+    var cls = 'd6' + (v === 6 ? ' seis' : '') + (anulado ? ' anulado' : '') + (extra ? ' ' + extra : '');
+    var rot = v === 6 ? '6, tengwar' : String(v) + (anulado ? ', vale zero' : '');
+    return '<span class="' + cls + '" role="img" aria-label="Dado de Sucesso: ' + rot + '">' + v + '</span>';
+  }
+
+  /* ---------------- Regras do teste ---------------- */
+  function numDados() {
+    var n = est.pericia + est.bonus;
+    if (!est.adversario && est.esperanca) n += est.inspirado ? 2 : 1;
+    return Math.max(0, n);
+  }
+  function posto(face) { // ordem do melhor para o pior
+    if (est.adversario) return face === 'olho' ? 11 : face === 'runa' ? 0 : face;
+    return face === 'runa' ? 11 : face === 'olho' ? 0 : face;
+  }
+  function valorDestino(face) {
+    if (typeof face === 'number') return face;
+    return 0; // runa e Olho não somam: um é sucesso automático, o outro vale zero
+  }
+  function autoSucesso(face) { return est.adversario ? face === 'olho' : face === 'runa'; }
+
+  function testar() {
+    var faces = [rolaDestino()];
+    var cond = est.destino;
+    if (cond !== 'normal') faces.push(rolaDestino());
+    var mantido = 0;
+    if (faces.length === 2) {
+      var a = posto(faces[0]), b = posto(faces[1]);
+      mantido = cond === 'fav' ? (b > a ? 1 : 0) : (b < a ? 1 : 0);
+    }
+    var destino = faces[mantido];
+    var n = numDados(), dados = [];
+    for (var i = 0; i < n; i++) dados.push(rnd(6));
+    var anulados = dados.map(function (d) { return est.exausto && d <= 3; });
+    var somaSucesso = dados.reduce(function (s, d, i) { return s + (anulados[i] ? 0 : d); }, 0);
+    var total = valorDestino(destino) + somaSucesso;
+    var tengwar = dados.filter(function (d) { return d === 6; }).length;
+
+    var auto = autoSucesso(destino);
+    var falhaMiseravel = !est.adversario && est.miseravel && destino === 'olho';
+    var sucesso = !falhaMiseravel && (auto || total >= est.na);
+    var grau = !sucesso ? 'falha' : tengwar >= 2 ? 'extra' : tengwar === 1 ? 'grande' : 'ok';
+
+    return { tipo: 'teste', faces: faces, mantido: mantido, destino: destino, dados: dados, anulados: anulados,
+             total: total, na: est.na, tengwar: tengwar, auto: auto, falhaMiseravel: falhaMiseravel, grau: grau, n: n };
+  }
+
+  var NOME_GRAU = { falha: 'Falha', ok: 'Sucesso', grande: 'Grande sucesso', extra: 'Sucesso extraordinário' };
+
+  /* ---------------- Tela ---------------- */
+  function rotDestino(f) { return f === 'runa' ? 'runa' : f === 'olho' ? 'Olho' : String(f); }
+
+  function mostrar(r, animar) {
+    var cai = animar ? ' caindo' : '';
+    var zD = $('zonaDestino'), zS = $('zonaSucesso'), v = $('veredito');
+    zD.innerHTML = r.faces.map(function (f, i) {
+      var desc = r.faces.length === 2 && i !== r.mantido ? 'descartado' : '';
+      return d12Html(f, (desc + cai).trim());
+    }).join('');
+    if (r.tipo === 'destino') {
+      zS.innerHTML = '';
+    } else if (!r.dados.length) {
+      zS.innerHTML = '<p class="vazio" style="font-size:var(--size-body-sm)">Nenhum dado de Sucesso: só o dado do Destino conta.</p>';
+    } else {
+      zS.innerHTML = r.dados.map(function (d, i) { return d6Html(d, r.anulados[i], cai.trim()); }).join('');
+      if (animar) Array.prototype.forEach.call(zS.children, function (el, i) { el.style.animationDelay = (80 + i * 55) + 'ms'; });
+    }
+
+    var marcas = [];
+    if (r.tipo === 'destino') {
+      var nome = r.destino === 'runa' ? 'Runa de Gandalf' : r.destino === 'olho' ? 'Olho de Sauron' : String(r.destino);
+      v.innerHTML = '<p class="v">' + nome + '</p><p class="conta">Dado do Destino rolado sozinho' +
+        (r.faces.length === 2 ? ', ' + (r.cond === 'fav' ? 'favorecido' : 'desfavorecido') : '') + '.</p>';
+      return;
+    }
+    if (r.destino === 'runa') marcas.push('<span class="runa">' + (r.adv ? 'Runa de Gandalf: vale zero' : 'Runa de Gandalf: sucesso automático') + '</span>');
+    if (r.destino === 'olho') marcas.push('<span class="olho">' + (r.adv ? 'Olho de Sauron: sucesso automático' : r.falhaMiseravel ? 'Olho de Sauron: falha por Miserável' : 'Olho de Sauron: vale zero') + '</span>');
+    if (r.tengwar) marcas.push('<span>' + r.tengwar + (r.tengwar === 1 ? ' tengwar' : ' tengwar') + '</span>');
+    var anul = r.anulados.filter(Boolean).length;
+    if (anul) marcas.push('<span>' + anul + (anul === 1 ? ' dado anulado' : ' dados anulados') + ' por Exausto</span>');
+
+    v.innerHTML = '<p class="v ' + r.grau + '">' + NOME_GRAU[r.grau] + '</p>' +
+      '<p class="conta">Total <b>' + r.total + '</b> contra Número-Alvo ' + r.na + '</p>' +
+      (marcas.length ? '<div class="marcas">' + marcas.join('') + '</div>' : '');
+  }
+
+  function registrar(r) {
+    var h = new Date();
+    historico.unshift({
+      hora: String(h.getHours()).padStart(2, '0') + ':' + String(h.getMinutes()).padStart(2, '0'),
+      teste: r.tipo === 'destino' ? 'Só o Destino' : r.n + 'd, NA ' + r.na,
+      destino: r.faces.map(rotDestino).join(' / ') + (r.faces.length === 2 ? ' (' + rotDestino(r.destino) + ')' : ''),
+      sucesso: r.tipo === 'destino' ? '' : r.dados.join(' '),
+      total: r.tipo === 'destino' ? '' : r.total,
+      grau: r.tipo === 'destino' ? '' : r.grau
+    });
+    historico = historico.slice(0, 12);
+    salvar();
+    desenharHistorico();
+  }
+  function desenharHistorico() {
+    var c = $('histCorpo');
+    if (!historico.length) { c.innerHTML = '<tr><td colspan="6" class="hist-vazio">Nenhuma rolagem ainda.</td></tr>'; return; }
+    c.innerHTML = historico.map(function (x) {
+      return '<tr><td>' + x.hora + '</td><td>' + x.teste + '</td><td>' + x.destino + '</td><td>' + x.sucesso + '</td><td>' + x.total +
+        '</td><td class="res ' + x.grau + '">' + (x.grau ? NOME_GRAU[x.grau] : '') + '</td></tr>';
+    }).join('');
+  }
+
+  /* Embaralha as faces por um instante antes de assentar */
+  var reduzir = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function lancar(r) {
+    r.adv = est.adversario; r.cond = est.destino;
+    if (reduzir) { mostrar(r, false); registrar(r); return; }
+    var passos = 5, k = 0;
+    $('btnRolar').disabled = true; $('btnDestino').disabled = true;
+    var t = setInterval(function () {
+      k++;
+      if (k < passos) {
+        var falso = { tipo: r.tipo, faces: r.faces.map(rolaDestino), mantido: -1, dados: r.dados ? r.dados.map(function () { return rnd(6); }) : [], anulados: [] };
+        $('zonaDestino').innerHTML = falso.faces.map(function (f) { return d12Html(f, ''); }).join('');
+        if (r.tipo !== 'destino' && falso.dados.length) $('zonaSucesso').innerHTML = falso.dados.map(function (d) { return d6Html(d, false, ''); }).join('');
+        $('veredito').innerHTML = '';
+      } else {
+        clearInterval(t);
+        mostrar(r, true); registrar(r);
+        $('btnRolar').disabled = false; $('btnDestino').disabled = false;
+      }
+    }, 55);
+  }
+
+  function rolarTeste() { lancar(testar()); }
+  function rolarDestino() {
+    var faces = [rolaDestino()], m = 0;
+    if (est.destino !== 'normal') {
+      faces.push(rolaDestino());
+      var a = posto(faces[0]), b = posto(faces[1]);
+      m = est.destino === 'fav' ? (b > a ? 1 : 0) : (b < a ? 1 : 0);
+    }
+    lancar({ tipo: 'destino', faces: faces, mantido: m, destino: faces[m], dados: [], anulados: [] });
+  }
+
+  /* ---------------- Controles ---------------- */
+  function resumo() {
+    var n = numDados();
+    var partes = ['<b>' + n + (n === 1 ? ' dado' : ' dados') + ' de Sucesso</b>', 'NA <b>' + est.na + '</b>'];
+    if (est.destino === 'fav') partes.push('Favorecido');
+    if (est.destino === 'desfav') partes.push('Desfavorecido');
+    if (est.adversario) partes.push('Adversário');
+    if (!est.adversario && est.esperanca) partes.push(est.inspirado ? 'Esperança inspirada' : 'Esperança gasta');
+    if (est.exausto) partes.push('Exausto');
+    if (!est.adversario && est.miseravel) partes.push('Miserável');
+    $('resumo').innerHTML = partes.join(', ');
+  }
+
+  function sincronizar() {
+    Array.prototype.forEach.call($('caixas').children, function (b, i) {
+      b.classList.toggle('on', i < est.pericia);
+      b.setAttribute('aria-pressed', i < est.pericia ? 'true' : 'false');
+    });
+    $('naValor').textContent = est.na;
+    Array.prototype.forEach.call($('naChips').children, function (b) { b.classList.toggle('on', +b.dataset.v === est.na); });
+    $('bonusValor').textContent = (est.bonus > 0 ? '+' : '') + est.bonus;
+    Array.prototype.forEach.call($('segDestino').children, function (b) { b.setAttribute('aria-pressed', b.dataset.v === est.destino ? 'true' : 'false'); });
+    [['chAdversario', 'adversario'], ['chEsperanca', 'esperanca'], ['chInspirado', 'inspirado'], ['chExausto', 'exausto'], ['chMiseravel', 'miseravel']]
+      .forEach(function (p) { $(p[0]).setAttribute('aria-pressed', est[p[1]] ? 'true' : 'false'); });
+    var adv = est.adversario;
+    $('chEsperanca').disabled = adv; $('chMiseravel').disabled = adv;
+    $('chInspirado').disabled = adv || !est.esperanca;
+    $('ctlEsperanca').classList.toggle('inativo', adv);
+    $('ctlMiseravel').classList.toggle('inativo', adv);
+    $('ctlInspirado').classList.toggle('inativo', adv || !est.esperanca);
+    resumo(); salvar();
+  }
+
+  // caixinhas de perícia
+  for (var i = 1; i <= 6; i++) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.setAttribute('aria-label', 'Nível ' + i); b.dataset.v = i;
+    b.addEventListener('click', function () { var v = +this.dataset.v; est.pericia = est.pericia === v ? v - 1 : v; sincronizar(); });
+    $('caixas').appendChild(b);
+  }
+  $('zeroPericia').addEventListener('click', function () { est.pericia = 0; sincronizar(); });
+
+  // Número-Alvo
+  NAS.forEach(function (n) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.textContent = n; b.dataset.v = n;
+    b.addEventListener('click', function () { est.na = n; sincronizar(); });
+    $('naChips').appendChild(b);
+  });
+  $('naMenos').addEventListener('click', function () { est.na = Math.max(1, est.na - 1); sincronizar(); });
+  $('naMais').addEventListener('click', function () { est.na = Math.min(30, est.na + 1); sincronizar(); });
+
+  // bônus
+  $('bonusMenos').addEventListener('click', function () { est.bonus = Math.max(-6, est.bonus - 1); sincronizar(); });
+  $('bonusMais').addEventListener('click', function () { est.bonus = Math.min(6, est.bonus + 1); sincronizar(); });
+
+  // dado do Destino
+  Array.prototype.forEach.call($('segDestino').children, function (b) {
+    b.addEventListener('click', function () { est.destino = this.dataset.v; sincronizar(); });
+  });
+
+  // interruptores
+  [['chAdversario', 'adversario'], ['chEsperanca', 'esperanca'], ['chInspirado', 'inspirado'], ['chExausto', 'exausto'], ['chMiseravel', 'miseravel']]
+    .forEach(function (p) {
+      $(p[0]).addEventListener('click', function () {
+        est[p[1]] = !est[p[1]];
+        if (p[1] === 'esperanca' && !est.esperanca) est.inspirado = false;
+        sincronizar();
+      });
+    });
+
+  $('btnRolar').addEventListener('click', rolarTeste);
+  $('btnDestino').addEventListener('click', rolarDestino);
+  $('btnLimpar').addEventListener('click', function () { historico = []; salvar(); desenharHistorico(); });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    var t = e.target.tagName;
+    if (t === 'INPUT' || t === 'TEXTAREA') return;
+    if ((e.key === 'r' || e.key === 'R') && !$('btnRolar').disabled) { e.preventDefault(); rolarTeste(); }
+    if ((e.key === 'd' || e.key === 'D') && !$('btnDestino').disabled) { e.preventDefault(); rolarDestino(); }
+  });
+
+  /* ---------------- Legenda ---------------- */
+  $('leitura').innerHTML =
+    '<div class="item">' + d12Html('runa') + '<h4 class="vermelho">Runa de Gandalf</h4><p>No dado do Destino de um herói, sucesso automático, qualquer que seja o total. Na rolagem de um adversário, vale zero.</p></div>' +
+    '<div class="item">' + d12Html('olho') + '<h4 class="vermelho">Olho de Sauron</h4><p>No dado do Destino de um herói, vale zero, e se ele estiver Miserável, é falha. Na rolagem de um adversário, é o sucesso automático.</p></div>' +
+    '<div class="item"><div style="display:flex; gap:8px;">' + d6Html(6) + d6Html(6) + '</div><h4 class="vermelho">Tengwar</h4><p>O seis dos dados de Sucesso. Num teste bem-sucedido, uma tengwa eleva a Grande sucesso; duas ou mais, a Sucesso extraordinário.</p></div>' +
+    '<div class="item"><div style="display:flex; gap:8px;">' + d6Html(2, true) + d6Html(5) + '</div><h4 class="vermelho">Exausto</h4><p>Com o herói Exausto, os dados de Sucesso que mostram 1, 2 ou 3 não somam nada. O seis continua valendo como tengwa.</p></div>';
+
+  sincronizar();
+  desenharHistorico();
+})();
+</script>
+</body>
+</html>
