@@ -37,7 +37,7 @@
     }).join('');
     h.innerHTML =
       '<div class="g-in">' +
-        '<a href="/index.html" class="g-logo"><span>Sombras de Eriador</span></a>' +
+        '<a href="/index.html" class="g-logo"><img src="/assets/icon.svg" alt="" width="34" height="34"><span>Sombras de Eriador</span></a>' +
         '<button class="g-tog" type="button" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>' +
         '<nav class="g-menu" aria-label="Navegação principal">' + links + '</nav>' +
       '</div>';

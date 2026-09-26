@@ -630,6 +630,9 @@ table.rolagem tbody td:first-child{font-weight:var(--fw-mech-bold); color:var(--
 .rodape h4{color:var(--parchment-100); margin:0 0 var(--sp-3); font-family:var(--font-display); font-weight:var(--fw-display); letter-spacing:var(--ls-heading); text-transform:none; font-size:18px;}
 .rodape a{color:var(--mist-300); text-decoration:none; display:block; padding:3px 0; font:var(--fw-mech) var(--size-mech-sm)/1.4 var(--font-mech); letter-spacing:.04em;}
 .rodape a:hover{color:var(--parchment-100);}
+.rodape .r-logo{display:flex; align-items:center; gap:var(--sp-2); margin:0 0 var(--sp-3);}
+.rodape .r-logo img{width:28px; height:28px; flex:0 0 auto;}
+.rodape .r-logo h4{margin:0;}
 .rodape p{font-size:var(--size-body-sm); color:var(--mist-400); max-width:var(--measure-narrow);}
 .rodape .legal{grid-column:1/-1; border-top:1px solid rgba(254,252,238,.12); padding-top:var(--sp-4); font:var(--fw-body) var(--size-caption)/1.5 var(--font-mech); color:var(--mist-400);}
 @media(max-width:820px){.rodape .r-in{grid-template-columns:1fr;}}
