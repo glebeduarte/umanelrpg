@@ -6,27 +6,12 @@
 <title>Sombras de Eriador · O Um Anel 2ª edição em Português</title>
 <meta name="description" content="Aventuras, heróis, lugares e ferramentas para jogar O Um Anel 2ª edição em português. Material de fã para Mestres e jogadores.">
 <link rel="stylesheet" href="assets/base.css">
+<script defer src="/assets/nav.js"></script>
 </head>
 <body>
 <div class="pergaminho com-vinhas">
 
 <!-- ═══════════ TOPO ═══════════ -->
-<header class="gtopo" id="gtopo">
-  <div class="g-in">
-    <a href="index.html" class="g-logo">
-      <span>Sombras de Eriador</span>
-    </a>
-    <button class="g-tog" aria-label="Menu" onclick="document.getElementById('gtopo').classList.toggle('aberto')">&#9776;</button>
-    <nav class="g-menu">
-      <a href="#sistema">O sistema</a>
-      <a href="#aventuras">Aventuras</a>
-      <a href="regras.html">Regras</a>
-      <a href="#herois-sec">Heróis</a>
-      <a href="#lugares-sec">Lugares</a>
-      <a href="#ferramentas-sec">Ferramentas</a>
-    </nav>
-  </div>
-</header>
 
 <div class="banda escura"></div>
 
@@ -37,11 +22,11 @@
   <div class="hero-in">
     <div class="kick">O Um Anel 2ª edição · Aventuras na Terceira Era</div>
     <h1>Sombras<em>de Eriador</em></h1>
-    <p class="lede">O RPG oficial da Terra-média, em português e pronto para a mesa: aventuras completas, uma Companhia de heróis, lugares de Eriador e ferramentas para o Mestre. Reúna os companheiros, aceite o chamado e siga pela Estrada Leste.</p>
+    <p class="lede">Aventuras prontas, heróis pré-gerados, lugares detalhados e ferramentas de mesa para jogar O Um Anel em português. Reúna a Companhia, aceite o chamado, e siga pela Estrada Leste.</p>
     <div class="conta">
       <div><b>1</b><span>Aventura</span></div>
       <div><b>5</b><span>Heróis</span></div>
-      <div><b>6</b><span>Culturas</span></div>
+      <div><b>d12</b><span>Dado do Destino</span></div>
     </div>
   </div>
 </section>
@@ -50,91 +35,13 @@
 
 <main>
 
-<!-- ═══════════ O SISTEMA ═══════════ -->
-<section class="faixa" id="sistema">
+<!-- ═══════════ MANIFESTO ═══════════ -->
+<section class="faixa">
   <div style="max-width:var(--measure-body);">
     <p class="capitular" style="font-size:var(--size-body-lg); margin:0 0 var(--sp-3);">Você leu O Hobbit e O Senhor dos Anéis. Conhece a Estrada que segue sempre em frente, o Pônei Saltitante em Bri, as ruínas de Arnor sob a névoa. Agora é a sua vez de sentar à mesa e contar a sua parte da história.</p>
-    <p style="margin:0 0 var(--sp-3);">Este site reúne o que você precisa para jogar <strong>O Um Anel 2ª edição</strong> em português: aventuras completas, fichas de heróis prontos, uma referência rápida das regras e ferramentas para o Mestre. Cada aventura tem uma página de convite (sem spoilers, para mandar ao grupo) e o texto completo (só para o Mestre, que o jogo chama de Loremaster).</p>
+    <p style="margin:0 0 var(--sp-3);">Este site reúne o que você precisa para jogar O Um Anel 2ª edição em português: aventuras completas, fichas de heróis prontos, uma referência rápida das regras e ferramentas para o Mestre. Cada aventura tem uma página de convite (sem spoilers, para mandar ao grupo) e o texto completo (só para o Mestre).</p>
+    <p class="nota" style="margin:0;">Projeto fan-made, sem fins comerciais. O Um Anel™ e The One Ring™ são marcas de Sophisticated Games e Free League Publishing. Terra-média e obras de J.R.R. Tolkien são de Middle-earth Enterprises.</p>
   </div>
-
-  <div class="cab" style="margin-top:var(--sp-6);">
-    <div><span class="eyebrow">Antes de começar</span><h2>O que é O Um Anel</h2></div>
-    <span class="l"></span>
-  </div>
-  <div class="dupla" style="max-width:none;">
-    <p><em>The One Ring</em> é o RPG oficial de mesa da Terra-média. A segunda edição foi publicada em 2022 pela Free League, com design de Francesco Nepitello e Marco Maggi, os mesmos autores da primeira edição. O jogo se passa na Terceira Era, no intervalo entre O Hobbit e O Senhor dos Anéis: o ponto de partida padrão é o ano 2965, vinte e quatro anos depois de Bilbo voltar para casa e cinquenta e três antes de Frodo deixar o Condado. Smaug já caiu, mas o Inimigo ainda não se declarou. A Sombra cresce em silêncio, e é nesse silêncio que os heróis dos jogadores agem.</p>
-    <p>A região central desta edição é Eriador, o noroeste da Terra-média: o Condado, Bri, as ruínas do antigo reino de Arnor, as Colinas do Norte, os Ermos de Rhudaur. Terras que os livros atravessam rápido e que aqui viram cenário de campanha inteira. Os heróis vêm de seis culturas: Bardings do Vale, Anões do Povo de Durin, Elfos de Lindon, Hobbits do Condado, Homens de Bri e Guardiões do Norte, os Rangers de Aragorn.</p>
-  </div>
-
-  <div class="cab" style="margin-top:var(--sp-6);">
-    <div><span class="eyebrow">Por que jogar</span><h2>O que faz o sistema parecer Tolkien</h2></div>
-    <span class="l"></span>
-  </div>
-  <p class="sub">Muitos jogos deixam você jogar na Terra-média. Poucos fazem a mesa se comportar como um livro de Tolkien. O Um Anel foi construído em torno de cinco ideias.</p>
-
-  <div class="grid-3">
-    <div class="callout callout-regra">
-      <div class="callout-head"><span class="glyph">&#9670;</span><span class="label">Esperança e Sombra</span></div>
-      <div class="callout-body">
-        <p>Cada herói tem uma reserva de Esperança, que gasta para ir além do que consegue sozinho, e acumula pontos de Sombra ao encarar o horror, cobiçar tesouros ou cometer crueldades. Quando a Sombra alcança a Esperança, o herói fica Miserável e pode ter um surto de loucura. Não existe personagem intocável: a jornada cobra.</p>
-      </div>
-    </div>
-    <div class="callout callout-regra">
-      <div class="callout-head"><span class="glyph">&#9670;</span><span class="label">O dado do Destino</span></div>
-      <div class="callout-body">
-        <p>Todo teste rola um d12 especial e alguns d6. O d12 traz dois ícones no lugar de números: a runa de Gandalf, que é sucesso automático, e o Olho de Sauron, que vale zero. Nos d6, o 6 traz uma tengwar que mede o quanto você se saiu bem. Sorte e ameaça sempre estão na mesma rolagem.</p>
-      </div>
-    </div>
-    <div class="callout callout-regra">
-      <div class="callout-head"><span class="glyph">&#9670;</span><span class="label">Jornadas</span></div>
-      <div class="callout-body">
-        <p>Viajar é parte do jogo, não um corte de cena. A Companhia distribui papéis (Guia, Batedor, Caçador, Vigia), atravessa regiões com perigos próprios, acumula Fadiga e enfrenta eventos no caminho. A estrada até a aventura é tão importante quanto a aventura.</p>
-      </div>
-    </div>
-    <div class="callout callout-regra">
-      <div class="callout-head"><span class="glyph">&#9670;</span><span class="label">Conselhos</span></div>
-      <div class="callout-body">
-        <p>Convencer um rei, negociar com um hobbit desconfiado ou ganhar a ajuda de um mago tem regras próprias. Um Conselho tem introdução, rodadas de argumentos e um limite de paciência do outro lado. Falar bem pesa tanto quanto lutar bem, como nos livros.</p>
-      </div>
-    </div>
-    <div class="callout callout-regra">
-      <div class="callout-head"><span class="glyph">&#9670;</span><span class="label">Combate por posturas</span></div>
-      <div class="callout-body">
-        <p>Sem tabuleiro nem miniaturas. Cada herói escolhe uma postura (Avançada, Aberta, Defensiva ou Retaguarda) que define risco e alcance. Ferimentos são raros e sérios; a Fadiga e o cansaço derrubam antes da espada. O combate é curto, tenso e pouco heroico no sentido comum.</p>
-      </div>
-    </div>
-    <div class="callout callout-regra">
-      <div class="callout-head"><span class="glyph">&#9670;</span><span class="label">Fase da Companhia</span></div>
-      <div class="callout-body">
-        <p>Entre uma aventura e outra, o tempo passa. Os heróis voltam para casa, cuidam de um patrono, exploram um lugar seguro, se recuperam da Sombra. As campanhas se estendem por anos de calendário, e o mundo muda no ritmo dos anos, não das sessões.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="inset" style="max-width:var(--measure-body); margin-top:var(--sp-6);">
-    <p>O resultado é um jogo mais baixo e mais sombrio do que a fantasia comum. Os heróis não são aventureiros em busca de saque: são pessoas comuns das terras livres que decidiram não ficar em casa. A recompensa é proteger o que ainda pode ser protegido. O preço é o que a estrada tira de cada um.</p>
-  </div>
-
-  <div class="cab" style="margin-top:var(--sp-6);">
-    <div><span class="eyebrow">Como usar este site</span><h2>Por onde começar</h2></div>
-    <span class="l"></span>
-  </div>
-  <div class="grid-3">
-    <div>
-      <h4 class="vermelho">Se você vai mestrar</h4>
-      <p class="nota">Leia a <a href="regras.html">referência de regras</a>, abra o <a href="aventuras/over-hill-and-under-hill.html">Guia do Loremaster</a> da primeira aventura e mande o <a href="convite/over-hill-and-under-hill.html">convite</a> para o grupo. O guia é cena a cena, com testes, PNJs e adversários prontos.</p>
-    </div>
-    <div>
-      <h4 class="vermelho">Se você vai jogar</h4>
-      <p class="nota">Leia o convite da aventura que o Mestre escolheu, escolha um herói na <a href="herois/companhia-de-bree.html">Companhia de Bree</a> e não abra as páginas de Loremaster. Elas têm spoilers e existem para quem está do outro lado da mesa.</p>
-    </div>
-    <div>
-      <h4 class="vermelho">Se você só está curioso</h4>
-      <p class="nota">Comece pela seção de regras: em vinte minutos dá para entender o dado do Destino, Esperança e Sombra, e ter uma ideia de como uma sessão funciona. O site é gratuito e não substitui os livros da Free League.</p>
-    </div>
-  </div>
-
-  <p class="nota" style="margin:var(--sp-6) 0 0; max-width:var(--measure-body);">Projeto fan-made, sem fins comerciais. O Um Anel™ e The One Ring™ são marcas de Sophisticated Games e Free League Publishing. Terra-média e obras de J.R.R. Tolkien são de Middle-earth Enterprises.</p>
 </section>
 
 <!-- ═══════════ AVENTURAS ═══════════ -->
@@ -172,25 +79,25 @@
   </div>
 </section>
 
-<!-- ═══════════ REGRAS (TEASER) ═══════════ -->
+<!-- ═══════════ O SISTEMA (TEASER) ═══════════ -->
 <div class="banda"></div>
 <section class="faixa" id="regras-sec">
   <div class="destaque">
     <div class="art" style="background:linear-gradient(135deg,#5b5c33,#16171b);"></div>
     <div class="texto">
-      <div class="selo">Referência rápida</div>
-      <h3>Regras de O Um Anel</h3>
-      <p>O essencial para sentar à mesa sem ter lido o livro inteiro: o dado do Destino, dados de Sucesso, Esperança e Sombra, Jornadas, Conselhos e Combate.</p>
-      <a href="regras.html" class="btn btn-primary btn-cta">Abrir as regras</a>
+      <div class="selo">Para quem está chegando</div>
+      <h3>Como o jogo funciona</h3>
+      <p>Uma visão geral do que faz O Um Anel ser diferente: um dado que conta histórias, Esperança e Sombra, viagens que pesam, Conselhos tão tensos quanto combates. Sem regras detalhadas: para isso existe o livro, e a gente diz por onde começar.</p>
+      <a href="regras.html" class="btn btn-primary btn-cta">Conhecer o sistema</a>
     </div>
     <div class="painel">
-      <div class="rot">O essencial</div>
-      <div class="etapa"><b>1</b><span>Testes e o dado do Destino</span></div>
+      <div class="rot">O que você vai entender</div>
+      <div class="etapa"><b>1</b><span>O dado do Destino</span></div>
       <div class="etapa"><b>2</b><span>Esperança e Sombra</span></div>
-      <div class="etapa"><b>3</b><span>Jornadas</span></div>
-      <div class="etapa"><b>4</b><span>Conselhos</span></div>
-      <div class="etapa"><b>5</b><span>Combate</span></div>
-      <div class="etapa"><b>6</b><span>Fase da Companhia</span></div>
+      <div class="etapa"><b>3</b><span>Por que a viagem é o jogo</span></div>
+      <div class="etapa"><b>4</b><span>Conselhos e combate</span></div>
+      <div class="etapa"><b>5</b><span>A Fase da Companhia</span></div>
+      <div class="etapa"><b>§</b><span>Por onde começar a comprar</span></div>
     </div>
   </div>
 </section>
@@ -225,12 +132,12 @@
   <p class="sub">Os cenários das aventuras. Cada lugar com história, quem manda, o que se compra, o que se teme, mapas e ganchos para o Mestre.</p>
   <div class="estante">
     <a href="lugares/bri.html" class="card">
-      <div class="card-art" style="background-image:url('assets/env-bri.webp'), url('assets/cena-poneisaltitante.webp'), linear-gradient(160deg,#936e5f,#d8c9b6);"></div>
+      <div class="card-art" style="background-image:url('assets/map-bri.webp'); background-position:center 45%;"></div>
       <div class="card-body">
-        <div class="selo">Terra de Bri · Refúgio</div>
+        <div class="selo">Terra de Bri</div>
         <h3>Bri</h3>
-        <p>A vila na encruzilhada, onde a Estrada Leste cruza o Caminho Verde. Hobbits e Homens sob o mesmo teto, o Pônei Saltitante, e o ermo começando logo depois da cerca viva.</p>
-        <div class="fatos"><span>4 aldeias</span><span>7 personagens</span><span>Rumores e ganchos</span></div>
+        <p>A vila na encruzilhada, onde a Estrada Leste cruza a Estrada Verde. Hobbits e Homens sob o mesmo teto, e forasteiros demais no Pônei Saltitante.</p>
+        <div class="fatos"><span>Eriador</span><span>1 mapa</span></div>
       </div>
     </a>
   </div>

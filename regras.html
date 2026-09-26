@@ -3,591 +3,126 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Regras · Sombras de Eriador</title>
-<meta name="description" content="Referência das regras de O Um Anel 2ª edição em português: testes, Esperança e Sombra, combate, Conselhos, Jornadas e Fase da Companhia.">
+<title>O Sistema · Sombras de Eriador</title>
+<meta name="description" content="Uma visão geral de como O Um Anel 2ª edição funciona na mesa e por que vale a pena ter o livro. Sem regras detalhadas: para isso existe o livro.">
 <link rel="stylesheet" href="assets/base.css">
-<link rel="stylesheet" href="assets/aventura.css">
+<script defer src="/assets/nav.js"></script>
 </head>
 <body>
-<div class="app">
+<div class="pergaminho com-vinhas">
+<div class="banda com-emblema"><span class="capitulo">O sistema</span></div>
 
-<!-- ═══════════ SUMÁRIO ═══════════ -->
-<aside class="sumario">
-  <div class="marca">
-    <span class="kick">Referência · Jogadores e Mestre</span>
-    <h1>Regras <span>O Um Anel 2ª edição</span></h1>
+<section class="hero">
+  <div class="hero-bg" style="background-image:url('assets/cover-regras.webp'), linear-gradient(135deg,#5b5c33 0%,#16171b 60%,#2e3744 140%);"></div>
+  <div class="hero-in">
+    <div class="kick">O Um Anel 2ª edição · Free League Publishing</div>
+    <h1>Como o jogo<em>funciona na mesa</em></h1>
+    <p class="lede">Uma visão geral para quem está decidindo se quer jogar. Não é um resumo das regras: é o que faz este sistema ser diferente de todos os outros RPGs de fantasia, contado por quem mestra.</p>
   </div>
-  <nav>
-    <a href="#jogo"><span class="n">1</span>Como o jogo funciona</a>
-    <a href="#testes"><span class="n">2</span>Testes</a>
-    <a href="#modificadores"><span class="n">3</span>Modificadores</a>
-    <a href="#heroi"><span class="n">4</span>O herói na ficha</a>
-    <a href="#estados"><span class="n">5</span>Estados e descanso</a>
-    <a href="#sombra"><span class="n">6</span>A Sombra</a>
-    <a href="#combate"><span class="n">7</span>Combate</a>
-    <a href="#conselho"><span class="n">8</span>Conselhos</a>
-    <a href="#jornada"><span class="n">9</span>Jornadas</a>
-    <a href="#companhia"><span class="n">10</span>Fase da Companhia</a>
-    <a href="#glossario"><span class="n">11</span>Glossário</a>
-  </nav>
-  <div class="voltar"><a href="index.html">← Sombras de Eriador</a></div>
-</aside>
+</section>
+<div class="banda"></div>
 
-<!-- ═══════════ LIVRO ═══════════ -->
-<article class="livro">
+<main>
 
-  <section class="capa">
-    <div class="capa-art" style="background-image:url('assets/cover-hero.webp'), linear-gradient(135deg,#2e3744,#16171b);"></div>
-    <div class="capa-inner">
-      <div class="selo">Referência rápida</div>
-      <h1>As Regras <em>O essencial para a mesa</em></h1>
-      <p class="tag">"O tabuleiro está posto, e as peças se movem." Tudo que jogadores e Mestre precisam saber para sentar à mesa, resumido dos livros da Free League.</p>
-      <div class="fichaje">
-        <div><b>d12 + Nd6</b>Dados</div>
-        <div><b>18</b>Perícias</div>
-        <div><b>4</b>Posturas</div>
-        <div><b>2 fases</b>Aventura e Companhia</div>
-      </div>
+<section class="faixa">
+  <div style="max-width:var(--measure-body)">
+    <p class="capitular" style="font-size:var(--size-body-lg)">O Um Anel não é um jogo sobre matar monstros e juntar tesouro. É um jogo sobre uma Companhia de gente comum que decide sair de casa numa época em que a Sombra está voltando, e sobre o preço que isso cobra. Cada regra do livro existe para servir a esse tom: a viagem cansa, o medo marca, a esperança acaba se você gastar demais, e o pouso no fim do ano é tão importante quanto a aventura.</p>
+    <p>Este site é material de apoio para quem já tem o livro ou está pensando em comprar. Aqui você encontra aventuras autorais, heróis, lugares e ferramentas. As regras completas, com todas as tabelas, culturas, virtudes e adversários, estão no livro básico e no Starter Set da Free League. Sem eles, nada daqui funciona, e é assim que deve ser.</p>
+  </div>
+</section>
+
+<section class="faixa">
+  <div class="cab"><div><span class="eyebrow">1</span><h2>Um dado que conta uma história</h2></div><span class="l"></span></div>
+  <div class="dupla">
+    <p>Toda ação incerta se resolve com um punhado de dados: um dado especial de doze faces, o <b>dado do Destino</b>, e alguns dados de seis faces, os <b>dados de Sucesso</b>, tantos quanto você é bom naquilo. Somou, comparou com a dificuldade, pronto. Simples de aprender numa sessão.</p>
+    <p>O detalhe que muda tudo está nas faces. O dado do Destino tem uma <b>runa de Gandalf</b>, que vira sucesso automático, e um <b>Olho de Sauron</b>, que vale nada. Os dados de Sucesso têm uma letra élfica no seis, e cada uma dessas letras eleva a qualidade do que aconteceu. Quando a sorte sorri, o jogo mostra na mão. Quando o Inimigo está perto, também.</p>
+  </div>
+  <p>
+    <span class="dado feat">12</span><span class="dado feat gandalf">G</span><span class="dado feat olho">◉</span>
+    <span class="dado sucesso">4</span><span class="dado sucesso seis">6</span><span class="dado sucesso miseravel">2</span>
+  </p>
+</section>
+
+<section class="faixa">
+  <div class="cab"><div><span class="eyebrow">2</span><h2>Esperança e Sombra</h2></div><span class="l"></span></div>
+  <div class="dupla">
+    <p>Cada herói tem uma reserva de <b>Esperança</b>. Gastar Esperança faz você tentar mais, ir além do que a perícia permite. Mas a Esperança não volta fácil: ela se recupera na companhia dos outros, na confiança da Companhia, nas pausas. Um herói que gasta tudo fica vazio, e o jogo tem um nome para isso.</p>
+    <p>Do outro lado está a <b>Sombra</b>. Ela cresce quando você vê coisas terríveis, quando faz coisas que não deveria, quando toca em segredos antigos. Quando a Sombra encontra a Esperança no meio do caminho, o herói está <b>Miserável</b>, e a partir daí qualquer erro pode virar uma crise. Cada cultura tem sua própria forma de sucumbir. É o coração emocional do sistema, e é o que faz uma campanha de O Um Anel parecer uma história de Tolkien em vez de uma sequência de combates.</p>
+  </div>
+</section>
+
+<section class="faixa">
+  <div class="destaque">
+    <div class="art" style="background:linear-gradient(135deg,#5b5c33,#16171b);"></div>
+    <div class="texto">
+      <div class="selo">O que o livro tem e este site não</div>
+      <h3>O jogo inteiro está no livro</h3>
+      <p>Seis culturas de herói, cada uma com virtudes, recompensas e bênçãos próprias. As tabelas de eventos de jornada. As regras completas de combate, Conselho, Fase da Companhia, Patronos, adversários e tesouros. Um capítulo inteiro sobre Eriador. Tudo ilustrado do jeito que você viu neste site.</p>
+      <a href="https://freeleaguepublishing.com/games/the-one-ring/" class="btn btn-primary btn-cta" target="_blank" rel="noopener">Ver na Free League</a>
     </div>
-  </section>
-
-  <!-- ═══════════ 1 · COMO O JOGO FUNCIONA ═══════════ -->
-  <section id="jogo">
-    <div class="corrente"><span class="t">1 · Como o jogo funciona</span><span class="l"></span></div>
-    <h2>A conversa na mesa</h2>
-    <p class="capitular">Uma sessão de O Um Anel é uma conversa contínua. O Loremaster (o Mestre) descreve uma situação, os jogadores dizem o que seus heróis fazem e como, e o Mestre decide se aquilo simplesmente acontece ou se pede uma rolagem. Não há turnos fora do combate: a cena avança no ritmo da conversa.</p>
-
-    <div class="inset"><p><b>Convenção de termos.</b> Perícias, papéis de viagem e nomes de dado ficam em inglês (TRAVEL, Guide, Feat Die), porque é assim que aparecem nas fichas que os jogadores têm nas mãos. Conceitos ganham tradução: Esperança (Hope), Sombra (Shadow), Fadiga (Fatigue), Ferido (Wounded). O <a href="#glossario">glossário</a> no fim lista tudo.</p></div>
-
-    <h3>Quem é quem</h3>
-    <p>Cada jogador controla um <b>herói</b> (Player-hero). Juntos, os heróis formam a <b>Companhia</b>. O <b>Loremaster</b> não tem herói: narra o cenário, interpreta todos os outros personagens (os personagens do Mestre, quando pacíficos, e os <b>adversários</b>, quando hostis) e arbitra as consequências. O jogo funciona com dois a seis jogadores, mais o Mestre.</p>
-
-    <h3>Sessões e cenas</h3>
-    <p>Uma aventura ocupa duas ou três sessões de cerca de três horas. Cada sessão segue a mesma estrutura: <b>introdução</b> (quando, onde, o que está acontecendo e por que a Companhia se envolve), uma sequência de <b>cenas</b> e o <b>fim da sessão</b>. Uma cena é um episódio em que a Companhia enfrenta um desafio, se prepara para um ou se recupera dele. O Mestre monta a cena (lugar, quem está lá, qual é o desafio), os jogadores reagem, o Mestre resolve.</p>
-
-    <h3>As duas fases</h3>
-    <div class="grid-2">
-      <div class="callout callout-regra">
-        <div class="callout-head"><span class="glyph">&#9670;</span><span class="label">Fase de Aventura</span></div>
-        <div class="callout-body"><p>A maior parte do jogo. Cenas, testes, Jornadas, Conselhos e Combates, com o tempo passando devagar, às vezes dia a dia. Termina quando o arco da aventura se resolve.</p></div>
-      </div>
-      <div class="callout callout-regra">
-        <div class="callout-head"><span class="glyph">&#9670;</span><span class="label">Fase da Companhia</span></div>
-        <div class="callout-body"><p>O "tempo livre" entre aventuras, tratado com regras próprias. Os heróis descansam, visitam o patrono, se recuperam da Sombra e gastam experiência. Semanas ou meses passam em uma cena. Veja a <a href="#companhia">seção 10</a>.</p></div>
-      </div>
+    <div class="painel">
+      <div class="rot">Por onde começar</div>
+      <div class="etapa"><b>1</b><span>Starter Set: regras curtas, cinco heróis prontos, uma aventura, mapa e dados</span></div>
+      <div class="etapa"><b>2</b><span>Core Rules: o jogo completo</span></div>
+      <div class="etapa"><b>3</b><span>Loremaster's Screen e Rivendell Compendium: para quem vai mestrar</span></div>
+      <div class="etapa"><b>§</b><span>Procure a edição em português com a editora licenciada no Brasil</span></div>
     </div>
+  </div>
+</section>
 
-    <h3>Quando rolar dados</h3>
-    <p>O Mestre só pede uma rolagem se a ação pode falhar e se ela se encaixa em um destes casos:</p>
-    <table class="compacta">
-      <tbody>
-        <tr><td class="n">1</td><td><b>Perigo.</b> A ação é arriscada. Se o herói não arrisca nada ao falhar, não role.</td></tr>
-        <tr><td class="n">2</td><td><b>Conhecimento.</b> A ação busca uma informação que não está disponível de imediato. Se o que os heróis procuram não é secreto nem escondido, não role.</td></tr>
-        <tr><td class="n">3</td><td><b>Manipulação.</b> A ação quer influenciar personagens do Mestre que não cooperam. Se o pedido combina com os motivos deles, não role.</td></tr>
-      </tbody>
-    </table>
-    <p>Como regra, cada rolagem é a única tentativa: quem passou ou falhou deu o seu melhor. Uma ação falha pode ser tentada de novo pelo mesmo herói só se ele usar uma perícia diferente, ou seja, uma abordagem diferente, e sempre lidando com a consequência da primeira falha.</p>
-    <div class="fim"></div>
-  </section>
+<section class="faixa">
+  <div class="cab"><div><span class="eyebrow">3</span><h2>A viagem é o jogo</h2></div><span class="l"></span></div>
+  <div class="dupla">
+    <p>Na maioria dos RPGs a viagem é uma frase: "vocês chegam". Aqui ela é um capítulo. Cada herói assume um <b>papel na Companhia</b>: quem guia, quem caça, quem vigia, quem explora. O mapa é dividido em regiões que vão de terras de fronteira, seguras, a terras escuras, onde tudo pode acontecer. A Companhia marcha, o Loremaster sorteia o que a estrada traz, e o resultado é fadiga, encontros, atalhos ou visões que renovam a alma.</p>
+    <p>O efeito na mesa é que chegar cansado a uma ruína é diferente de chegar descansado, e isso muda como o grupo joga a cena seguinte. A estrada tem peso. Depois de uma jornada bem jogada, o grupo sente que atravessou Eriador.</p>
+  </div>
+</section>
 
-  <!-- ═══════════ 2 · TESTES ═══════════ -->
-  <section id="testes">
-    <div class="corrente"><span class="t">2 · Testes</span><span class="l"></span></div>
-    <h2>O Feat Die e os Success Dice</h2>
-    <p>O jogo usa dois tipos de dado. O <b>Feat Die</b> (o dado do Destino) é um d12 com os números 1 a 10 e dois ícones: a <b>runa de Gandalf</b> e o <b>Olho de Sauron</b>. Os <b>Success Dice</b> são d6 em que o 6 traz um ícone de êxito (uma tengwar) e os números 1, 2 e 3 aparecem em contorno, sem preenchimento.</p>
-    <p>
-      <span class="dado feat">7</span><span class="dado feat gandalf">G</span><span class="dado feat olho">&#9673;</span>
-      <span class="dado sucesso miseravel">2</span><span class="dado sucesso">4</span><span class="dado sucesso seis">6</span>
-    </p>
-    <div class="inset"><p><b>Usando dados comuns:</b> num d12 normal, leia o <b>11 como o Olho de Sauron</b> e o <b>12 como a runa de Gandalf</b>. Num d6 normal, o 6 é a tengwar.</p></div>
+<section class="faixa">
+  <div class="cab"><div><span class="eyebrow">4</span><h2>Conversar também é aventura</h2></div><span class="l"></span></div>
+  <div class="dupla">
+    <p>Convencer um senhor élfico a ajudar, acalmar uma aldeia desconfiada, negociar com um anão orgulhoso: tudo isso tem uma estrutura própria, o <b>Conselho</b>. Um porta-voz abre a conversa, o grupo inteiro contribui, o tempo é limitado, e o que se pede define o quão difícil é conseguir. Um Conselho bem jogado é tão tenso quanto um combate, e frequentemente mais importante para a história.</p>
+    <p>Isso é raro em RPG de fantasia. Aqui, um Hobbit tímido pode ser o herói da sessão sem tirar a espada da bainha.</p>
+  </div>
+</section>
 
-    <h3>Como rolar</h3>
-    <table class="compacta">
-      <tbody>
-        <tr><td class="n">1</td><td>Role <b>um Feat Die</b> mais um número de <b>Success Dice igual ao valor da habilidade</b> usada (só o Feat Die se o valor for zero).</td></tr>
-        <tr><td class="n">2</td><td>Some tudo e compare com o <b>Número Alvo</b> (TN). Total igual ou maior que o TN é sucesso; menor é falha.</td></tr>
-      </tbody>
-    </table>
-    <p>Quase todas as rolagens de herói usam um dos três <b>TNs de Atributo</b>, um para STRENGTH, um para HEART e um para WITS. Cada TN é igual a <b>20 menos o Atributo</b>. Um herói com WITS 6 tem TN de WITS 14. Para campanhas curtas ou one-shots, a mesa pode combinar de usar 18 em vez de 20.</p>
+<section class="faixa">
+  <div class="cab"><div><span class="eyebrow">5</span><h2>Combate curto, perigoso e tático</h2></div><span class="l"></span></div>
+  <div class="dupla">
+    <p>Quando as lâminas saem, cada herói escolhe uma <b>postura</b>: avançar de frente, ficar na linha, defender ou recuar para atirar. A postura define o risco e a recompensa. Os inimigos têm suas próprias reservas e habilidades cruéis, e um golpe de sorte pode <b>ferir</b> um herói de forma que leva semanas para curar. Não existe combate "de aquecimento". Cada luta é uma decisão.</p>
+    <p>E os monstros não são figuras de tabuleiro: Orcs que odeiam a luz do sol, lobos que temem o fogo, um Troll que vira pedra ao amanhecer. As fraquezas do Inimigo estão nas histórias, e o jogo recompensa quem as conhece.</p>
+  </div>
+</section>
 
-    <h3>Lendo o Feat Die</h3>
-    <table>
-      <thead><tr><th>Resultado</th><th>Efeito</th></tr></thead>
-      <tbody>
-        <tr><td><b>1 a 10</b></td><td>Leia o número normalmente.</td></tr>
-        <tr><td><b>Runa de Gandalf</b></td><td>Sucesso automático, não importa o total. O melhor resultado possível.</td></tr>
-        <tr><td><b>Olho de Sauron</b></td><td>Conta como zero. Se o herói está Miserável, a ação falha automaticamente.</td></tr>
-      </tbody>
-    </table>
+<section class="faixa">
+  <div class="cab"><div><span class="eyebrow">6</span><h2>O ano acaba, a história continua</h2></div><span class="l"></span></div>
+  <div class="dupla">
+    <p>Entre uma aventura e outra vem a <b>Fase da Companhia</b>: os heróis voltam para casa ou para um refúgio, curam feridas, recuperam Esperança, aprendem, encontram o Patrono, e o tempo passa de verdade. Anos passam. Heróis envelhecem. Alguns partem para o Oeste, outros se retiram, outros sucumbem à Sombra. O jogo foi feito para campanhas longas, com a Companhia se renovando ao longo de décadas da Terceira Era.</p>
+    <p>É por isso que uma campanha de O Um Anel tem gosto de crônica, e não de série de episódios. Você não está só jogando personagens; está escrevendo a história de uma Companhia.</p>
+  </div>
+</section>
 
-    <h3>Lendo os Success Dice</h3>
-    <table>
-      <thead><tr><th>Resultado</th><th>Efeito</th></tr></thead>
-      <tbody>
-        <tr><td><b>1, 2, 3</b> (contorno)</td><td>Leia normalmente. Se o herói está Exausto (Weary), contam como zero.</td></tr>
-        <tr><td><b>4, 5</b></td><td>Leia normalmente.</td></tr>
-        <tr><td><b>6</b> (tengwar)</td><td>Vale 6 e, se a rolagem foi um sucesso, cada tengwar sobe o grau do êxito.</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Grau de sucesso</h3>
-    <table>
-      <thead><tr><th>Tengwar na rolagem</th><th>Grau</th><th>Significa</th></tr></thead>
-      <tbody>
-        <tr><td>Nenhuma</td><td><b>Sucesso</b></td><td>O herói conseguiu, sem nada além do mínimo.</td></tr>
-        <tr><td>Uma</td><td><b>Grande êxito</b></td><td>Resultado fora do comum.</td></tr>
-        <tr><td>Duas ou mais</td><td><b>Êxito extraordinário</b></td><td>Excepcional e memorável.</td></tr>
-      </tbody>
-    </table>
-    <p>Fora do combate, o jogador pode "gastar" cada tengwar para um efeito especial. Gastar não reduz o total nem o grau do êxito.</p>
-    <table class="compacta">
-      <caption>Êxitos especiais em perícias (1 tengwar cada)</caption>
-      <thead><tr><th>Efeito</th><th>Descrição</th></tr></thead>
-      <tbody>
-        <tr><td><b>Cancelar uma falha</b></td><td>Em rolagens com vários heróis, transforma a falha de outro em sucesso.</td></tr>
-        <tr><td><b>Marcar mais um sucesso</b></td><td>Em tarefas que exigem vários sucessos, conta um a mais.</td></tr>
-        <tr><td><b>Ganhar uma pista</b></td><td>Informação extra, não necessariamente sobre a tarefa (ao curar, nota veneno; ao se esgueirar, vê um sentinela).</td></tr>
-        <tr><td><b>Em silêncio</b></td><td>Faz sem barulho e sem chamar atenção.</td></tr>
-        <tr><td><b>Depressa</b></td><td>Termina em cerca de metade do tempo.</td></tr>
-        <tr><td><b>Alcance maior</b></td><td>Afeta mais alvos do que o previsto (uma pessoa ou grupo a mais por tengwar).</td></tr>
-      </tbody>
-    </table>
-
-    <div class="rule-box">
-      <h3>Procedimento completo de uma rolagem</h3>
-      <p><strong>1.</strong> Defina o que o herói quer alcançar. <strong>2.</strong> Escolha a habilidade e o TN de Atributo correspondente. <strong>3.</strong> Pegue um Feat Die (dois se Favorecido ou Desfavorecido) e Success Dice igual ao valor da habilidade. <strong>4.</strong> Gaste 1 Esperança para ganhar (1d), ou (2d) se Inspirado. <strong>5.</strong> Ganhe (1d) se alguém apoia, (2d) se for o Foco de Companhia de quem apoia. <strong>6.</strong> Aplique outros bônus e penalidades. <strong>7.</strong> Role. Favorecido usa o melhor Feat Die, Desfavorecido o pior. Runa de Gandalf é sucesso automático; Olho de Sauron com herói Miserável é falha automática. <strong>8.</strong> Some os dados; se Exausto, ignore 1, 2 e 3 nos Success Dice. <strong>9.</strong> Igual ou maior que o TN é sucesso. <strong>10.</strong> Conte as tengwar para o grau de êxito.</p>
+<section class="faixa">
+  <div class="callout callout-regra">
+    <div class="callout-head"><span class="glyph">◆</span><span class="label">Uma nota do Loremaster</span></div>
+    <div class="callout-body">
+      <p>Se você leu até aqui e quer jogar, compre o Starter Set. É a melhor porta de entrada que já vi num RPG: regras curtas, tudo pronto, uma aventura que ensina o sistema em três sessões. Este site tem um <a href="aventuras/over-hill-and-under-hill.html">guia em português</a> para conduzi-la, feito para quem tem a caixa nas mãos.</p>
+      <p>Depois, o livro básico. E depois, as aventuras autorais que vão nascendo aqui.</p>
     </div>
-    <div class="fim"></div>
-  </section>
+  </div>
+  <p class="centro mt-5"><a class="btn btn-primary btn-cta" href="index.html#aventuras">Ver as aventuras</a> <a class="btn btn-ghost" href="herois/companhia-de-bree.html">Conhecer a Companhia</a></p>
+</section>
 
-  <!-- ═══════════ 3 · MODIFICADORES ═══════════ -->
-  <section id="modificadores">
-    <div class="corrente"><span class="t">3 · Modificadores</span><span class="l"></span></div>
-    <h2>Favorecido, Esperança e apoio</h2>
+</main>
 
-    <h3>Favorecido e Desfavorecido</h3>
-    <p>Uma rolagem <b>Favorecida</b> (Favoured) usa <b>dois Feat Dice, ficando com o melhor</b>. Vem das perícias Favorecidas do herói (marcadas na ficha) e de algumas Virtudes culturais. Uma rolagem <b>Desfavorecida</b> (Ill-favoured) usa dois Feat Dice e fica com o <b>pior</b>. Vem de habilidades de adversários, da loucura e das Falhas do herói. Se a mesma rolagem é Favorecida e Desfavorecida ao mesmo tempo, por motivos diferentes, role normalmente com um só Feat Die, não importa quantas fontes existam de cada lado.</p>
-
-    <h3>Bônus de Success Dice</h3>
-    <p>Bônus aparecem no texto como <b>ganha (1d)</b>: o herói adiciona um Success Die à rolagem. Penalidades aparecem como <b>perde (1d)</b>: rola um a menos, até o mínimo de zero. Bônus e penalidades se somam entre si.</p>
-    <table>
-      <thead><tr><th>Fonte</th><th>Efeito</th><th>Regra</th></tr></thead>
-      <tbody>
-        <tr><td><b>Esperança</b></td><td>ganha (1d)</td><td>Gaste 1 ponto de Esperança antes de qualquer rolagem. Só 1 ponto por rolagem.</td></tr>
-        <tr><td><b>Inspirado</b></td><td>ganha (2d) em vez de (1d) ao gastar Esperança</td><td>Invoque um Traço Distintivo que faça sentido para a ação, com aprovação do Mestre. Algumas Virtudes também inspiram.</td></tr>
-        <tr><td><b>Apoio</b></td><td>o herói ativo ganha (1d)</td><td>Outro herói gasta 1 Esperança para ajudar. Precisa ter ao menos 1 ponto numa perícia apropriada e a situação tem que permitir. Só um herói pode apoiar.</td></tr>
-        <tr><td><b>Foco de Companhia</b></td><td>o herói ativo ganha (2d)</td><td>Se quem apoia escolheu o herói ativo como seu Foco de Companhia (Fellowship Focus).</td></tr>
-        <tr><td><b>Item útil</b></td><td>ganha (1d)</td><td>Fora de combate, se a perícia está associada a um item útil da ficha e o Mestre concorda que ele ajuda. Um item por rolagem.</td></tr>
-        <tr><td><b>Sucesso mágico</b></td><td>passa automaticamente</td><td>Heróis com um talento ou artefato mágico (a Elven-skill dos Elfos, por exemplo) gastam 1 Esperança antes de uma rolagem de perícia: rolam só os Success Dice para ver o grau, ignorando o total. O resultado é visivelmente sobrenatural.</td></tr>
-      </tbody>
-    </table>
-    <div class="inset"><p><b>Esperança é finita.</b> Cada ponto gasto aproxima o herói de ficar Miserável, porque a Sombra é comparada com a Esperança <em>atual</em>. Um herói com 0 de Esperança não consegue mais gastar. Veja a <a href="#sombra">seção 6</a>.</p></div>
-    <div class="fim"></div>
-  </section>
-
-  <!-- ═══════════ 4 · O HERÓI NA FICHA ═══════════ -->
-  <section id="heroi">
-    <div class="corrente"><span class="t">4 · O herói na ficha</span><span class="l"></span></div>
-    <h2>O que cada número significa</h2>
-
-    <h3>Cultura e Chamado</h3>
-    <p>A <b>Cultura Heroica</b> é a escolha mais importante: define atributos iniciais, perícias, tradição marcial, padrão de vida e uma <b>Bênção Cultural</b> (Bardings têm rolagens de VALOUR Favorecidas; Hobbits têm WISDOM Favorecido e (1d) contra a Ganância; Anões carregam armadura com metade da Carga; Homens de Bri sobem o valor de Companhia em 1; Guardiões ganham +1 num Atributo; Elfos alcançam Sucesso mágico). O <b>Chamado</b> (Calling) é o motivo que tirou o herói de casa e traz duas perícias Favorecidas, um Traço Distintivo próprio e um <b>Caminho da Sombra</b>: o destino de quem cede.</p>
-    <table class="compacta">
-      <thead><tr><th>Chamado</th><th>Perícias (escolha 2)</th><th>Traço</th><th>Caminho da Sombra</th></tr></thead>
-      <tbody>
-        <tr><td><b>Captain</b></td><td>BATTLE, ENHEARTEN, PERSUADE</td><td>Leadership</td><td>Sedução do Poder</td></tr>
-        <tr><td><b>Champion</b></td><td>ATHLETICS, AWE, HUNTING</td><td>Enemy-lore</td><td>Maldição da Vingança</td></tr>
-        <tr><td><b>Messenger</b></td><td>COURTESY, SONG, TRAVEL</td><td>Folk-lore</td><td>Loucura Errante</td></tr>
-        <tr><td><b>Scholar</b></td><td>CRAFT, LORE, RIDDLE</td><td>Rhymes of Lore</td><td>Sedução dos Segredos</td></tr>
-        <tr><td><b>Treasure Hunter</b></td><td>EXPLORE, SCAN, STEALTH</td><td>Burglary</td><td>Mal do Dragão</td></tr>
-        <tr><td><b>Warden</b></td><td>AWARENESS, HEALING, INSIGHT</td><td>Shadow-lore</td><td>Caminho do Desespero</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Atributos</h3>
-    <div class="grid-3">
-      <div><h4 class="vermelho">Strength</h4><p class="nota">Vigor físico, forma, presença. TN de STRENGTH para as perícias de Força e para <b>todas as rolagens de ataque</b>.</p></div>
-      <div><h4 class="vermelho">Heart</h4><p class="nota">Emoção, empatia, entusiasmo. TN de HEART para as perícias de Coração e para rolagens de <b>VALOUR</b> (resistir ao Temor).</p></div>
-      <div><h4 class="vermelho">Wits</h4><p class="nota">Astúcia, atenção, bom senso. TN de WITS para as perícias de Mente e para rolagens de <b>WISDOM</b> (resistir à Feitiçaria e à Ganância).</p></div>
-    </div>
-
-    <h3>Valores derivados</h3>
-    <table>
-      <thead><tr><th>Valor</th><th>Fórmula</th><th>Para que serve</th></tr></thead>
-      <tbody>
-        <tr><td><b>Endurance</b></td><td>STRENGTH + valor da Cultura (18 a 22)</td><td>Resistência física. Cai com golpes, esforço e Fadiga. Em zero, o herói cai inconsciente.</td></tr>
-        <tr><td><b>Hope</b> (Esperança)</td><td>HEART + valor da Cultura (6 a 10)</td><td>Reserva espiritual, gasta voluntariamente. Comparada com a Sombra.</td></tr>
-        <tr><td><b>Parry</b></td><td>WITS + valor da Cultura (10 a 14), mais escudo</td><td>TN que os adversários precisam bater para acertar o herói.</td></tr>
-      </tbody>
-    </table>
-
-    <h3>As 18 perícias</h3>
-    <p>Cada perícia vale de 0 a 6 e está numa coluna da ficha, embaixo do Atributo cujo TN ela usa. Perícias marcadas como <b>Favorecidas</b> rolam dois Feat Dice.</p>
-    <table>
-      <thead><tr><th>Grupo</th><th>Strength</th><th>Heart</th><th>Wits</th></tr></thead>
-      <tbody>
-        <tr><td><b>Personalidade</b></td><td>AWE (impor respeito, impressionar)</td><td>ENHEARTEN (encorajar, inflamar)</td><td>PERSUADE (argumentar, convencer)</td></tr>
-        <tr><td><b>Movimento</b></td><td>ATHLETICS (correr, saltar, escalar, nadar)</td><td>TRAVEL (viajar, ler mapas, guiar)</td><td>STEALTH (esconder-se, mover em silêncio)</td></tr>
-        <tr><td><b>Percepção</b></td><td>AWARENESS (notar o inesperado, vigiar)</td><td>INSIGHT (ler intenções e motivos)</td><td>SCAN (examinar de perto, procurar)</td></tr>
-        <tr><td><b>Sobrevivência</b></td><td>HUNTING (caçar, rastrear, armadilhas)</td><td>HEALING (tratar ferimentos e doenças)</td><td>EXPLORE (achar caminho, acampar)</td></tr>
-        <tr><td><b>Costume</b></td><td>SONG (cantar, recitar, tocar)</td><td>COURTESY (boas maneiras, etiqueta)</td><td>RIDDLE (deduzir, falar por enigmas)</td></tr>
-        <tr><td><b>Vocação</b></td><td>CRAFT (fazer e consertar coisas)</td><td>BATTLE (tática, comandar em batalha)</td><td>LORE (conhecimento, história, tradição)</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Proficiências de combate</h3>
-    <p>Quatro: <b>AXES</b> (machado, machado longo, grande machado, picareta), <b>BOWS</b> (arco, grande arco), <b>SPEARS</b> (lança curta, lança, grande lança) e <b>SWORDS</b> (espada curta, espada, espada longa). Todas rolam contra o TN de STRENGTH, nunca são Favorecidas e só sobem com Pontos de Aventura. Sem arma ou com arma improvisada (adaga, cacete), o herói rola sua melhor proficiência com perda de (1d): dano 1 e sem Golpe Perfurante.</p>
-
-    <h3>Armas e armaduras</h3>
-    <div class="grid-2">
-      <table class="compacta">
-        <caption>Armas mais comuns</caption>
-        <thead><tr><th>Arma</th><th>Dano</th><th>Lesão</th><th>Carga</th></tr></thead>
-        <tbody>
-          <tr><td>Adaga</td><td>2</td><td>14</td><td>0</td></tr>
-          <tr><td>Espada curta</td><td>3</td><td>16</td><td>1</td></tr>
-          <tr><td>Espada</td><td>4</td><td>16</td><td>2</td></tr>
-          <tr><td>Espada longa (1m / 2m)</td><td>5</td><td>16 / 18</td><td>3</td></tr>
-          <tr><td>Lança curta (arremesso)</td><td>3</td><td>14</td><td>2</td></tr>
-          <tr><td>Lança (1m / 2m, arremesso)</td><td>4</td><td>14 / 16</td><td>3</td></tr>
-          <tr><td>Grande lança (2m)</td><td>5</td><td>16</td><td>4</td></tr>
-          <tr><td>Machado</td><td>5</td><td>18</td><td>2</td></tr>
-          <tr><td>Machado longo (1m / 2m)</td><td>6</td><td>18 / 20</td><td>3</td></tr>
-          <tr><td>Grande machado (2m)</td><td>7</td><td>20</td><td>4</td></tr>
-          <tr><td>Picareta (2m)</td><td>7</td><td>18</td><td>3</td></tr>
-          <tr><td>Arco</td><td>3</td><td>14</td><td>2</td></tr>
-          <tr><td>Grande arco</td><td>4</td><td>16</td><td>4</td></tr>
-        </tbody>
-      </table>
-      <div>
-        <table class="compacta">
-          <caption>Armaduras e elmo</caption>
-          <thead><tr><th>Peça</th><th>Proteção</th><th>Carga</th></tr></thead>
-          <tbody>
-            <tr><td>Camisa de couro</td><td>1d</td><td>3</td></tr>
-            <tr><td>Corselete de couro</td><td>2d</td><td>6</td></tr>
-            <tr><td>Camisa de malha</td><td>3d</td><td>9</td></tr>
-            <tr><td>Cota de malha</td><td>4d</td><td>12</td></tr>
-            <tr><td>Elmo (pode tirar em combate)</td><td>+1d</td><td>4</td></tr>
-          </tbody>
-        </table>
-        <table class="compacta">
-          <caption>Escudos</caption>
-          <thead><tr><th>Escudo</th><th>Parry</th><th>Carga</th></tr></thead>
-          <tbody>
-            <tr><td>Broquel</td><td>+1</td><td>2</td></tr>
-            <tr><td>Escudo</td><td>+2</td><td>4</td></tr>
-            <tr><td>Grande escudo</td><td>+3</td><td>6</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <p><b>Carga</b> (Load) é a soma das armas, armaduras, escudo e Tesouro carregados. Roupas e equipamento de viagem não contam. A Carga é o que define quando o herói fica Exausto: quanto mais leve, mais tempo aguenta. Hobbits só usam armas menores e não usam grande escudo; Anões não usam grande arco, grande lança nem grande escudo.</p>
-
-    <h3>Valor e Sabedoria</h3>
-    <p><b>VALOUR</b> mede a coragem provada em feitos perigosos. <b>WISDOM</b> mede o discernimento e a resistência à corrupção. Ambos começam em 1 e vão até 6. Cada novo nível de VALOUR dá uma <b>Recompensa</b> (upgrade de equipamento: Fell, Grievous, Keen, Close-fitting, Cunning Make, Reinforced). Cada novo nível de WISDOM dá uma <b>Virtude</b> (habilidade cultural ou geral: Confidence, Dour-handed, Hardiness, Mastery, Nimbleness, Prowess e as virtudes de cada povo). Os dois também são rolados como perícias nos Testes de Sombra.</p>
-
-    <h3>Traços Distintivos</h3>
-    <p>Dois adjetivos que definem o herói (Bold, Cunning, Fair-spoken, Merry, Stern, Wary...), mais o traço do Chamado. Servem de guia para interpretar e podem ser invocados numa rolagem de perícia em que aquele traço plausivelmente ajuda: o herói fica <b>Inspirado</b> e a Esperança gasta vale (2d).</p>
-
-    <h3>Companhia, Foco e Patrono</h3>
-    <p>O valor de <b>Fellowship</b> (Companhia) é uma reserva comum de pontos, igual ao número de heróis mais bônus do Patrono e de algumas Virtudes. Enquanto a Companhia descansa, os jogadores podem gastar Fellowship para recuperar Esperança, distribuída como o grupo decidir. A reserva se renova ao fim de cada sessão. Cada herói pode escolher outro como seu <b>Foco de Companhia</b>: apoiá-lo dá (2d) em vez de (1d), mas se o Foco for Ferido ou tiver um surto de loucura, o herói ganha 1 ponto de Sombra sem direito a teste. O <b>Patrono</b> (Balin, Bilbo, Círdan, Gandalf, Gilraen ou Tom Bombadil) é o membro dos Sábios que reuniu o grupo, dá pontos de Fellowship e um uso especial deles.</p>
-
-    <h3>Padrão de vida e Tesouro</h3>
-    <p>Não há contagem de moedas. Cada Cultura tem um <b>Padrão de Vida</b> (Frugal para Elfos e Guardiões, Comum para Hobbits e Homens de Bri, Próspero para Bardings e Anões) que diz o que o herói consegue pagar no dia a dia e quantos itens úteis leva. <b>Tesouro</b> é o valor do que o herói encontra nas aventuras; ao acumular 30, 90, 180 ou 300 pontos, o padrão sobe. Tesouro carregado conta como Carga; um pônei leva até 10 pontos.</p>
-    <div class="fim"></div>
-  </section>
-
-  <!-- ═══════════ 5 · ESTADOS E DESCANSO ═══════════ -->
-  <section id="estados">
-    <div class="corrente"><span class="t">5 · Estados e descanso</span><span class="l"></span></div>
-    <h2>Exausto, Miserável, Ferido</h2>
-    <table>
-      <thead><tr><th>Estado</th><th>Quando</th><th>Efeito</th></tr></thead>
-      <tbody>
-        <tr><td><b>Exausto</b> (Weary)</td><td>Endurance atual igual ou menor que a Carga total (incluindo Fadiga de viagem).</td><td>Success Dice com 1, 2 ou 3 contam como zero. Passa quando a Endurance sobe acima da Carga.</td></tr>
-        <tr><td><b>Miserável</b> (Miserable)</td><td>Sombra igual ou maior que a Esperança atual.</td><td>Olho de Sauron no Feat Die é falha automática. Passa quando a Esperança volta a superar a Sombra. Se a Sombra alcança a Esperança <em>máxima</em>, o herói também fica Desfavorecido em tudo.</td></tr>
-        <tr><td><b>Ferido</b> (Wounded)</td><td>Falhou num teste de Proteção contra um Golpe Perfurante.</td><td>Recupera Endurance devagar. Um segundo ferimento derruba o herói a zero e ele fica Morrendo. Veja <a href="#combate">Combate</a>.</td></tr>
-      </tbody>
-    </table>
-    <p>Um herói com <b>Endurance zero</b> cai inconsciente e acorda uma hora depois com 1 ponto, a menos que também esteja Ferido. Um herói com <b>Esperança zero</b> está esgotado: não consegue gastar mais nada.</p>
-
-    <h3>Descanso e recuperação</h3>
-    <table>
-      <thead><tr><th>Descanso</th><th>Endurance</th><th>Esperança</th></tr></thead>
-      <tbody>
-        <tr><td><b>Curto</b> (cerca de uma hora, um por dia)</td><td>Recupera pontos igual a STRENGTH. Feridos não recuperam nada.</td><td>Nada.</td></tr>
-        <tr><td><b>Prolongado</b> (uma noite de sono, um por dia)</td><td>Recupera tudo. Feridos recuperam só STRENGTH. Em abrigo seguro, tira também 1 ponto de Fadiga de viagem.</td><td>Quem está em zero recupera 1 ponto. Enquanto descansa, a Companhia pode gastar Fellowship para distribuir Esperança.</td></tr>
-        <tr><td><b>Fase da Companhia</b></td><td>Tudo.</td><td>Recupera pontos igual a HEART (Guardiões, metade de HEART, arredondando para cima).</td></tr>
-      </tbody>
-    </table>
-    <div class="fim"></div>
-  </section>
-
-  <!-- ═══════════ 6 · A SOMBRA ═══════════ -->
-  <section id="sombra">
-    <div class="corrente"><span class="t">6 · A Sombra</span><span class="l"></span></div>
-    <h2>O peso da Terceira Era</h2>
-    <p class="capitular">Enfrentar o Inimigo pesa. Cada horror testemunhado, cada tesouro cobiçado, cada crueldade cometida deixa uma marca, e o jogo mede essa marca em <b>pontos de Sombra</b>. A Sombra não fala com a Endurance: fala com a Esperança. Quando uma alcança a outra, o herói está Miserável.</p>
-
-    <h3>Fontes de Sombra</h3>
-    <table>
-      <thead><tr><th>Fonte</th><th>O que é</th><th>Resiste com</th></tr></thead>
-      <tbody>
-        <tr><td><b>Temor</b> (Dread)</td><td>Presenciar eventos terríveis ou enfrentar inimigos pavorosos.</td><td>VALOUR (TN de HEART)</td></tr>
-        <tr><td><b>Ganância</b> (Greed)</td><td>Tomar posse de objetos preciosos ou poderosos.</td><td>WISDOM (TN de WITS)</td></tr>
-        <tr><td><b>Feitiçaria</b> (Sorcery)</td><td>Ser vítima de magia negra.</td><td>WISDOM (TN de WITS)</td></tr>
-        <tr><td><b>Má Ação</b> (Misdeed)</td><td>Cometer atos desprezíveis.</td><td>Sem rolagem. O Mestre avisa antes.</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Testes de Sombra</h3>
-    <p>Quando exposto a Temor, Ganância ou Feitiçaria, o herói rola VALOUR ou WISDOM como uma perícia. Se <b>passa</b>, reduz os pontos de Sombra que ganharia em <b>1, mais 1 por tengwar</b>. Se falha, ganha tudo. Uma Má Ação nunca pode ser reduzida por teste nenhum.</p>
-    <table class="compacta">
-      <caption>Más Ações</caption>
-      <thead><tr><th>Ato</th><th>Sombra</th></tr></thead>
-      <tbody>
-        <tr><td>Ameaças violentas, mentiras maliciosas, crueldade por descuido</td><td class="n">1</td></tr>
-        <tr><td>Manipular os outros, abusar de autoridade, crueldade deliberada</td><td class="n">2</td></tr>
-        <tr><td>Roubo ou pilhagem, quebra de juramento, covardia, traição</td><td class="n">3</td></tr>
-        <tr><td>Tormento ou tortura, matar ou aleijar quem se rendeu ou é inofensivo</td><td class="n">4</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Surto de loucura e Caminho da Sombra</h3>
-    <p>A única forma de se livrar dos pontos de Sombra durante a aventura é interpretar um <b>surto de loucura</b> (bout of madness): o jogador descreve como o herói perde o controle por um curto período e faz algo de que vai se arrepender, levando em conta a última fonte de Sombra, seu Caminho da Sombra ou uma Falha. Depois do surto, todos os pontos de Sombra somem, mas o herói <b>avança um passo no seu Caminho da Sombra</b> e ganha uma <b>Falha</b> (Flaw): um Traço Distintivo negativo. Sempre que uma perícia é usada numa ação que a Falha plausivelmente afeta, a rolagem é Desfavorecida.</p>
-    <div class="callout callout-sombra">
-      <div class="callout-head"><span class="glyph">&#9670;</span><span class="label">Sucumbir</span></div>
-      <div class="callout-body"><p>Se a Sombra de um herói alcança sua Esperança máxima pela quinta vez, ele sai do jogo. O Mestre pode transformá-lo num personagem do Mestre ou numa vítima do Inimigo. O jogador cria um novo herói, ou assume o herdeiro que criou na Fase da Companhia.</p></div>
-    </div>
-    <div class="inset"><p><b>Cicatrizes de Sombra.</b> No livro básico, um herói pode endurecer a vontade e trocar a Sombra atual por uma única Cicatriz de Sombra permanente. As cicatrizes nunca somem e contam para a comparação com a Esperança.</p></div>
-    <div class="fim"></div>
-  </section>
-
-  <!-- ═══════════ 7 · COMBATE ═══════════ -->
-  <section id="combate">
-    <div class="corrente"><span class="t">7 · Combate</span><span class="l"></span></div>
-    <h2>Rápido, tenso e sem tabuleiro</h2>
-    <p class="capitular">Não há grade nem miniaturas obrigatórias. O que existe é a <b>postura</b> de cada herói e com quem ele está <b>engajado</b>. Uma rodada dura no máximo trinta segundos de ficção. Feridos são raros e sérios; é a Fadiga e a Carga que derrubam antes.</p>
-
-    <h3>Sequência de combate</h3>
-    <table class="compacta">
-      <tbody>
-        <tr><td class="n">1</td><td><b>Descargas iniciais.</b> Se os lados começam separados por distância, o Mestre permite uma ou mais descargas com armas de longo alcance. Cada combatente com arma de alcance pode atirar. Os heróis atiram primeiro, salvo se as circunstâncias favorecem o inimigo.</td></tr>
-        <tr><td class="n">2</td><td><b>Escolher posturas.</b> Cada herói escolhe sua postura para a rodada: Avançada, Aberta, Defensiva (corpo a corpo) ou Retaguarda (à distância).</td></tr>
-        <tr><td class="n">3</td><td><b>Engajamento.</b> Quem está em postura de corpo a corpo engaja um ou mais adversários (veja abaixo).</td></tr>
-        <tr><td class="n">4</td><td><b>Ações dos heróis.</b> Em ordem de postura, da Avançada à Retaguarda. Cada herói faz um ataque ou a ação especial da sua postura.</td></tr>
-        <tr><td class="n">5</td><td><b>Ações dos adversários.</b> O Mestre resolve, também em ordem de postura (a do herói atacado). Cada adversário faz um ataque por ponto de <b>Might</b>. Quem ficou atrás atirando age por último.</td></tr>
-        <tr><td class="n">6</td><td><b>Nova rodada.</b> Volte ao passo 2. Um herói engajado não troca de adversário até derrotar o atual.</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Posturas</h3>
-    <table>
-      <thead><tr><th>Postura</th><th>Efeitos</th><th>Ação especial</th></tr></thead>
-      <tbody>
-        <tr><td><b>Avançada</b> (Forward)</td><td>Imprudente e agressiva. Ataques do herói ganham (1d). Ataques corpo a corpo contra ele também ganham (1d).</td><td><b>Intimidar</b> (AWE): no sucesso, todos os adversários de Might 1 ficam Exaustos até o fim da rodada; com uma tengwar, também os de Might 2; com duas, todos.</td></tr>
-        <tr><td><b>Aberta</b> (Open)</td><td>Cautelosa, sem modificadores.</td><td><b>Animar</b> (ENHEARTEN): no sucesso, os heróis em postura Avançada ganham (1d) nos ataques da próxima rodada; com uma tengwar, também os em Aberta; com duas, todos os de corpo a corpo.</td></tr>
-        <tr><td><b>Defensiva</b> (Defensive)</td><td>Ataques corpo a corpo contra o herói perdem (1d). Os ataques do herói perdem (1d) por adversário engajado com ele.</td><td><b>Proteger companheiro</b> (ATHLETICS): escolha outro herói em corpo a corpo; no sucesso, o próximo ataque contra ele perde (1d), mais (1d) por tengwar.</td></tr>
-        <tr><td><b>Retaguarda</b> (Rearward)</td><td>Fora da briga. Só ataca com armas de alcance e só é atacado por elas. Permitida apenas se os inimigos não passam do dobro dos heróis, e com dois heróis em corpo a corpo para cada um na Retaguarda.</td><td><b>Preparar tiro</b> (SCAN): no sucesso, o próximo ataque à distância ganha (1d), mais (1d) por tengwar.</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Engajamento</h3>
-    <p><b>Mais inimigos que heróis:</b> o Mestre dá um adversário a cada herói em corpo a corpo; os que sobram, ele decide se engajam alguém já engajado ou ficam atrás atirando. <b>Mais heróis que inimigos, ou empate:</b> cada herói em corpo a corpo escolhe um adversário livre; vários heróis podem cair sobre o mesmo inimigo. Se ainda sobrarem inimigos por causa de heróis na Retaguarda, o Mestre decide onde eles vão. Um herói que ficou sem adversário no meio da rodada (alguém matou o dele) escolhe outro na hora.</p>
-
-    <h3>Resolvendo ataques</h3>
-    <p>Um ataque é uma rolagem da proficiência da arma. <b>Herói atacando:</b> TN de STRENGTH do herói <b>mais o Parry do adversário</b>. <b>Adversário atacando:</b> TN igual ao <b>Parry do herói</b> (incluindo escudo). Um acerto tira Endurance igual ao <b>Dano</b> da arma. O Mestre pode ajustar o TN em ±2 ou ±4 por terreno, luz, distância ou tamanho do alvo.</p>
-    <table>
-      <caption>Dano especial (gaste tengwar do ataque)</caption>
-      <thead><tr><th>Efeito</th><th>Custo</th><th>Regra</th></tr></thead>
-      <tbody>
-        <tr><td><b>Golpe pesado</b> (Heavy Blow)</td><td>1 tengwar, qualquer arma</td><td>Endurance extra igual ao STRENGTH do herói (adversários usam o Attribute Level).</td></tr>
-        <tr><td><b>Afastar</b> (Fend Off)</td><td>1 tengwar, arma corpo a corpo</td><td>+2 de Parry contra o próximo ataque dirigido ao herói.</td></tr>
-        <tr><td><b>Perfurar</b> (Pierce)</td><td>1 tengwar, BOWS, SPEARS ou SWORDS</td><td>Soma ao número do Feat Die: +1 com espadas, +2 com arcos, +3 com lanças, até o máximo de 10, para tentar chegar a um Golpe Perfurante. Não afeta runa nem Olho. Adversários sempre somam +2.</td></tr>
-      </tbody>
-    </table>
-    <p>Várias tengwar podem ativar efeitos diferentes ou o mesmo efeito mais de uma vez.</p>
-
-    <h3>Golpes Perfurantes e ferimentos</h3>
-    <p>Um ataque que mostra <b>10 ou a runa de Gandalf</b> no Feat Die é um <b>Golpe Perfurante</b>. O alvo rola imediatamente um <b>teste de Proteção</b>: um Feat Die mais Success Dice igual à Proteção da armadura, contra um TN igual à <b>Lesão</b> (Injury) da arma. Se falha, está <b>Ferido</b>. Se o mesmo golpe deixou o alvo Exausto, o teste é feito antes da exaustão valer.</p>
-    <table class="rolagem">
-      <caption>Gravidade do ferimento (role o Feat Die ao ser Ferido pela primeira vez)</caption>
-      <thead><tr><th>Feat Die</th><th>Ferimento</th><th>Efeito</th></tr></thead>
-      <tbody>
-        <tr><td>Runa</td><td><b>Moderado</b></td><td>Sem dano duradouro. Terminado o combate, recupera em horas.</td></tr>
-        <tr><td>1 a 10</td><td><b>Severo</b></td><td>O número é quantos dias o ferimento leva para sarar. Anote na ficha.</td></tr>
-        <tr><td>Olho</td><td><b>Grave</b></td><td>Cai inconsciente com zero de Endurance e está Morrendo, como se Ferido duas vezes.</td></tr>
-      </tbody>
-    </table>
-    <p><b>Segundo ferimento:</b> um herói Ferido que é Ferido de novo cai a zero de Endurance, inconsciente, e está <b>Morrendo</b>. Não rola gravidade. <b>Morrendo:</b> precisa de uma rolagem de HEALING bem-sucedida em até uma hora ou morre. Se salvo, acorda em cerca de uma hora com 1 de Endurance. <b>Primeiros socorros:</b> uma rolagem de HEALING (o próprio herói pode fazê-la se estiver consciente) reduz a gravidade em 1 dia, mais 1 por tengwar, até o mínimo de 1. Só uma vez por ferimento; uma falha só pode ser repetida depois de um dia.</p>
-
-    <h3>Adversários</h3>
-    <div class="grid-2">
-      <div>
-        <p><b>Attribute Level</b> substitui os três atributos. <b>Endurance</b> zero tira o adversário do combate. <b>Might</b> é quantos ataques faz por rodada e quantos ferimentos precisa levar para morrer na hora (Might 1 morre no primeiro Golpe Perfurante que passa da armadura). <b>Parry</b> é somado ao TN do herói que o ataca.</p>
-      </div>
-      <div>
-        <p><b>Hate</b> (ou Resolve, nos que não servem à Sombra) é a reserva que alimenta suas habilidades: por rodada, o adversário pode gastar até Might pontos para ganhar (1d) numa rolagem ou ativar uma <b>Habilidade Nefasta</b> (Fell Ability). Sem Hate, o adversário conta como Exausto. Quando o Mestre rola por um servo da Sombra, pode inverter os ícones: o Olho vira sucesso automático e a runa vira zero.</p>
-      </div>
-    </div>
-
-    <div class="callout callout-mestre">
-      <div class="callout-head"><span class="glyph">&#9670;</span><span class="label">Fugir do combate</span></div>
-      <div class="callout-body"><p>Duas saídas. Assumir a <b>Retaguarda</b> e, na sua vez, simplesmente ir embora, sem rolagem (vale também para adversários que ficaram atrás). Ou assumir a <b>Defensiva</b> e rolar o ataque normalmente: no sucesso, o herói não causa dano, mas escapa; na falha, continua engajado.</p></div>
-    </div>
-    <div class="fim"></div>
-  </section>
-
-  <!-- ═══════════ 8 · CONSELHOS ═══════════ -->
-  <section id="conselho">
-    <div class="corrente"><span class="t">8 · Conselhos</span><span class="l"></span></div>
-    <h2>Quando falar decide</h2>
-    <p class="capitular">Um <b>Conselho</b> acontece quando a Companhia precisa discutir ou negociar algo importante com um ou mais personagens do Mestre: pedir ajuda a um senhor, convencer uma vila desconfiada, obter passagem. Conversas do dia a dia não precisam disso; uma rolagem simples resolve.</p>
-    <table class="compacta">
-      <tbody>
-        <tr><td class="n">1</td><td><b>Definir a Resistência.</b> Os jogadores combinam o que a Companhia quer da reunião. O Mestre fixa a <b>Resistência</b>: <b>3</b> para um pedido razoável, <b>6</b> para um pedido ousado, <b>9</b> para um pedido escandaloso. É o número de sucessos necessários.</td></tr>
-        <tr><td class="n">2</td><td><b>Apresentação.</b> A Companhia elege um porta-voz, que rola <b>AWE</b>, <b>COURTESY</b> ou <b>RIDDLE</b>, conforme a forma de se apresentar. O resultado define o <b>limite de tentativas</b> do grupo: <b>3</b> na falha; <b>4, mais 1 por tengwar</b>, no sucesso.</td></tr>
-        <tr><td class="n">3</td><td><b>Interação.</b> Os heróis rolam <b>ENHEARTEN</b>, <b>INSIGHT</b>, <b>PERSUADE</b>, <b>RIDDLE</b> ou <b>SONG</b>, em qualquer ordem, até esgotar as tentativas ou alcançar a Resistência. O mesmo herói não pode rolar a mesma perícia duas vezes seguidas: muda o herói ou muda a perícia. Cada tengwar conta como um sucesso extra. Atitude do interlocutor: <b>relutante</b> perde (1d), <b>aberto</b> sem modificador, <b>amistoso</b> ganha (1d). Um discurso que toca no que a plateia valoriza pode render (1d) ou (2d).</td></tr>
-      </tbody>
-    </table>
-    <h3>Como termina</h3>
-    <table>
-      <tbody>
-        <tr><td><b>Resistência alcançada</b></td><td>A Companhia consegue o que pediu.</td></tr>
-        <tr><td><b>Alguns sucessos, mas não o bastante</b></td><td>Os heróis escolhem: aceitam a recusa, ou, com aprovação do Mestre, conseguem o objetivo pagando um preço.</td></tr>
-        <tr><td><b>Nenhum sucesso, ou apresentação fracassada e Resistência não alcançada</b></td><td>A Companhia passa a ser vista como ameaça por quem encontrou.</td></tr>
-      </tbody>
-    </table>
-    <div class="fim"></div>
-  </section>
-
-  <!-- ═══════════ 9 · JORNADAS ═══════════ -->
-  <section id="jornada">
-    <div class="corrente"><span class="t">9 · Jornadas</span><span class="l"></span></div>
-    <h2>A estrada segue sempre em frente</h2>
-    <p class="capitular">Viajar não é um corte de cena. A Companhia traça a rota no mapa, distribui papéis e atravessa a distância enfrentando <b>eventos</b> e acumulando <b>Fadiga</b>. O Mestre usa um mapa com hexágonos de 20 milhas (um hexágono, um dia de marcha) e o registro de Jornada.</p>
-
-    <h3>Papéis de viagem</h3>
-    <p>Os quatro papéis devem estar cobertos. Só pode haver <b>um Guide</b>; com mais de quatro heróis, os outros papéis se repetem; com menos de quatro, alguém acumula.</p>
-    <table>
-      <thead><tr><th>Papel</th><th>Função</th><th>Perícia nos eventos</th></tr></thead>
-      <tbody>
-        <tr><td><b>Guide</b> (guia)</td><td>Decide rota, descanso e suprimentos.</td><td>TRAVEL, nos testes de marcha</td></tr>
-        <tr><td><b>Scout</b> (batedor)</td><td>Monta acampamento, abre trilhas.</td><td>EXPLORE</td></tr>
-        <tr><td><b>Look-out</b> (vigia)</td><td>Fica de guarda.</td><td>AWARENESS</td></tr>
-        <tr><td><b>Hunter</b> (caçador)</td><td>Encontra comida no ermo.</td><td>HUNTING</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Sequência da Jornada</h3>
-    <table class="compacta">
-      <tbody>
-        <tr><td class="n">1</td><td><b>Traçar a rota.</b> Os jogadores mostram o caminho no mapa, respeitando passos, vaus e pontes. O Mestre conta os hexágonos até o destino, sem contar o de partida.</td></tr>
-        <tr><td class="n">2</td><td><b>Teste de marcha.</b> O Guide rola <b>TRAVEL</b>. Na falha, o próximo evento acontece <b>2 hexágonos</b> adiante; no sucesso, <b>3, mais 1 por tengwar</b>. O Mestre marca o ponto e resolve o evento. Depois, novo teste de marcha.</td></tr>
-        <tr><td class="n">3</td><td><b>Chegada.</b> Quando o resultado do teste de marcha iguala ou passa os hexágonos que faltam, a Companhia chegou. Cada herói rola TRAVEL para reduzir a Fadiga acumulada: <b>1 ponto, mais 1 por tengwar</b>. O resto vai para a ficha e só sai a 1 ponto por noite de descanso em abrigo seguro.</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Resolvendo um evento</h3>
-    <p><b>Quem enfrenta:</b> role um Success Die. 1 ou 2, o Scout (EXPLORE); 3 ou 4, o Look-out (AWARENESS); 5 ou 6, o Hunter (HUNTING). <b>Qual evento:</b> o Mestre olha a região no mapa e rola o Feat Die: <b>Favorecido</b> em Terra de Fronteira, <b>normal</b> em Terra Selvagem, <b>Desfavorecido</b> em Terra Sombria. Em terreno difícil o herói perde (1d); numa estrada, ganha (1d). Quase todo evento dá Fadiga a <em>toda</em> a Companhia, não só a quem rolou.</p>
-    <table class="rolagem">
-      <caption>Eventos de Jornada</caption>
-      <thead><tr><th>Feat Die</th><th>Evento</th><th>Consequência</th><th>Fadiga</th></tr></thead>
-      <tbody>
-        <tr><td>Olho</td><td><b>Infortúnio terrível</b></td><td>Na falha, o alvo fica Ferido.</td><td class="n">3</td></tr>
-        <tr><td>1</td><td><b>Desespero</b></td><td>Na falha, toda a Companhia ganha 1 de Sombra (Temor).</td><td class="n">2</td></tr>
-        <tr><td>2 a 3</td><td><b>Más escolhas</b></td><td>Na falha, o alvo ganha 1 de Sombra (Temor).</td><td class="n">2</td></tr>
-        <tr><td>4 a 7</td><td><b>Contratempo</b></td><td>Na falha, a viagem ganha 1 dia e o alvo 1 de Fadiga extra.</td><td class="n">2</td></tr>
-        <tr><td>8 a 9</td><td><b>Atalho</b></td><td>No sucesso, a viagem perde 1 dia.</td><td class="n">1</td></tr>
-        <tr><td>10</td><td><b>Encontro casual</b></td><td>No sucesso, ninguém ganha Fadiga e o Mestre improvisa um encontro favorável.</td><td class="n">1</td></tr>
-        <tr><td>Runa</td><td><b>Visão alegre</b></td><td>No sucesso, toda a Companhia recupera 1 de Esperança.</td><td class="n">0</td></tr>
-      </tbody>
-    </table>
-    <div class="inset"><p><b>Fadiga soma à Carga.</b> Cada ponto de Fadiga aumenta a Carga total do herói enquanto durar, aproximando o momento em que a Endurance cai abaixo dela e ele fica Exausto. Montarias ajudam: ao fim da Jornada, cada herói montado reduz a Fadiga pelo Vigor do animal. Um herói também pode aliviar a Carga largando elmo ou escudo.</p></div>
-    <div class="fim"></div>
-  </section>
-
-  <!-- ═══════════ 10 · FASE DA COMPANHIA ═══════════ -->
-  <section id="companhia">
-    <div class="corrente"><span class="t">10 · Fase da Companhia</span><span class="l"></span></div>
-    <h2>Entre uma aventura e outra</h2>
-    <p class="capitular">Terminada a aventura, os heróis voltam para o <b>refúgio</b> da Companhia (em Eriador, quase sempre Bri e o Pônei Saltitante) e o tempo acelera. Os jogadores dizem ao Mestre o que seus heróis fazem nas semanas ou meses seguintes; o Mestre reage e aplica as regras.</p>
-
-    <h3>O que acontece</h3>
-    <table>
-      <tbody>
-        <tr><td><b>Recuperação</b></td><td>Endurance volta ao máximo. Cada herói recupera Esperança igual a HEART (Guardiões, metade) e se livra de parte da Sombra acumulada (Elfos, por sua natureza, de no máximo 1 ponto).</td></tr>
-        <tr><td><b>Empreendimentos</b> (Undertakings)</td><td>Cada herói escolhe o que fez com o tempo: reunir rumores, curar a corrupção, visitar o Patrono, ponderar sobre coisas antigas, erguer um legado, fortalecer a Companhia, estudar itens mágicos, entre outros. Cada um tem um efeito mecânico próprio.</td></tr>
-        <tr><td><b>Experiência</b></td><td>Os pontos ganhos nas sessões são gastos agora (veja abaixo).</td></tr>
-        <tr><td><b>Yule</b></td><td>A Fase da Companhia do fim do ano é especial: avança o calendário (a Tale of Years), dá Pontos de Perícia extras iguais a WITS e libera empreendimentos anuais, como criar um herdeiro ou trocar um Traço Distintivo.</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Experiência e progressão</h3>
-    <div class="grid-2">
-      <div class="callout callout-regra">
-        <div class="callout-head"><span class="glyph">&#9670;</span><span class="label">Pontos de Perícia</span></div>
-        <div class="callout-body"><p><b>3 por sessão</b>, mais WITS a cada Yule. Servem só para subir <b>perícias</b>. O custo de cada nível cresce: 1, 2, 3, 5 e assim por diante.</p></div>
-      </div>
-      <div class="callout callout-regra">
-        <div class="callout-head"><span class="glyph">&#9670;</span><span class="label">Pontos de Aventura</span></div>
-        <div class="callout-body"><p><b>3 por sessão.</b> Servem para subir <b>proficiências de combate</b> e para ganhar níveis de <b>VALOUR</b> (que dão Recompensas) e <b>WISDOM</b> (que dão Virtudes).</p></div>
-      </div>
-    </div>
-    <p>Um herói chega à excelência em cerca de dez anos de jogo (VALOUR e WISDOM 5 ou mais). Poucos vão além de duas décadas na estrada. Quem sobrevive até lá deveria pensar em se aposentar, e antes disso <b>criar um herdeiro</b> (empreendimento de Yule), para que a experiência passe adiante.</p>
-    <div class="fim"></div>
-  </section>
-
-  <!-- ═══════════ 11 · GLOSSÁRIO ═══════════ -->
-  <section id="glossario">
-    <div class="corrente"><span class="t">11 · Glossário</span><span class="l"></span></div>
-    <h2>Termos usados neste site</h2>
-    <div class="grid-2">
-      <table class="compacta">
-        <caption>Conceitos</caption>
-        <tbody>
-          <tr><td><b>Loremaster</b></td><td>quem narra (o Mestre)</td></tr>
-          <tr><td><b>Companhia</b></td><td>Company, o grupo de heróis</td></tr>
-          <tr><td><b>Fellowship</b></td><td>a reserva comum de pontos da Companhia</td></tr>
-          <tr><td><b>Esperança</b></td><td>Hope</td></tr>
-          <tr><td><b>Sombra</b></td><td>Shadow (Temor, Ganância, Feitiçaria, Má Ação)</td></tr>
-          <tr><td><b>Endurance</b></td><td>vigor, os pontos de "vida"</td></tr>
-          <tr><td><b>Parry</b></td><td>TN para acertar um herói</td></tr>
-          <tr><td><b>Carga</b></td><td>Load</td></tr>
-          <tr><td><b>Fadiga</b></td><td>Fatigue, a exaustão de viagem</td></tr>
-          <tr><td><b>Exausto / Miserável / Ferido</b></td><td>Weary / Miserable / Wounded</td></tr>
-          <tr><td><b>Hate / Resolve</b></td><td>reserva dos adversários</td></tr>
-          <tr><td><b>Might</b></td><td>ataques por rodada e ferimentos até morrer</td></tr>
-          <tr><td><b>Golpe Perfurante</b></td><td>Piercing Blow (10 ou runa no Feat Die)</td></tr>
-          <tr><td><b>Fase da Companhia</b></td><td>Fellowship Phase</td></tr>
-          <tr><td><b>Empreendimento</b></td><td>Undertaking</td></tr>
-        </tbody>
-      </table>
-      <table class="compacta">
-        <caption>Dados e perícias</caption>
-        <tbody>
-          <tr><td><b>Feat Die</b></td><td>d12 com runa de Gandalf e Olho de Sauron</td></tr>
-          <tr><td><b>Success Die</b></td><td>d6; o 6 (tengwar) é um ícone de êxito</td></tr>
-          <tr><td><b>Favoured / Ill-favoured</b></td><td>dois Feat Dice, melhor / pior</td></tr>
-          <tr><td><b>(1d), (2d)</b></td><td>ganha ou perde Success Dice</td></tr>
-          <tr><td><b>TN / NA</b></td><td>Target Number, Número Alvo</td></tr>
-          <tr><td><b>Grande êxito</b></td><td>1 tengwar; extraordinário, 2 ou mais</td></tr>
-          <tr><td>AWE, ATHLETICS, AWARENESS</td><td>Temor, Atletismo, Percepção</td></tr>
-          <tr><td>HUNTING, SONG, CRAFT</td><td>Caça, Canção, Ofício</td></tr>
-          <tr><td>ENHEARTEN, TRAVEL, INSIGHT</td><td>Encorajar, Viagem, Intuição</td></tr>
-          <tr><td>HEALING, COURTESY, BATTLE</td><td>Cura, Cortesia, Batalha</td></tr>
-          <tr><td>PERSUADE, STEALTH, SCAN</td><td>Persuadir, Furtividade, Vasculhar</td></tr>
-          <tr><td>EXPLORE, RIDDLE, LORE</td><td>Explorar, Enigma, Tradição</td></tr>
-          <tr><td><b>VALOUR / WISDOM</b></td><td>Valor / Sabedoria</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="nota" style="margin-top:var(--sp-5);">Esta página resume as regras do Core Rules e do Starter Set de O Um Anel 2ª edição, da Free League. Não substitui os livros: criação de personagem completa, Virtudes, Recompensas, adversários, tesouros, o Olho de Mordor e a descrição de Eriador estão lá. Sombras de Eriador é um projeto de fã, sem fins comerciais.</p>
-    <div class="fim"></div>
-  </section>
-
-</article>
+<footer class="rodape">
+  <div class="r-in">
+    <div><h4>Sombras de Eriador</h4><p>Material de fã para O Um Anel 2ª edição, em português. Aventuras, heróis, lugares e ferramentas para o Loremaster.</p></div>
+    <div><h4>Navegação</h4><a href="index.html">Início</a><a href="design-system.html">Design System</a></div>
+    <div><h4>Repositório</h4><a href="https://github.com/glebeduarte/umanelrpg">GitHub</a></div>
+    <div class="legal">Projeto fan-made, sem fins comerciais. O Um Anel™ e The One Ring™ são marcas de Sophisticated Games e Free League Publishing. A Terra-média e obras de J.R.R. Tolkien são de Middle-earth Enterprises. Este site não reproduz regras, textos ou arte dos livros.</div>
+  </div>
+</footer>
 </div>
 </body>
 </html>
