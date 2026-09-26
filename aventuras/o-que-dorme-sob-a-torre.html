@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<title>O Que Dorme Sob a Torre · Guia do Loremaster · Sombras de Eriador</title>
+<meta name="description" content="Aventura original em português para O Um Anel 2ª edição, nas Charnecas Etten: a Companhia já está no meio do problema, um Troll manda um recado, Orcs cavam sob uma torre partida, e dois itens mágicos esperam ser achados antes do confronto final. One-shot introdutória. Só para o Loremaster.">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../assets/base.css">
+<link rel="stylesheet" href="../assets/aventura.css">
+<script defer src="/assets/nav.js"></script>
+</head>
+<body>
+<div class="app">
+
+<aside class="sumario">
+  <div class="marca">
+    <span class="kick">Guia do Loremaster · original</span>
+    <h1>O Que Dorme Sob a Torre <span>One-shot</span></h1>
+  </div>
+  <nav>
+    <a href="#visao"><span class="n">§</span>Visão geral</a>
+    <a href="#parte-1"><span class="n">1</span>A Noite do Aviso</a>
+    <a href="#parte-2"><span class="n">2</span>A Trilha dos Vales Etten</a>
+    <a href="#parte-3"><span class="n">3</span>A Torre Partida</a>
+    <a href="#epilogo"><span class="n">4</span>Epílogo</a>
+    <a href="#pnjs"><span class="n">5</span>PNJs</a>
+    <a href="#adversarios"><span class="n">6</span>Adversários</a>
+    <a href="#glossario"><span class="n">7</span>Glossário</a>
+  </nav>
+  <div class="voltar"><a href="../index.html">← Sombras de Eriador</a></div>
+</aside>
+
+<article class="livro">
+
+<section class="capa">
+  <div class="capa-art" style="background-image:url('../assets/cover-o-que-dorme-sob-a-torre.webp'), linear-gradient(135deg,#3a3f47 0%,#16171b 55%,#5c4c38 140%);"></div>
+  <div class="capa-inner">
+    <div class="selo">Original · One-shot introdutória · Só para o Loremaster</div>
+    <h1>O Que Dorme Sob a Torre <em>Guia do Loremaster em português</em></h1>
+    <p class="tag">Um Ranger sumiu nas charnecas. Um Troll manda um recado que ninguém pediu. E sob a Torre Partida, alguma coisa que devia continuar dormindo está prestes a acordar.</p>
+    <div class="fichaje">
+      <div><b>Charnecas Etten</b>Lugar</div>
+      <div><b>One-shot, ~3h</b>Estrutura</div>
+      <div><b>3 a 5 heróis</b>Companhia</div>
+      <div><b>Introdutória</b>Nível</div>
+    </div>
+  </div>
+</section>
+
+<section id="visao">
+  <div class="corrente"><span class="t">Visão geral</span><span class="l"></span></div>
+  <h2>Como usar este guia</h2>
+  <p class="capitular">Terceira aventura original deste site, e a primeira que não começa devagar. A Companhia já está a serviço nas Charnecas Etten havia dias, ajudando o Ranger Belegorn a procurar um dos seus, desaparecido. A sessão abre com a notícia que muda tudo: uma aldeia sumiu da noite para o dia, e um Troll mandou recado. Não há Council de abertura nem Jornada de aquecimento. Há uma decisão para tomar antes que o sol nasça de novo.</p>
+
+  <div class="callout callout-mestre">
+    <div class="callout-head"><span class="glyph">◆</span><span class="label">O segredo do Loremaster</span></div>
+    <div class="callout-body">
+      <p>Um bando de Orcs dos <b>Dentes-Negros</b>, liderado pelo capitão <b>Grocnak Presa-Negra</b>, encontrou nos porões selados da Torre Partida algo que Angmar deixou para trás: o túmulo do último senhor de Rhudaur, aquele que jurou fidelidade ao Rei-Bruxo e nunca foi desfeito desse juramento. Grocnak escava havia semanas para abrir a última pedra do selo, procurando armas e riqueza de um reino caído.</p>
+      <p>O que ele não sabe é que o selo também prende. Quando a última pedra cair, o que resta do senhor traidor, chamado nesta aventura apenas de <b>o Senhor Sem Nome</b>, porque as crônicas apagaram o nome de propósito, desperta como <b>o Guardião do Juramento</b>: não morto, não vivo, incapaz de descansar enquanto o juramento não for cumprido ou quebrado.</p>
+      <p><b>Brógar</b>, o Troll mais velho dos Vales Etten, sente a escavação havia meses e tem pavor do que ela pode soltar: Trolls temem pouca coisa, mas todos temem o que dorme sob pedra há mais tempo do que eles. É por isso que ele manda um recado aos forasteiros armados da Companhia, em vez de resolver sozinho. E é por isso que o Ranger <b>Baradan</b>, que subiu de A Floresta de Pedra havia dias seguindo pegadas de outro Troll, foi capturado pelos Orcs perto da torre: viu demais, cedo demais.</p>
+    </div>
+  </div>
+
+  <h3>O Relógio do Selo</h3>
+  <p>Use esta ferramenta simples para dar peso às escolhas da Companhia sem travar a sessão em cálculo. Existem três marcas. Marque uma sempre que a Companhia gastar tempo caro: ignorar o prazo de Brógar, descansar uma noite inteira, falhar visivelmente numa Marching Test, ou perder uma cena inteira em indecisão.</p>
+  <div class="inset"><p><b>Com três marcas</b>, a última pedra do selo cai antes da Companhia chegar à Torre Partida: pule direto para a versão difícil da cena 8, com o Guardião do Juramento já solto e os próprios Orcs em fuga apavorada. <b>Com menos de três</b>, a Companhia chega a tempo de escolher como agir na cena 8. Se preferir não gerenciar o relógio, ignore-o e jogue sempre a versão difícil: a aventura funciona igual, só perde a variação de ritmo.</p></div>
+
+  <h3>Estrutura</h3>
+  <table>
+    <thead><tr><th>Parte</th><th>O que acontece</th><th>Ensina</th><th>Tempo</th></tr></thead>
+    <tbody>
+      <tr><td><b>1 · A Noite do Aviso</b></td><td>A aldeia vazia, o recado de Brógar, e a decisão de que caminho seguir primeiro.</td><td>Council sob pressão, investigação</td><td>~30 min</td></tr>
+      <tr><td><b>2 · A Trilha dos Vales Etten</b></td><td>Journey curta, emboscada dos Dentes-Negros, e o primeiro item mágico encontrado.</td><td>Journey, combate, achado</td><td>~1 h</td></tr>
+      <tr><td><b>3 · A Torre Partida</b></td><td>O pátio, o resgate de Baradan, o segundo item mágico, e o confronto final.</td><td>Resgate, enigma, chefe, tática</td><td>~1 h 15</td></tr>
+      <tr><td><b>Epílogo</b></td><td>Volta ao Acampamento do Espinheiro, recompensas, ganchos.</td><td>Fase da Companhia</td><td>~15 min</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Os heróis</h3>
+  <p>Os jogadores escolhem livremente entre os cinco pré-gerados de <b>A Companhia do Espinheiro</b>: Aravir, Bavor Punho-de-Pedra, Súrion, Osric Thorncap e Nell Underhedge. Fichas completas em <a href="../herois/companhia-do-espinheiro.html">A Companhia do Espinheiro</a>. Com só três jogadores, priorize Osric ou Bavor (combate e liderança), Aravir (rastreio e Journey) e Súrion ou Nell (perícia e enigma).</p>
+
+  <div class="inset"><p><b>Rodando em eventos.</b> Este é o único guia do site em que a Companhia já entra em cena com relações estabelecidas: eles conhecem Belegorn e Cadoc havia dias, e isso deve aparecer na mesa desde a primeira fala. Convenção de termos igual às outras aventuras: perícias e dados ficam em inglês, conceitos ganham tradução. Glossário completo no fim.</p></div>
+  <div class="fim"></div>
+</section>
+
+<!-- ═══════════ PARTE 1 ═══════════ -->
+<section id="parte-1">
+  <div class="corrente"><span class="t">Parte 1 · A Noite do Aviso</span><span class="l"></span></div>
+  <h2>Nada que a Companhia possa adiar</h2>
+  <p><b>Função da parte.</b> Jogar a Companhia direto numa decisão real, sem preâmbulo. Termina quando ela parte para os Vales Etten, tendo visitado a aldeia vazia, o encontro com Brógar, ou ambos.</p>
+
+  <div class="cena">
+    <span class="num">1</span>
+    <h3>O que Ossian trouxe</h3>
+    <p class="mec">Ensina: Council sob pressão · decisão imediata</p>
+    <div class="narrativa">
+      <div class="rot">Abertura · leia ou parafraseie</div>
+      <div class="corpo">O fogo do Acampamento do Espinheiro está baixo, e vocês tinham acabado de se sentar depois de mais um dia inteiro procurando sinal de Baradan sem achar nada além de pegadas velhas, quando um homem cai por cima do paredão de espinheiros como se não soubesse mais onde ficam os pés. É Ossian, pastor de Vau Cinza, com a roupa rasgada e uma mão sangrando. Ele não pergunta quem vocês são. Só fala.</div>
+    </div>
+    <p>Ossian conta, entrecortado, duas coisas ao mesmo tempo, e cabe à mesa decidir por qual delas perguntar primeiro:</p>
+    <ul class="mec">
+      <li><b>Vau Cinza sumiu.</b> Toda a aldeia, na noite passada. Ele só escapou porque dormiu longe, cuidando de um cordeiro doente. Voltou de manhã e não havia ninguém, nem sinal de luta, só a comida ainda na mesa.</li>
+      <li><b>Brógar o parou na trilha.</b> O Troll, sozinho, sem atacar. Deu um recado para "os forasteiros armados do Espinheiro": encontrá-lo na Pedra Alta antes que a lua cheia nasça de novo, amanhã à noite, sem Belegorn e sem mais de três. Disse que sabe onde está "o grandalhão de pele escura que os Dentes-Negros prenderam" e que o que viu sob a Torre Partida assusta mais do que qualquer Ranger jamais vai assustar um Troll.</li>
+    </ul>
+    <div class="callout callout-drama">
+      <div class="callout-head"><span class="glyph">&#9670;</span><span class="label">Belegorn e Cadoc reagem diferente</span></div>
+      <div class="callout-body"><p><b>Belegorn</b> desconfia: quer mandar aviso a Valfenda antes de qualquer coisa, o que custaria dias que Ossian diz não haver. <b>Cadoc</b>, se estiver por perto, acha que vale o risco: "Brógar não mente para ganhar tempo, ele nunca precisou disso." Deixe os dois puxarem a Companhia em direções opostas. É a decisão real da parte: ir para Vau Cinza primeiro (cena 2), ir direto à Pedra Alta (cena 3), ou tentar as duas antes do amanhecer, se o tempo permitir.</p></div>
+    </div>
+    <div class="inset"><p>Teste opcional de <b>AWARENESS</b> em Ossian: ele está ferido, não mentindo. Um <b>PERSUADE</b> bem-sucedido extrai um detalhe a mais: o "grandalhão de pele escura" tinha um arco nas costas quando os Orcs o levaram, o mesmo que Baradan carrega. A Companhia agora sabe, com certeza, que o amigo que procura está vivo e prisioneiro.</p></div>
+  </div>
+
+  <div class="cena">
+    <span class="num">2</span>
+    <h3>Vau Cinza</h3>
+<figure class="figura esboco flutua"><img src="../assets/cena-vau-cinza.webp" alt="A aldeia de pastores Vau Cinza, vazia, com a comida ainda na mesa e o vento levantando a poeira."><figcaption>Vau Cinza, na manhã seguinte ao desaparecimento.</figcaption></figure>
+    <p class="mec">Ensina: investigação · primeiro item mágico</p>
+    <p>Uma dúzia de casebres de pedra baixa junto ao Fontegris, portas abertas, fogueiras apagadas há horas, e um silêncio que nenhum vento consegue preencher. Nada foi saqueado. Isso, por si só, já diz muito a quem prestar atenção.</p>
+    <ul class="mec">
+      <li><b>AWARENESS</b> ou <b>HUNTING</b>: não há sinal de luta, nem sangue, nem marcas de arrasto. As pessoas saíram andando, várias de uma vez, em fila, rumo ao norte, para os Vales Etten. Grande êxito: entre as pegadas de gente, uma trilha de patas maiores, cascos rachados, Orcs, cercando o grupo como cães tocando gado.</li>
+      <li><b>LORE</b> ou <b>EXPLORE</b>: esta gente vive sob a sombra da Torre Partida havia gerações e nunca se mudou por completo. Algo os fez sair todos juntos, sem resistir. Grande êxito: um herói lembra do rumor registrado na própria região, o de que os Dentes-Negros "procuram alguma coisa" perto da torre, e junta as peças, gente levada como reféns ou como moeda de troca.</li>
+    </ul>
+    <p>Na casa maior da aldeia, sob uma tábua de piso solta (teste de <b>SEARCH</b> ou <b>AWARENESS</b> para notar a tábua fora do lugar), a Companhia encontra um pequeno cofre de família. Dentro, embrulhado em pano encerado, está o <b>Broche do Último Vigia</b>.</p>
+    <div class="callout callout-revelacao">
+      <div class="callout-head"><span class="glyph">✦</span><span class="label">O Broche do Último Vigia</span></div>
+      <div class="callout-body"><p>Um broche de prata escurecida em forma de torre partida ao meio, velho demais para ter sido feito por qualquer pastor. Uma família de Vau Cinza o guarda em segredo há tantas gerações que ninguém mais lembra por quê, só que "protege de noites ruins". Ficha completa e Bênção em Recompensas (Epílogo). Este é o primeiro dos dois itens mágicos que a Companhia pode achar antes do confronto final.</p></div>
+    </div>
+    <div class="inset"><p>Se a Companhia perguntar por moradores específicos, dê nomes e rostos rápidos: uma avó que sempre desconfiou da torre, um menino que coleciona pedras. Não é preciso estatuí-los: o ponto desta cena é fazer o desaparecimento doer antes do resgate acontecer na Parte 3.</p></div>
+  </div>
+
+  <div class="cena">
+    <span class="num">3</span>
+    <h3>A Pedra Alta</h3>
+<figure class="figura esboco flutua"><img src="../assets/cena-encontro-brogar.webp" alt="Brógar, o Troll, sentado junto a uma pedra erguida na charneca ao anoitecer, esperando."><figcaption>Brógar espera na Pedra Alta, do jeito que um Troll espera: imóvel, mas sempre acordado.</figcaption></figure>
+    <p class="mec">Ensina: Council com um adversário em potencial</p>
+    <div class="narrativa">
+      <div class="rot">Chegada · parafraseie</div>
+      <div class="corpo">A Pedra Alta é um marco erguido no meio da charneca aberta, tombado para um lado, e sob ela está sentado algo do tamanho de uma carroça virada, imóvel como se fosse parte da pedra. Só quando a Companhia se aproxima o suficiente, os olhos de Brógar se abrem, amarelos e pacientes.</div>
+    </div>
+    <p>Brógar não ataca, e diz isso na primeira frase, num falar de homens lento e cheio de pausas: "Não vim pra briga. Vim pedir." Ele conta, do jeito grosso de um Troll que raramente explica qualquer coisa:</p>
+    <ul class="mec">
+      <li>Há semanas ouve martelos batendo sob a Torre Partida, dia e noite, de um bando de Orcs que ele mesmo evita. Sente o chão "errado" perto de lá, do jeito que sente inverno chegando antes de nevar.</li>
+      <li>Levou a aldeia de Vau Cinza para um vale seguro, longe da torre, não por bondade pura, mas porque "gente demais perto de lá atrai mais Orcs, e Orcs demais atraem o que não devia acordar".</li>
+      <li>Viu os Orcs prenderem um homem armado sozinho, dias atrás, perto da crista. É o "grandalhão de pele escura" de Ossian: Baradan.</li>
+      <li>Quer que a Companhia entre na torre, resolva os Orcs, e feche de novo o que quer que esteja sob ela. Em troca, promete não incomodar mais os pastores das charnecas por uma geração inteira, palavra de Troll, e conta o caminho mais seguro pelos Vales.</li>
+    </ul>
+    <div class="callout callout-mestre">
+      <div class="callout-head"><span class="glyph">◆</span><span class="label">Um Troll que negocia é estranho de propósito</span></div>
+      <div class="callout-body"><p>Deixe os jogadores desconfiados. É correto que estejam. Brógar não está mentindo, mas também não está sendo generoso: tem medo de verdade, e Trolls com medo procuram quem resolva o problema por eles. Um teste de <b>AWE</b> bem-sucedido (não fácil, ele é um Troll velho e treinado a intimidar) confirma que ele fala sério. Se a Companhia recusar ou atacar, Brógar não briga: recua para o vale e não ajuda mais, tornando a Parte 2 mais dura, sem guia, sem caminho seguro.</p></div>
+    </div>
+    <p>Se aceito, Brógar indica a Vala do Corvo como caminho mais rápido pelos Vales Etten, e some antes do amanhecer. Ele reaparece na cena 8 se a Companhia contar com ele antes.</p>
+  </div>
+  <div class="fim"></div>
+</section>
+
+<!-- ═══════════ PARTE 2 ═══════════ -->
+<section id="parte-2">
+  <div class="corrente"><span class="t">Parte 2 · A Trilha dos Vales Etten</span><span class="l"></span></div>
+  <h2>Onde o sol chega tarde</h2>
+  <p><b>Função da parte.</b> Ensinar Journey em versão curta, dar o primeiro combate direto da aventura, e entregar o segundo item mágico, este ligado à vitória na Parte 3. Termina quando a Torre Partida aparece na crista.</p>
+
+  <div class="cena">
+    <span class="num">4</span>
+    <h3>A Vala do Corvo</h3>
+<figure class="figura esboco flutua"><img src="../assets/cena-vales-etten.webp" alt="Um vale estreito entre paredes de pedra, com ossos espalhados na entrada de uma caverna."><figcaption>Os Vales Etten fecham o céu cedo demais.</figcaption></figure>
+    <p class="mec">Ensina: Journey (versão curta)</p>
+    <p>Cerca de 20 quilômetros de Terra Sombria (Shadow-lands), subindo dos brejos de turfa até a boca de um dos Vales Etten. Cada herói escolhe um papel (<b>Guide</b>, <b>Hunter</b>, <b>Look-out</b>, <b>Scout</b>); com menos de quatro heróis, alguém acumula.</p>
+    <div class="inset"><p><b>Um só Marching Test</b> resolve o trajeto. Terra Sombria: Feat Die desfavorecido em Fadiga, como manda o livro. Se Brógar indicou o caminho (cena 3), a Companhia ganha (1d) nesta Marching Test. Uma falha aqui é uma marca no Relógio do Selo (ver Visão geral).</p></div>
+    <p>Ao final, descreva a entrada no vale: paredes de pedra tão altas que o sol só toca o fundo por poucas horas, árvores arrancadas pela raiz, e um cheiro de fumaça que não é de fogueira de pastor.</p>
+  </div>
+
+  <div class="cena">
+    <span class="num">5</span>
+    <h3>A patrulha dos Dentes-Negros</h3>
+<figure class="figura esboco flutua"><img src="../assets/cena-emboscada-dentes-negros.webp" alt="Orcs dos Dentes-Negros emboscando na trilha estreita do vale, entre pedras cobertas de musgo."><figcaption>Os Dentes-Negros vigiam a trilha que leva à torre.</figcaption></figure>
+    <p class="mec">Ensina: combate</p>
+    <p>Teste de <b>AWARENESS</b> para cada herói assim que a trilha se estreita entre paredes de pedra. Quem falha é surpreendido na Opening Volley.</p>
+    <div class="narrativa">
+      <div class="rot">Abertura · parafraseie</div>
+      <div class="corpo">Um assobio curto, dois tons, corta o silêncio do vale. Não é pássaro. Sombras se movem nas pedras altas dos dois lados da trilha, dentes escurecidos de fuligem brilhando fraco.</div>
+    </div>
+    <p><b>Efetivo:</b> Orcs dos Dentes-Negros em número igual aos heróis. Ficha em Adversários.</p>
+    <div class="inset"><p>Diferente dos Goblins assustados de outras aventuras, estes não fogem fácil: são disciplinados, e só recuam se um deles cair rendido ou se a Companhia gastar um Valour de forma visível. Um sobrevivente capturado e interrogado (<b>AWE</b> ou <b>PERSUADE</b>) confirma que Grocnak "quer a última pedra fora antes da lua cheia" e que "o grande de barba prendeu com as correntes dos Homens", confirmando onde Baradan está preso.</p></div>
+  </div>
+
+  <div class="cena">
+    <span class="num">6</span>
+    <h3>A lâmina sob o líquen</h3>
+<figure class="figura esboco flutua"><img src="../assets/cena-lamina-rhudaur.webp" alt="Uma lâmina antiga meio enterrada sob musgo e líquen, ao pé de uma pedra erguida tombada."><figcaption>A lâmina esperava sob a pedra tombada havia mais tempo do que Rhudaur existiu como reino.</figcaption></figure>
+    <p class="mec">Ensina: enigma leve · segundo item mágico</p>
+    <p>Perto do fim do vale, uma pedra erguida tombada, gêmea das que marcam as charnecas mais ao sul, tem uma frase gasta entalhada na base, quase escondida sob o líquen.</p>
+    <div class="handout">
+      <p class="manuscrito">Nasci do juramento de um povo inteiro.<br>Fui feita para servir, não para trair.<br>Quando o senhor esqueceu a quem devia lealdade,<br>eu fui deixada para trás, fiel ainda.<br><span style="display:block;text-align:right;margin-top:8px">O que sou?</span></p>
+    </div>
+    <div class="inset"><p><b>Resposta: uma arma, ou mais precisamente, a espada de um guarda leal de Rhudaur.</b> Teste de <b>RIDDLE</b> ou <b>LORE</b>. Sucesso: o herói entende que a frase é literal, não poética, há uma arma verdadeira aqui. Falha: nada acontece, mas um teste de <b>SEARCH</b> ou <b>AWARENESS</b> qualquer, mesmo sem entender o enigma, revela a lâmina de qualquer forma. O enigma dá compreensão, não acesso: ninguém fica sem o item por causa de um teste ruim.</p></div>
+    <p>Sob a pedra, enterrada em pano apodrecido, está a <b>Lâmina de Rhudaur Leal</b>: uma espada curta de fatura élfica antiga, esquecida por um guarda que escolheu não seguir seu senhor até Angmar.</p>
+    <div class="callout callout-revelacao">
+      <div class="callout-head"><span class="glyph">✦</span><span class="label">A Lâmina de Rhudaur Leal</span></div>
+      <div class="callout-body"><p>Brilha com uma luz azul-pálida, quase fria ao toque, perto de Orcs ou de qualquer coisa tocada pela Sombra de Angmar. Ficha completa e Bênção em Recompensas (Epílogo). Guarde este detalhe: esta lâmina é a resposta tática para o Guardião do Juramento, na cena 8.</p></div>
+    </div>
+  </div>
+  <div class="fim"></div>
+</section>
+
+<!-- ═══════════ PARTE 3 ═══════════ -->
+<section id="parte-3">
+  <div class="corrente"><span class="t">Parte 3 · A Torre Partida</span><span class="l"></span></div>
+  <h2>O que espera lá em cima</h2>
+  <p><b>Função da parte.</b> O resgate, a escolha tática, e o confronto final, com uma saída melhor para quem prestou atenção nas duas partes anteriores.</p>
+
+  <div class="cena">
+    <span class="num">7</span>
+    <h3>O pátio e os prisioneiros</h3>
+<figure class="figura esboco flutua"><img src="../assets/cena-patio-torre-partida.webp" alt="O pátio em ruínas da Torre Partida, com fogueiras de Orcs e um poço seco ao centro."><figcaption>O pátio da Torre Partida, tomado pelos Dentes-Negros.</figcaption></figure>
+    <p class="mec">Ensina: infiltração, resgate</p>
+    <p>A crista se abre num pátio de muros baixos e um poço seco ao centro. Fogueiras de Orcs, ferramentas de escavação encostadas na parede, e o som de picareta batendo em pedra vindo de baixo, constante, como um coração.</p>
+    <ul class="mec">
+      <li><b>STEALTH</b> em grupo (ou individual, à escolha da mesa) para se aproximar sem alarme. Falha não significa combate imediato: os Orcs de guarda estão distraídos com o barulho da escavação, dê uma segunda chance narrativa antes de soar alarme.</li>
+      <li>Aravir, Baradan e qualquer herói com Shadow-lore sentem o mesmo que Brógar sentiu: o ar aqui está "errado", mais frio do que deveria, do jeito que precede uma tempestade que ainda não chegou.</li>
+    </ul>
+    <p>Num canto do pátio, acorrentado a uma argola de ferro na base da metade em pé da torre, está <b>Baradan</b>, ferido mas vivo, vigiado por um ou dois Orcs. Libertá-lo é simples (sem chave, <b>CRAFT</b> ou <b>ATHLETICS</b> abre a corrente), e ele se junta ao combate seguinte se estiver em condição, com Endurance reduzida pela metade.</p>
+    <div class="inset"><p><b>O que Baradan sabe.</b> Confirma tudo que Ossian e o prisioneiro dos Dentes-Negros já contaram, e acrescenta: os Orcs abrem caminho para uma câmara selada nos porões, e nas últimas horas o barulho de picareta mudou, ficou mais fundo, mais perto da última pedra. Não há mais tempo para hesitar.</p></div>
+  </div>
+
+  <div class="cena">
+    <span class="num">8</span>
+    <h3>Grocnak e o Juramento</h3>
+<figure class="figura esboco flutua"><img src="../assets/cena-porao-juramento.webp" alt="Uma câmara subterrânea selada, com runas entalhadas na pedra e uma figura envolta em armadura antiga se levantando da escuridão."><figcaption>O que resta do último senhor de Rhudaur, de pé outra vez.</figcaption></figure>
+    <p class="mec">Ensina: combate de chefe, decisão tática</p>
+    <p>Uma escada estreita desce dos porões até uma câmara selada por uma última pedra entalhada de runas gastas, iguais às da pedra da cena 6. <b>Grocnak Presa-Negra</b> comanda o que resta do seu bando, martelando a pedra com uma barra de ferro, gritando ordens.</p>
+    <div class="callout callout-mestre">
+      <div class="callout-head"><span class="glyph">◆</span><span class="label">Duas versões desta cena</span></div>
+      <div class="callout-body">
+        <p><b>Se a Companhia chegou com menos de três marcas no Relógio do Selo</b>, ela ainda tem tempo: a última pedra não caiu. O combate é contra Grocnak e o restante dos Dentes-Negros, sem o Guardião. Se a Companhia vencer ou afastar os Orcs da pedra, o selo permanece intacto, e cabe a ela decidir se quebra de propósito (por curiosidade, ou para acabar com o que quer que ainda esteja preso ali) ou se deixa como está.</p>
+        <p><b>Se chegou com três marcas, ou se o combate empurrar alguém contra a pedra</b>, ela racha e cai. Descreva o frio que entra na sala, as tochas apagando de uma vez, e uma figura vestida em placas enferrujadas se erguendo do chão da câmara: <b>o Guardião do Juramento</b>. Ele ataca Orcs e heróis sem distinção, sem falar, sem hesitar. Grocnak e os Dentes-Negros que sobrarem tentam fugir escada acima assim que o veem, apavorados de verdade.</p>
+      </div>
+    </div>
+    <div class="callout callout-perigo">
+      <div class="callout-head"><span class="glyph">✕</span><span class="label">Mecânica · a lâmina contra o Guardião</span></div>
+      <div class="callout-body">
+        <p>Se algum herói empunhar a <b>Lâmina de Rhudaur Leal</b> (cena 6) contra o Guardião do Juramento, todo acerto com ela causa Piercing Blow automaticamente, sem precisar de Feat Die especial: a lâmina foi forjada para servir a este posto, e reconhece quem o traiu. Sem a lâmina, o Guardião ainda pode ser derrotado do jeito normal, reduzindo sua Endurance a zero, só que mais devagar e com mais risco.</p>
+        <p>Há também uma segunda saída, mais rara: um herói com <b>LORE</b> alto ou Shadow-lore pode tentar, em vez de atacar, <b>falar</b> com o Guardião entre uma rodada e outra (ação livre, uma vez por combate). Um teste de <b>PERSUADE</b> ou <b>AWE</b> extraordinário (2 ou mais ícones) faz o Guardião hesitar por uma rodada inteira, como se lembrasse, por um instante, do que era antes de jurar. Não o derrota, mas pode salvar a vida de quem está prestes a cair.</p>
+      </div>
+    </div>
+    <p><b>Se Grocnak morre ou foge</b>, solta o que carregava: uma bolsa com moedas velhas de Rhudaur e um mapa rústico dos porões, sem valor prático agora. <b>Se o Guardião é derrotado</b>, ele não deixa corpo: as placas de armadura desmoronam em ferrugem e pó, e no centro delas resta um único objeto intacto, o <b>Selo Partido de Rhudaur</b> (ver Recompensas).</p>
+  </div>
+  <div class="fim"></div>
+</section>
+
+<!-- ═══════════ EPÍLOGO ═══════════ -->
+<section id="epilogo">
+  <div class="corrente"><span class="t">Epílogo</span><span class="l"></span></div>
+  <h2>De volta ao Espinheiro</h2>
+  <div class="narrativa">
+    <div class="rot">Depois da torre · parafraseie</div>
+    <div class="corpo">A descida pelos Vales Etten parece mais curta do que a subida, e o Acampamento do Espinheiro aparece atrás do paredão de espinheiros bem quando o cansaço começa a cobrar a conta. Belegorn sai antes mesmo de vocês chamarem, e para de vez quando vê Baradan de pé, machucado, mas vivo.</div>
+  </div>
+  <p>Se resgataram Baradan, Belegorn não sabe o que dizer por um bom tempo, e isso já diz bastante sobre um homem de tão poucas palavras. Se fecharam ou destruíram o que restava do Guardião, comente que, nos dias seguintes, os pastores de Vau Cinza voltam ao vale sem que ninguém precise convencê-los, como se soubessem, sem saber como, que a crista finalmente ficou em paz. Se Brógar ajudou e a Companhia manteve a palavra, ele não aparece de novo tão cedo, mas os rebanhos das charnecas passam a sumir bem menos.</p>
+
+  <h3>Recompensas (Fase da Companhia)</h3>
+  <p>Aplique os Pontos de Aventura e de Perícia conforme o Rules booklet. Itens e reconhecimento sugeridos:</p>
+  <ul class="mec">
+    <li><b>Broche do Último Vigia</b> (achado na cena 2): Bênção <b>Guarda do Oeste</b>. Uma vez por sessão, o portador pode gastar o broche para transformar um Olho de Sauron em Runa de Gandalf num teste de Sombra.</li>
+    <li><b>Lâmina de Rhudaur Leal</b> (achada na cena 6): espada curta élfica, Dano 3, Ferimento 14, Carga 1. Bênção <b>Fiel ao Posto</b>: Piercing Blow automático contra Orcs e contra o Guardião do Juramento, sem exigir Feat Die especial.</li>
+    <li><b>Selo Partido de Rhudaur</b> (se o Guardião foi derrotado): broche heráldico partido ao meio. Quem o carrega ganha (1d) em testes de <b>COURTESY</b> ou <b>PERSUADE</b> com Rangers do Norte e com descendentes dos Homens das Colinas, que reconhecem nele a prova de que um juramento antigo foi enfim encerrado.</li>
+    <li><b>Resolver a decisão da Parte 1 sem perder tempo</b> (Relógio do Selo com zero marcas): 1 Ponto de Valor extra para toda a Companhia.</li>
+    <li><b>Fazer o Guardião hesitar em vez de só atacá-lo</b> (cena 8): 1 Ponto de Sabedoria extra para quem tentou, mesmo se o teste falhou.</li>
+  </ul>
+  <div class="inset"><p>Ganchos abertos: o que mais os Dentes-Negros escondiam além do que Grocnak procurava; se Brógar cumpre mesmo a palavra por uma geração inteira, ou se um Troll mais jovem discorda dele; e o que mais Ruins of the Lost Realm tem a dizer sobre Rhudaur, para quem quiser seguir a trilha até Angmar de vez.</p></div>
+  <div class="fim"></div>
+</section>
+
+<!-- ═══════════ PNJS ═══════════ -->
+<section id="pnjs">
+  <div class="corrente"><span class="t">PNJs</span><span class="l"></span></div>
+  <h2>Personagens do Loremaster</h2>
+  <p class="nota">Belegorn, Cadoc e Brógar vêm de <a href="../lugares/charnecas-etten.html">As Charnecas Etten</a>. Baradan vem de <a href="../lugares/floresta-de-pedra.html">A Floresta de Pedra</a>. Ossian é original desta aventura.</p>
+
+  <div class="npc">
+    <div class="retrato"><img src="../assets/npc-belegorn.webp" alt="Belegorn"></div>
+    <div>
+      <div class="npc-head"><div class="nm">Belegorn</div><div class="tipo">Ranger do Norte · patrono</div></div>
+      <div class="npc-body"><p>Comanda a busca por Baradan havia dias e mal dorme desde que ele sumiu. Desconfia de Brógar por hábito, não por prova. Se a Companhia trouxer Baradan de volta, é o momento mais próximo de vê-lo emocionado que qualquer um terá a chance de presenciar.</p></div>
+    </div>
+  </div>
+
+  <div class="npc">
+    <div class="retrato"><img src="../assets/npc-cadoc.webp" alt="Cadoc Olho-de-Turfa"></div>
+    <div>
+      <div class="npc-head"><div class="nm">Cadoc Olho-de-Turfa</div><div class="tipo">Pastor das colinas · guia</div></div>
+      <div class="npc-body"><p>Foi ele quem primeiro sugeriu ouvir Brógar. Conhece Vau Cinza de nome e de rosto, e cobra caro por levar a Companhia até lá rápido, mas cobra ainda mais caro de si mesmo, em culpa, se alguém de lá se machucar por demora.</p></div>
+    </div>
+  </div>
+
+  <div class="npc">
+    <div class="retrato"><img src="../assets/npc-baradan.webp" alt="Baradan"></div>
+    <div>
+      <div class="npc-head"><div class="nm">Baradan</div><div class="tipo">Ranger do Norte · prisioneiro</div></div>
+      <div class="npc-body"><p>Subiu sozinho para confirmar um rumor de "outro Troll" e achou Orcs cavando um túmulo, o que é bem pior. Ferido, mas orgulhoso demais para admitir o quanto. Assim que solto, quer voltar para a briga em vez de ser levado a um lugar seguro.</p></div>
+    </div>
+  </div>
+
+  <h3>Rosto para lembrar</h3>
+  <div class="adversario carta">
+    <div class="arte"><img src="../assets/enemy-brogar.webp" alt="Brógar, o Velho do Vale"></div>
+    <div>
+    <div class="nome">Brógar, o Velho do Vale</div>
+    <p class="descricao">Troll das colinas mais velho dos Vales Etten, e o único desta aventura que pede ajuda em vez de atacar. Ficha completa, para o caso raro de a mesa acabar em combate com ele, em Adversários.</p>
+    </div>
+  </div>
+  <div class="fim"></div>
+</section>
+
+<!-- ═══════════ ADVERSÁRIOS ═══════════ -->
+<section id="adversarios">
+  <div class="corrente"><span class="t">Adversários</span><span class="l"></span></div>
+  <h2>Blocos de estatísticas</h2>
+  <p>Habilidades cruéis resumidas. Regras completas de combate no Rules booklet.</p>
+
+  <div class="adversario carta">
+    <div class="arte"><img src="../assets/enemy-dentes-negros.webp" alt="Orc dos Dentes-Negros"></div>
+    <div>
+      <div class="nome">Orc dos Dentes-Negros</div>
+      <div class="bloco">
+        <div class="bloco-head"><div><div class="titulo">Orc dos Dentes-Negros</div><div class="tracos">Disciplinado, Organizado</div></div><div class="nivel"><span class="rot">Nível de Atributo</span><span class="losango pequeno">3</span></div></div>
+        <div class="stats">
+          <div class="atributo"><span class="rot">Endurance</span><span class="losango">12</span></div>
+          <div class="atributo"><span class="rot">Might</span><span class="losango">2</span></div>
+          <div class="atributo"><span class="rot">Hate</span><span class="losango">2</span></div>
+          <div class="atributo"><span class="rot">Parry</span><span class="losango">+1</span></div>
+          <div class="atributo"><span class="rot">Armour</span><span class="losango">2</span></div>
+        </div>
+        <div class="linha"><span class="rot">Proficiências:</span> Cimitarra recurvada 3 (3/15)</div>
+        <div class="linha"><span class="rot">Habilidades cruéis:</span> <em>Ataque em Bando</em>: Favoured quando dois ou mais atacam o mesmo alvo na mesma rodada. <em>Disciplinados</em>: ao contrário de bandos comuns, não fogem ao chegar à metade da Endurance; só fogem se Grocnak cair ou fugir primeiro.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="adversario carta">
+    <div class="arte"><img src="../assets/enemy-grocnak.webp" alt="Grocnak Presa-Negra"></div>
+    <div>
+      <div class="nome">Grocnak Presa-Negra</div>
+      <div class="bloco">
+        <div class="bloco-head"><div><div class="titulo">Grocnak Presa-Negra</div><div class="tracos">Brutal, Comandante</div></div><div class="nivel"><span class="rot">Nível de Atributo</span><span class="losango pequeno">5</span></div></div>
+        <div class="stats">
+          <div class="atributo"><span class="rot">Endurance</span><span class="losango">30</span></div>
+          <div class="atributo"><span class="rot">Might</span><span class="losango">2</span></div>
+          <div class="atributo"><span class="rot">Hate</span><span class="losango">4</span></div>
+          <div class="atributo"><span class="rot">Parry</span><span class="losango">+2</span></div>
+          <div class="atributo"><span class="rot">Armour</span><span class="losango">3</span></div>
+        </div>
+        <div class="linha"><span class="rot">Proficiências:</span> Machado de duas mãos 4 (4/17, Piercing Blow), Machadinha de arremesso 2 (2/13)</div>
+        <div class="linha"><span class="rot">Habilidades cruéis:</span> <em>Grito de Comando</em>: gasta 1 Hate para dar (1d) a todos os Orcs dos Dentes-Negros presentes na próxima rodada. <em>Brutal</em>: em Piercing Blow, soma +2 ao dano causado.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="adversario carta">
+    <div class="arte"><img src="../assets/enemy-brogar.webp" alt="Brógar, o Velho do Vale"></div>
+    <div>
+      <div class="nome">Brógar, o Velho do Vale</div>
+      <div class="bloco">
+        <div class="bloco-head"><div><div class="titulo">Brógar</div><div class="tracos">Velho, Cauteloso</div></div><div class="nivel"><span class="rot">Nível de Atributo</span><span class="losango pequeno">6</span></div></div>
+        <div class="stats">
+          <div class="atributo"><span class="rot">Endurance</span><span class="losango">45</span></div>
+          <div class="atributo"><span class="rot">Might</span><span class="losango">3</span></div>
+          <div class="atributo"><span class="rot">Hate</span><span class="losango">5</span></div>
+          <div class="atributo"><span class="rot">Parry</span><span class="losango">—</span></div>
+          <div class="atributo"><span class="rot">Armour</span><span class="losango">4</span></div>
+        </div>
+        <div class="linha"><span class="rot">Proficiências:</span> Punhos e clava improvisada 4 (5/18, Seize)</div>
+        <div class="linha"><span class="rot">Habilidades cruéis:</span> <em>Pele Grossa</em>: Armour conta em dobro contra ataques à distância. <em>Fúria Contida</em>: só luta a sério se atacado primeiro ou enganado de forma clara pela Companhia; nesse caso, ganha (1d) na primeira rodada de combate.</div>
+        <div class="linha"><span class="rot">Fraqueza:</span> como todo Troll das colinas, luz solar direta o petrifica, mas isso raramente importa nesta aventura: Brógar só aparece à noite.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="adversario carta">
+    <div class="arte"><img src="../assets/enemy-guardiao-do-juramento.webp" alt="O Guardião do Juramento"></div>
+    <div>
+      <div class="nome">O Guardião do Juramento</div>
+      <div class="bloco">
+        <div class="bloco-head"><div><div class="titulo">Guardião do Juramento</div><div class="tracos">Implacável, Sombrio</div></div><div class="nivel"><span class="rot">Nível de Atributo</span><span class="losango pequeno">6</span></div></div>
+        <div class="stats">
+          <div class="atributo"><span class="rot">Endurance</span><span class="losango">40</span></div>
+          <div class="atributo"><span class="rot">Might</span><span class="losango">3</span></div>
+          <div class="atributo"><span class="rot">Hate</span><span class="losango">6</span></div>
+          <div class="atributo"><span class="rot">Parry</span><span class="losango">+2</span></div>
+          <div class="atributo"><span class="rot">Armour</span><span class="losango">2</span></div>
+        </div>
+        <div class="linha"><span class="rot">Proficiências:</span> Espada quebrada 4 (4/17, Piercing)</div>
+        <div class="linha"><span class="rot">Habilidades cruéis:</span> <em>Presença Sombria</em>: quem for acertado soma 1 Fadiga extra, além do dano normal, do frio e do medo que o Guardião carrega. <em>Implacável</em>: ignora Fadiga para efeito de penalidades em combate.</div>
+        <div class="linha"><span class="rot">Fraqueza:</span> a Lâmina de Rhudaur Leal (ver cena 8) causa Piercing Blow automático contra ele, sem precisar de Feat Die especial.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="inset"><p><b>Escala por tamanho de Companhia:</b> com 3 heróis, remova um Orc dos Dentes-Negros do efetivo da cena 5 e da cena 8. Com 5 heróis, Grocnak entra em combate na cena 8 já acompanhado por dois Orcs, não um.</p></div>
+  <div class="fim"></div>
+</section>
+
+<!-- ═══════════ GLOSSÁRIO ═══════════ -->
+<section id="glossario">
+  <div class="corrente"><span class="t">Glossário</span><span class="l"></span></div>
+  <h2>Termos usados neste guia</h2>
+  <div class="grid-2">
+    <table class="compacta">
+      <caption>Conceitos</caption>
+      <tbody>
+        <tr><td>Loremaster</td><td>quem narra (o Mestre)</td></tr>
+        <tr><td>Companhia</td><td>Company, o grupo de heróis</td></tr>
+        <tr><td>Esperança</td><td>Hope</td></tr>
+        <tr><td>Sombra</td><td>Shadow</td></tr>
+        <tr><td>Fadiga</td><td>Fatigue</td></tr>
+        <tr><td>Ferido</td><td>Wounded</td></tr>
+        <tr><td>Journey / Marching Test</td><td>viagem / teste de marcha</td></tr>
+        <tr><td>Council</td><td>conselho, cena social com Resistência</td></tr>
+        <tr><td>Fase da Companhia</td><td>Fellowship Phase</td></tr>
+      </tbody>
+    </table>
+    <table class="compacta">
+      <caption>Dados e perícias</caption>
+      <tbody>
+        <tr><td>Feat Die</td><td>d12 com Runa de Gandalf e Olho de Sauron</td></tr>
+        <tr><td>Success Die</td><td>d6; o 6 é um ícone de êxito</td></tr>
+        <tr><td>Favoured / Ill-favoured</td><td>dois Feat Dice, melhor / pior</td></tr>
+        <tr><td>(1d), (2d)</td><td>ganha ou perde Success Dice</td></tr>
+        <tr><td>Grande êxito</td><td>1 ícone; extraordinário, 2+</td></tr>
+        <tr><td>AWARENESS, ATHLETICS, HUNTING</td><td>Percepção, Atletismo, Caça</td></tr>
+        <tr><td>CRAFT, AWE, PERSUADE</td><td>Ofício, Temor, Persuadir</td></tr>
+        <tr><td>RIDDLE, LORE, SEARCH, STEALTH, EXPLORE</td><td>Enigma, Tradição, Busca, Furtividade, Exploração</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="fim"></div>
+  <p class="nota centro" style="padding-bottom:var(--sp-7)">Sombras de Eriador · aventura original de fã, sem fins comerciais. O Um Anel™ e The One Ring™ são marcas de Sophisticated Games e Free League Publishing. A Terra-média e as obras de J.R.R. Tolkien são de Middle-earth Enterprises.</p>
+</section>
+
+</article>
+</div>
+</body>
+</html>
