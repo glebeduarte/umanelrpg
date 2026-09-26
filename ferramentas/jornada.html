@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registro de Jornada · Sombras de Eriador</title>
+<meta name="description" content="Ferramenta para O Um Anel 2ª edição: organize papéis da Jornada, terreno, dificuldade e resultado da Marching Test perna por perna, com Fadiga da Companhia e histórico da sessão.">
+<link rel="stylesheet" href="../assets/base.css">
+<script defer src="/assets/nav.js"></script>
+<style>
+/* ================================================================
+   REGISTRO DE JORNADA · estilos próprios da ferramenta (tokens do base.css)
+   ================================================================ */
+.jor{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:var(--sp-6); align-items:start;}
+@media(max-width:900px){.jor{grid-template-columns:minmax(0,1fr);}}
+
+.painel.ficha{margin:0; padding:var(--sp-4) var(--sp-5) var(--sp-5);}
+.painel .ficha-sec:first-child{margin-top:0;}
+.ctl{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:var(--sp-2) var(--sp-3); padding:var(--sp-2) 0; border-bottom:1px solid var(--parchment-400);}
+.ctl:last-child{border-bottom:0;}
+.ctl .rot{flex:1 1 170px; min-width:0; font:var(--fw-bold) var(--size-body-sm)/1.25 var(--font-body); color:var(--umber-900);}
+.ctl .rot small{display:block; font:italic var(--fw-body) var(--size-caption)/1.35 var(--font-body); color:var(--text-muted); margin-top:2px;}
+.ctl input[type=text],.ctl textarea{font:var(--fw-body) var(--size-mech)/1.3 var(--font-mech); color:var(--umber-900); background:var(--parchment-100); border:1px solid var(--umber-300); padding:8px 10px; width:100%; max-width:280px;}
+.ctl textarea{max-width:100%; resize:vertical; min-height:44px;}
+.ctl select{font:var(--fw-mech-bold) var(--size-mech-sm)/1.2 var(--font-mech); color:var(--umber-900); background:var(--parchment-100); border:1px solid var(--umber-500); padding:7px 8px; max-width:220px;}
+
+/* Passo numérico com losango (mesmo padrão do Rolador) */
+.passo{display:inline-flex; align-items:center; gap:var(--sp-1);}
+.passo button{width:30px; height:30px; border:1px solid var(--umber-500); background:var(--parchment-100); color:var(--umber-900); font:600 18px/1 var(--font-mech); cursor:pointer;}
+.passo button:hover{background:var(--parchment-300);}
+.chips{display:grid; grid-template-columns:repeat(3,1fr); gap:4px; margin-top:var(--sp-2);}
+.chips button{font:var(--fw-mech-bold) var(--size-caption)/1 var(--font-mech); padding:5px 8px; border:1px solid var(--umber-300); background:transparent; color:var(--umber-700); cursor:pointer;}
+.chips button.on{background:var(--umber-700); color:var(--parchment-100); border-color:var(--umber-700);}
+
+/* Seletor em três posições (mesmo padrão do Rolador) */
+.seg{display:inline-flex; border:1px solid var(--umber-500); flex-wrap:wrap;}
+.seg button{font:var(--fw-mech-bold) var(--size-caption)/1 var(--font-mech); letter-spacing:.04em; padding:8px 10px; background:transparent; border:0; border-left:1px solid var(--umber-300); color:var(--umber-700); cursor:pointer;}
+.seg button:first-child{border-left:0;}
+.seg button[aria-pressed="true"]{background:var(--red-600); color:var(--parchment-100);}
+.seg button[aria-pressed="true"].grande{background:var(--moss-600);}
+
+.painel button:focus-visible,.acoes a:focus-visible{outline:2px solid var(--red-400); outline-offset:2px;}
+.acoes{display:flex; gap:var(--sp-3); justify-content:flex-end; flex-wrap:wrap; margin-top:var(--sp-4);}
+
+/* ---- Companhia: lista de heróis ---- */
+.linha-heroi{display:grid; grid-template-columns:1fr 74px auto 26px; gap:var(--sp-2); align-items:center; padding:7px 0; border-bottom:1px solid var(--parchment-400);}
+.linha-heroi:last-child{border-bottom:0;}
+.linha-heroi input[type=text]{font:var(--fw-body) var(--size-mech)/1.2 var(--font-mech); color:var(--umber-900); background:var(--parchment-100); border:1px solid var(--umber-300); padding:7px 9px; width:100%;}
+.linha-heroi input[type=number]{font:var(--fw-body) var(--size-mech)/1.2 var(--font-mech); color:var(--umber-900); background:var(--parchment-100); border:1px solid var(--umber-300); padding:7px 6px; width:100%; text-align:center;}
+.linha-heroi .fadiga{display:inline-flex; align-items:center; gap:4px;}
+.linha-heroi .fadiga button{width:24px; height:24px; border:1px solid var(--umber-500); background:var(--parchment-100); color:var(--umber-900); font:600 14px/1 var(--font-mech); cursor:pointer;}
+.linha-heroi .fadiga .val{min-width:20px; text-align:center; font:var(--fw-mech-bold) var(--size-mech)/1 var(--font-mech); color:var(--red-600);}
+.linha-heroi .rm{background:none; border:0; color:var(--red-600); font:600 16px/1 var(--font-mech); cursor:pointer; padding:2px;}
+.legenda-cols{display:flex; gap:var(--sp-2) var(--sp-3); font:var(--fw-mech-bold) var(--size-caption)/1 var(--font-mech); letter-spacing:.06em; text-transform:uppercase; color:var(--mist-400); padding-bottom:4px;}
+.presets{display:flex; gap:var(--sp-2); flex-wrap:wrap; margin-bottom:var(--sp-3);}
+.vazio-heroi{font:italic var(--fw-body) var(--size-body-sm)/1.4 var(--font-body); color:var(--text-muted); padding:6px 0;}
+
+/* ---- Resumo da jornada ---- */
+.resumo-jornada{display:flex; gap:var(--sp-5); flex-wrap:wrap; padding:var(--sp-4) 0; border-top:1px solid var(--umber-300); margin-top:var(--sp-3);}
+.resumo-jornada div{text-align:center;}
+.resumo-jornada b{display:block; font:var(--fw-display-bold) 30px/1 var(--font-display); color:var(--red-600);}
+.resumo-jornada span{font:var(--fw-mech) var(--size-caption)/1.3 var(--font-mech); letter-spacing:.06em; text-transform:uppercase; color:var(--text-muted);}
+
+/* ---- Histórico ---- */
+.historico td,.historico th{white-space:nowrap;}
+.historico td.perna{white-space:normal; max-width:220px;}
+.historico td.res{font-family:var(--font-body); font-style:italic;}
+.historico td.res.ok{color:var(--moss-600);}
+.historico td.res.grande{color:var(--red-600); font-style:normal; font-weight:var(--fw-bold);}
+.historico td.res.falha{color:var(--text-muted);}
+.hist-vazio{font-style:italic; color:var(--text-muted);}
+
+/* ---- Legenda dos papéis ---- */
+.leitura{display:grid; grid-template-columns:repeat(4,1fr); gap:var(--sp-5);}
+@media(max-width:900px){.leitura{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.leitura{grid-template-columns:1fr;}}
+.leitura .item p{margin:0; font-size:var(--size-body-sm);}
+.leitura h4{margin:0 0 4px;}
+
+@media(max-width:560px){
+  .painel.ficha{padding:var(--sp-3) var(--sp-4) var(--sp-4);}
+  .linha-heroi{grid-template-columns:1fr 60px auto 22px;}
+  .seg button{padding:8px 7px;}
+}
+</style>
+</head>
+<body>
+<div class="pergaminho com-vinhas">
+<div class="banda com-emblema"><span class="capitulo">Ferramentas</span></div>
+
+<main>
+
+<section class="faixa">
+  <div class="titulo-livro" style="margin-top:var(--sp-5)">
+    <span class="capitulo">Mesa do Loremaster</span>
+    <h1>Registro de Jornada</h1>
+    <p class="lema">Papéis, terreno, dificuldade e resultado da Marching Test, perna por perna, sem precisar de papel.</p>
+  </div>
+
+  <div class="jor">
+
+    <!-- ═══════════ COMPANHIA E PAPÉIS ═══════════ -->
+    <div class="painel ficha">
+      <div class="ficha-sec"><span>A Companhia</span></div>
+
+      <div class="presets">
+        <button class="btn btn-ghost btn-sm" type="button" id="btnPresetBree">Carregar A Companhia de Bree</button>
+        <button class="btn btn-ghost btn-sm" type="button" id="btnPresetPonte">Carregar A Companhia da Última Ponte</button>
+      </div>
+
+      <div class="legenda-cols"><span style="flex:1">Herói</span><span style="width:74px">Carga</span><span style="width:70px">Fadiga</span></div>
+      <div id="listaHerois"></div>
+      <p class="vazio-heroi" id="heroiVazio">Nenhum herói ainda. Adicione um ou carregue uma Companhia pronta.</p>
+      <p class="centro mt-3"><button class="btn btn-ghost btn-sm" id="btnAddHeroi" type="button">+ adicionar herói</button></p>
+
+      <div class="ficha-sec"><span>Papéis da Jornada</span></div>
+      <div class="ctl">
+        <div class="rot">Guide<small>Escolhe o caminho, testa TRAVEL</small></div>
+        <select id="papelGuide"></select>
+      </div>
+      <div class="ctl">
+        <div class="rot">Hunter<small>Busca comida, testa HUNTING</small></div>
+        <select id="papelHunter"></select>
+      </div>
+      <div class="ctl">
+        <div class="rot">Look-out<small>Vigia o perigo, testa AWARENESS</small></div>
+        <select id="papelLookout"></select>
+      </div>
+      <div class="ctl">
+        <div class="rot">Scout<small>Vai à frente, testa EXPLORE</small></div>
+        <select id="papelScout"></select>
+      </div>
+
+      <div class="resumo-jornada" id="resumoJornada"></div>
+    </div>
+
+    <!-- ═══════════ PERNA ATUAL ═══════════ -->
+    <div class="painel ficha">
+      <div class="ficha-sec"><span>Perna atual</span></div>
+
+      <div class="ctl">
+        <div class="rot">Nome da perna<small>De onde a Companhia parte, para onde vai</small></div>
+        <input type="text" id="pernaNome" placeholder="Ex.: Última Ponte → Floresta de Pedra">
+      </div>
+      <div class="ctl">
+        <div class="rot">Terreno<small>Anotação livre; Fadiga extra por terreno difícil é do Mestre</small></div>
+        <input type="text" id="pernaTerreno" placeholder="Ex.: Wild Lands, colinas fechadas">
+      </div>
+      <div class="ctl" style="align-items:flex-start;">
+        <div class="rot">Número-Alvo sugerido<small>Para o teste do papel principal da perna</small></div>
+        <div>
+          <div class="passo">
+            <button type="button" id="naMenos" aria-label="Diminuir Número-Alvo">&minus;</button>
+            <span class="losango pequeno" id="naValor" aria-live="polite">14</span>
+            <button type="button" id="naMais" aria-label="Aumentar Número-Alvo">+</button>
+          </div>
+          <div class="chips" id="naChips"></div>
+        </div>
+      </div>
+      <div class="ctl">
+        <div class="rot">Dias de viagem</div>
+        <div class="passo">
+          <button type="button" id="diasMenos" aria-label="Menos um dia">&minus;</button>
+          <span class="losango pequeno" id="diasValor">1</span>
+          <button type="button" id="diasMais" aria-label="Mais um dia">+</button>
+        </div>
+      </div>
+      <div class="ctl">
+        <div class="rot">Resultado da Marching Test</div>
+        <div class="seg" id="segResultado" role="group" aria-label="Resultado da Marching Test">
+          <button type="button" data-v="falha">Falha</button>
+          <button type="button" data-v="sucesso" aria-pressed="true">Sucesso</button>
+          <button type="button" data-v="grande" class="grande">Grande êxito</button>
+        </div>
+      </div>
+      <div class="ctl" style="align-items:flex-start;">
+        <div class="rot">Evento (opcional)<small>Encontro, clima, o que valer a pena lembrar</small></div>
+        <textarea id="pernaEvento" placeholder="Ex.: aranhas na trilha; a Companhia recua para uma clareira."></textarea>
+      </div>
+
+      <div class="acoes">
+        <a class="btn btn-claro btn-sm" href="rolador.html">Rolar no dado do Destino</a>
+        <button class="btn btn-primary" id="btnRegistrar" type="button">Registrar perna</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HISTÓRICO ═══════════ -->
+<section class="faixa" style="padding-top:0;">
+  <div class="cab"><div><span class="eyebrow">Nesta sessão</span><h2>Pernas registradas</h2></div><span class="l"></span></div>
+  <div style="overflow-x:auto;">
+    <table class="historico">
+      <thead><tr><th>#</th><th>Perna</th><th>Terreno</th><th>NA</th><th>Dias</th><th>Resultado</th><th>Evento</th></tr></thead>
+      <tbody id="histCorpo"><tr><td colspan="7" class="hist-vazio">Nenhuma perna registrada ainda.</td></tr></tbody>
+    </table>
+  </div>
+  <p class="centro mt-5"><button class="btn btn-ghost btn-sm" type="button" id="btnLimpar">Limpar jornada</button></p>
+</section>
+
+<!-- ═══════════ LEGENDA ═══════════ -->
+<section class="faixa" style="padding-top:0;">
+  <div class="cab"><div><span class="eyebrow">Na mesa</span><h2>Os papéis da Jornada</h2></div><span class="l"></span></div>
+  <div class="leitura" id="leitura">
+    <div class="item"><h4 class="vermelho">Guide</h4><p>Escolhe o caminho e decide o ritmo. Se a Companhia se perder ou atrasar, é o teste do Guide que costuma estar em jogo.</p></div>
+    <div class="item"><h4 class="vermelho">Hunter</h4><p>Sai à procura de caça pelo caminho. Uma boa caçada ajuda a Companhia a não sofrer com a fome numa jornada longa.</p></div>
+    <div class="item"><h4 class="vermelho">Look-out</h4><p>Fica de olho no que se aproxima. Reduz a chance de a Companhia ser pega de surpresa por um perigo na estrada.</p></div>
+    <div class="item"><h4 class="vermelho">Scout</h4><p>Vai um pouco à frente checar o terreno. Ajuda a evitar armadilhas, atalhos ruins e travessias perigosas.</p></div>
+  </div>
+  <p class="nota mt-5" style="max-width:var(--measure-body)">Este registro organiza papéis, terreno e resultado da sessão; os efeitos exatos de cada resultado da Marching Test e o cálculo de Fadiga por Jornada seguem o livro básico. Para a rolagem em si, use o <a href="rolador.html">Rolador de Dados</a>.</p>
+</section>
+
+</main>
+
+<footer class="rodape">
+  <div class="r-in">
+    <div><h4>Sombras de Eriador</h4><p>Material de fã para O Um Anel 2ª edição, em português. Aventuras, heróis, lugares e ferramentas para o Loremaster.</p></div>
+    <div><h4>Navegação</h4><a href="../index.html">Início</a><a href="../index.html#ferramentas-sec">Ferramentas</a><a href="rolador.html">Rolador de Dados</a><a href="../regras.html">O Sistema</a></div>
+    <div><h4>Repositório</h4><a href="https://github.com/glebeduarte/umanelrpg">GitHub</a></div>
+    <div class="legal">Projeto fan-made, sem fins comerciais. O Um Anel™ e The One Ring™ são marcas de Sophisticated Games e Free League Publishing. A Terra-média e obras de J.R.R. Tolkien são de Middle-earth Enterprises. Este site não reproduz regras, textos ou artes dos livros oficiais.</div>
+  </div>
+</footer>
+</div>
+
+<script>
+(function () {
+  /* ---------------- Estado ---------------- */
+  var CHAVE = 'sde-jornada-v1';
+  var padrao = {
+    herois: [],
+    papeis: { guide: '', hunter: '', lookout: '', scout: '' },
+    perna: { nome: '', terreno: '', na: 14, dias: 1, resultado: 'sucesso', evento: '' }
+  };
+  var est = JSON.parse(JSON.stringify(padrao));
+  var historico = [];
+  try {
+    var salvo = JSON.parse(localStorage.getItem(CHAVE) || 'null');
+    if (salvo && salvo.est) {
+      est.herois = Array.isArray(salvo.est.herois) ? salvo.est.herois : [];
+      est.papeis = Object.assign({}, padrao.papeis, salvo.est.papeis);
+      est.perna = Object.assign({}, padrao.perna, salvo.est.perna);
+    }
+    if (salvo && Array.isArray(salvo.hist)) historico = salvo.hist;
+  } catch (e) {}
+  function salvar() { try { localStorage.setItem(CHAVE, JSON.stringify({ est: est, hist: historico })); } catch (e) {} }
+
+  var $ = function (id) { return document.getElementById(id); };
+  var NAS = [10, 12, 14, 16, 18, 20];
+  var PAPEL_ROTS = { guide: 'G', hunter: 'H', lookout: 'L', scout: 'S' };
+
+  var PRESET_BREE = ['Geira', 'Regin', 'Fimbrethil', 'Mentha', 'Duinhir'];
+  var PRESET_PONTE = ['Tom', 'Nár', 'Calenmir', 'Tilly', 'Erendir'];
+
+  /* ---------------- Companhia ---------------- */
+  function addHeroi(nome) {
+    est.herois.push({ nome: nome || '', carga: '', fadiga: 0 });
+    desenharHerois(); sincronizarPapeis(); salvar();
+  }
+  function carregarPreset(nomes) {
+    est.herois = nomes.map(function (n) { return { nome: n, carga: '', fadiga: 0 }; });
+    desenharHerois(); sincronizarPapeis(); salvar();
+  }
+
+  function desenharHerois() {
+    var lista = $('listaHerois');
+    lista.innerHTML = '';
+    $('heroiVazio').style.display = est.herois.length ? 'none' : '';
+    est.herois.forEach(function (h, i) {
+      var row = document.createElement('div');
+      row.className = 'linha-heroi';
+      row.innerHTML =
+        '<input type="text" value="' + escapeAttr(h.nome) + '" placeholder="Nome do herói" data-i="' + i + '" data-f="nome">' +
+        '<input type="number" value="' + escapeAttr(h.carga) + '" placeholder="—" data-i="' + i + '" data-f="carga" min="0">' +
+        '<span class="fadiga"><button type="button" data-i="' + i + '" data-d="-1" aria-label="Menos Fadiga">&minus;</button><span class="val">' + h.fadiga + '</span><button type="button" data-i="' + i + '" data-d="1" aria-label="Mais Fadiga">+</button></span>' +
+        '<button type="button" class="rm" data-i="' + i + '" aria-label="Remover herói">&times;</button>';
+      lista.appendChild(row);
+    });
+    Array.prototype.forEach.call(lista.querySelectorAll('input[data-f]'), function (inp) {
+      inp.addEventListener('input', function () {
+        var i = +this.dataset.i, f = this.dataset.f;
+        est.herois[i][f] = this.value;
+        if (f === 'nome') sincronizarPapeis();
+        salvar();
+      });
+    });
+    Array.prototype.forEach.call(lista.querySelectorAll('.fadiga button'), function (b) {
+      b.addEventListener('click', function () {
+        var i = +this.dataset.i, d = +this.dataset.d;
+        est.herois[i].fadiga = Math.max(0, (est.herois[i].fadiga || 0) + d);
+        this.parentElement.querySelector('.val').textContent = est.herois[i].fadiga;
+        salvar();
+      });
+    });
+    Array.prototype.forEach.call(lista.querySelectorAll('.rm'), function (b) {
+      b.addEventListener('click', function () {
+        est.herois.splice(+this.dataset.i, 1);
+        desenharHerois(); sincronizarPapeis(); salvar();
+      });
+    });
+    resumoJornada();
+  }
+
+  function escapeAttr(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;'); }
+
+  /* ---------------- Papéis ---------------- */
+  function sincronizarPapeis() {
+    ['guide', 'hunter', 'lookout', 'scout'].forEach(function (p) {
+      var sel = $('papel' + p.charAt(0).toUpperCase() + p.slice(1));
+      var atual = est.papeis[p];
+      sel.innerHTML = '<option value="">Ninguém</option>' + est.herois
+        .filter(function (h) { return h.nome; })
+        .map(function (h) { return '<option value="' + escapeAttr(h.nome) + '"' + (h.nome === atual ? ' selected' : '') + '>' + escapeAttr(h.nome) + '</option>'; })
+        .join('');
+      if (!est.herois.some(function (h) { return h.nome === atual; })) { sel.value = ''; est.papeis[p] = ''; }
+    });
+  }
+  ['guide', 'hunter', 'lookout', 'scout'].forEach(function (p) {
+    $('papel' + p.charAt(0).toUpperCase() + p.slice(1)).addEventListener('change', function () {
+      est.papeis[p] = this.value; salvar(); resumoJornada();
+    });
+  });
+
+  function resumoJornada() {
+    var total = $('resumoJornada'), dias = historico.reduce(function (s, h) { return s + (h.dias || 0); }, 0);
+    var fadigaTotal = est.herois.reduce(function (s, h) { return s + (h.fadiga || 0); }, 0);
+    total.innerHTML =
+      '<div><b>' + est.herois.length + '</b><span>' + (est.herois.length === 1 ? 'Herói' : 'Heróis') + '</span></div>' +
+      '<div><b>' + historico.length + '</b><span>' + (historico.length === 1 ? 'Perna' : 'Pernas') + '</span></div>' +
+      '<div><b>' + dias + '</b><span>' + (dias === 1 ? 'Dia' : 'Dias') + '</span></div>' +
+      '<div><b>' + fadigaTotal + '</b><span>Fadiga total</span></div>';
+  }
+
+  $('btnAddHeroi').addEventListener('click', function () { addHeroi(''); });
+  $('btnPresetBree').addEventListener('click', function () { carregarPreset(PRESET_BREE); });
+  $('btnPresetPonte').addEventListener('click', function () { carregarPreset(PRESET_PONTE); });
+
+  /* ---------------- Perna atual ---------------- */
+  function sincronizarPerna() {
+    $('pernaNome').value = est.perna.nome;
+    $('pernaTerreno').value = est.perna.terreno;
+    $('naValor').textContent = est.perna.na;
+    Array.prototype.forEach.call($('naChips').children, function (b) { b.classList.toggle('on', +b.dataset.v === est.perna.na); });
+    $('diasValor').textContent = est.perna.dias;
+    Array.prototype.forEach.call($('segResultado').children, function (b) { b.setAttribute('aria-pressed', b.dataset.v === est.perna.resultado ? 'true' : 'false'); });
+    $('pernaEvento').value = est.perna.evento;
+  }
+
+  NAS.forEach(function (n) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.textContent = n; b.dataset.v = n;
+    b.addEventListener('click', function () { est.perna.na = n; sincronizarPerna(); salvar(); });
+    $('naChips').appendChild(b);
+  });
+  $('naMenos').addEventListener('click', function () { est.perna.na = Math.max(1, est.perna.na - 1); sincronizarPerna(); salvar(); });
+  $('naMais').addEventListener('click', function () { est.perna.na = Math.min(30, est.perna.na + 1); sincronizarPerna(); salvar(); });
+  $('diasMenos').addEventListener('click', function () { est.perna.dias = Math.max(1, est.perna.dias - 1); sincronizarPerna(); salvar(); });
+  $('diasMais').addEventListener('click', function () { est.perna.dias = Math.min(30, est.perna.dias + 1); sincronizarPerna(); salvar(); });
+  Array.prototype.forEach.call($('segResultado').children, function (b) {
+    b.addEventListener('click', function () { est.perna.resultado = this.dataset.v; sincronizarPerna(); salvar(); });
+  });
+  $('pernaNome').addEventListener('input', function () { est.perna.nome = this.value; salvar(); });
+  $('pernaTerreno').addEventListener('input', function () { est.perna.terreno = this.value; salvar(); });
+  $('pernaEvento').addEventListener('input', function () { est.perna.evento = this.value; salvar(); });
+
+  /* ---------------- Registrar e histórico ---------------- */
+  function papeisSnapshot() {
+    return ['guide', 'hunter', 'lookout', 'scout']
+      .filter(function (p) { return est.papeis[p]; })
+      .map(function (p) { return PAPEL_ROTS[p] + ': ' + est.papeis[p]; })
+      .join(', ');
+  }
+
+  function registrar() {
+    var p = est.perna;
+    historico.unshift({
+      nome: p.nome || '(sem nome)', terreno: p.terreno, na: p.na, dias: p.dias,
+      resultado: p.resultado, evento: p.evento, papeis: papeisSnapshot()
+    });
+    est.perna = Object.assign({}, padrao.perna, { terreno: p.terreno, na: p.na });
+    sincronizarPerna(); desenharHistorico(); resumoJornada(); salvar();
+  }
+  $('btnRegistrar').addEventListener('click', registrar);
+  $('btnLimpar').addEventListener('click', function () { historico = []; desenharHistorico(); resumoJornada(); salvar(); });
+
+  var RES_LABEL = { falha: 'Falha', sucesso: 'Sucesso', grande: 'Grande êxito' };
+  var RES_CLASSE = { falha: 'falha', sucesso: 'ok', grande: 'grande' };
+
+  function desenharHistorico() {
+    var corpo = $('histCorpo');
+    if (!historico.length) { corpo.innerHTML = '<tr><td colspan="7" class="hist-vazio">Nenhuma perna registrada ainda.</td></tr>'; return; }
+    corpo.innerHTML = historico.map(function (h, i) {
+      var n = historico.length - i;
+      return '<tr>' +
+        '<td>' + n + '</td>' +
+        '<td class="perna" title="' + escapeAttr(h.papeis) + '">' + escapeAttr(h.nome) + '</td>' +
+        '<td>' + escapeAttr(h.terreno || '—') + '</td>' +
+        '<td>' + h.na + '</td>' +
+        '<td>' + h.dias + '</td>' +
+        '<td class="res ' + RES_CLASSE[h.resultado] + '">' + RES_LABEL[h.resultado] + '</td>' +
+        '<td>' + escapeAttr(h.evento || '—') + '</td>' +
+        '</tr>';
+    }).join('');
+  }
+
+  /* ---------------- Início ---------------- */
+  desenharHerois();
+  sincronizarPapeis();
+  sincronizarPerna();
+  desenharHistorico();
+  resumoJornada();
+})();
+</script>
+</body>
+</html>
